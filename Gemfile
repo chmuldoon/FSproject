@@ -52,6 +52,8 @@ group :development do
   gem 'annotate'
   gem 'bcrypt'
   gem 'jquery-rails'
+  gem 'faker'
+  gem 'rails_12factor' 
 
 end
 
