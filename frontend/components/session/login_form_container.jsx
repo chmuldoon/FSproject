@@ -10,7 +10,7 @@ const mapStateToProps = ({ errors }) => {
   return {
     errors: errors.session,
     formType: 'login',
-    navLink: <p style={{ margin: '15px' }}>>Don't have an account? <Link style={{ textDecoration: 'none' }}to="/">Sign up</Link></p>,
+    navLink: <p style={{ margin: '15px' }}>Don't have an account? <Link style={{ textDecoration: 'none' }}to="/">Sign up</Link></p>,
 
   };
 };
@@ -18,6 +18,7 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = dispatch => {
   return {
     processForm: (user) => dispatch(login(user)),
+    processDemo: (demoUser) => dispatch(login(demoUser))
   };
 };
 

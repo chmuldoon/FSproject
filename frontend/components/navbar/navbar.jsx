@@ -13,6 +13,7 @@ const NavBar  = ({currentUser, logout}) => {
           <p>Clonestagram</p>
           <h2>{currentUser.username}</h2>
           <button onClick={() => logout()}></button>
+          <a href={`/users/${currentUser.id}`}></a>
         </div>
       </nav>
 

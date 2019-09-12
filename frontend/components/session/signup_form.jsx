@@ -6,8 +6,8 @@ class SignupForm extends React.Component {
     this.state = {
       username: "",
       password: "",
-      //email
-      //full name
+      full_name: "",
+      email: "",
     };
   }
   update(field) {
@@ -18,9 +18,17 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user)
-    
+    this.props.processForm(user).then(() => this.props.history.push("/"));
+
   }
+  handleDemo(e){
+    e.preventDefault();
+    const demoUser = Object.assign({}, {username: 'DemoUser', password: 'DemoUser'})
+    this.props.processDemo(demoUser)
+      .then(() => this.props.history.push("/"));
+
+  }
+ 
 
   render() {
     return (
@@ -32,7 +40,7 @@ class SignupForm extends React.Component {
             <div className="signupbox">
               <h2 className="signup-message">Sign up to see photos and videos from your fellow clones.</h2>
                 <div className="demo-div">
-                  <button type="button" className="demo-button">Try our Demo User</button>
+                  <button type="button" onClick={this.handleDemo.bind(this)} className="demo-button">Try our Demo User</button>
                 </div>
               
               <h3 className="or">──────── or ────────</h3>
