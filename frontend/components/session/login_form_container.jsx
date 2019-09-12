@@ -10,7 +10,7 @@ const mapStateToProps = ({ errors }) => {
   return {
     errors: errors.session,
     formType: 'login',
-    Link: <Link to="/signup">signup in instead</Link>,
+    navLink: <p style={{ margin: '15px' }}>>Don't have an account? <Link style={{ textDecoration: 'none' }}to="/">Sign up</Link></p>,
 
   };
 };
