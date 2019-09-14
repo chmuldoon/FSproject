@@ -1,0 +1,25 @@
+.photoInIndex{
+  width: 616px;
+  max-height: 1064px;
+  border: 1px solid gray;
+  margin-top: 60px;
+  border-radius: 2px;
+  margin-left: 120px;
+}
+
+.photoUpperIndexContent{
+  width: 614px;
+  height: 60px;
+  border-bottom: dotted 1px black;
+}
+
+.ActualPhoto{
+  width: 614px;
+  min-height: 614px;
+  border-bottom: dotted 1px black;
+  background-color: black;
+}
+
+.photoLowerIndexContent{
+  height: 234px;
+}

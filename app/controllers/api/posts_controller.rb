@@ -30,7 +30,8 @@ class Api::PostsController < ApplicationController
     if post.destroy
       render :index
     else
-      render: @post.errors.full_messages, status: 22
+      render json: @post.errors.full_messages, status: 422
+    end
   end
 
   private

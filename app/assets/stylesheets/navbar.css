@@ -11,6 +11,9 @@
   border: 1px solid #e6e6e6;
 
 }
+.Icon{
+  max-width: 30px;
+}
 .navbar-util{
   height: 77px;
   display: flex;
