@@ -5,9 +5,8 @@ import React, { Component } from 'react'
 
 class UserShowForm extends Component {
   constructor(props){
-    
     super(props)
-   
+
   }
   
   handleLogout(e) {
@@ -25,14 +24,14 @@ class UserShowForm extends Component {
           </div>
         <div className="notPicture">
           <div className="profileInfo">
-            <p className="name">{this.props.profile.username}</p>
+              <p className="name">{this.props.profile.username}</p>
             <button className="profileEdit">Edit Profile</button>
-        
+
             <button onClick={this.handleLogout.bind(this)}>Log out</button>
           </div>
           
           <div className="profileStats">
-            <p> 0 posts </p>
+            <p>  posts </p>
             <p> 0 followers </p>
             <p> 0 following </p>
           </div>

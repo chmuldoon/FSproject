@@ -3,6 +3,7 @@
   margin-left: auto;
   margin-right: auto;
   padding: 60px 20px 0;
+  margin-top: 80px;
 
 }
 .personal{
@@ -10,7 +11,7 @@
   justify-content: center;
 }
 
-.profilePic{
+.profilePicArea{
   display: flex;
   width: 291px;
   height: 150px;

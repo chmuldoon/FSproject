@@ -1,7 +1,7 @@
 class Api::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
-    @post.author_id = current_user.index
+    @post.author_id = current_user.id
     if @post.save
       redirect_to :index
     else
@@ -16,9 +16,8 @@ class Api::PostsController < ApplicationController
     render :index
   end
 
-  def show
-    @post = post.find(params[:id])
-    render :show
+ def show
+    @post = Post.with_attached_photos.find(params[:id])
   end
 
   # def update
@@ -26,7 +25,7 @@ class Api::PostsController < ApplicationController
   # end
 
   def destroy
-    @post = post.find(params[:id])
+    @post = Post.find(params[:id])
     if post.destroy
       render :index
     else
@@ -37,6 +36,6 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:caption)
+    params.require(:post).permit(:caption, photos: [])
   end
 end

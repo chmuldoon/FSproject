@@ -12,8 +12,14 @@ Post.destroy_all
 # Like.destroy_all
 # Follow.destroy_all
 demo_user = User.create({username: "DemoUser", password: "DemoUser", email: "DemoUser@gmail.com", full_name: "Demo User"})
-post1 = Post.create({author_id: demo_user.id, caption: 'DemoCaption1'})
-post2 = Post.create({author_id: demo_user.id, caption: 'DemoCaption2'})
-post3 = Post.create({author_id: demo_user.id, caption: 'DemoCaption3'})
-post4 = Post.create({author_id: demo_user.id, caption: 'DemoCaption4'})
+druillet = User.create({username: "druilletofficiel", password: "password", email: "druillet@druillet.com", full_name: "Philippe Druillet"})
+
+post1 = Post.create({author_id: druillet.id, caption: 'DemoCaption1'})
+post2 = Post.create({author_id: druillet.id, caption: 'DemoCaption2'})
+post3 = Post.create({author_id: druillet.id, caption: 'DemoCaption3'})
+post4 = Post.create({author_id: druillet.id, caption: 'DemoCaption4'})
+
+
+post5 = Post.create({author_id: demo_user.id, caption: 'DemoCaption5'})
+
 

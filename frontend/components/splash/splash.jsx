@@ -7,8 +7,9 @@ export const splash = ({currentUser}) => {
 
   if (currentUser){
     return (
-      <div>
+      <div className="splash-omni">
         <PostIndexContainer/>
+        <div></div>
       </div>
     )
   }else{

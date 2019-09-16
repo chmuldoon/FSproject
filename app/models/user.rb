@@ -3,9 +3,17 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :password_digest, :session_token, presence: true
   validates :password, length: {minimum: 6}, allow_nil: true
+
+  has_one_attached :profilepic
+
   has_many :posts,
     foreign_key: :author_id,
     class_name: :Post
+
+  has_many :likes,
+    foreign_key: :user_id,
+    class_name: :Like
+
   after_initialize :ensure_session_token
   # associations 
   #

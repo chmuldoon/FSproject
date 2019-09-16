@@ -19,7 +19,7 @@ class PostIndex extends React.Component {
     });
 
     return (
-      <div>
+      <div className="splashPosts">
     
           {posts}
       

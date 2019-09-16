@@ -6,19 +6,19 @@
 .unused{
 }
 .navbar{
-  height: 77px;
+  height: 52px;
   background-color: white;
   border: 1px solid #e6e6e6;
-
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 .Icon{
   max-width: 30px;
 }
 .navbar-util{
-  height: 77px;
-  display: flex;
-  justify-content: center;
-  border: 1px solid black;
+  height: inherit;
+
   border-bottom: none;
   border-top: none;
   max-width: 1010px;
@@ -26,7 +26,40 @@
   margin-right: auto;
 
 }
+.navbar-left{
+  align-items: center;
+  height: inherit;
+  float: left;
+  justify-content: left;
+  display: flex;
+  margin-left: 10px;
+}
 
-.navbar-util p{
+.nav-search{
+  float: center;
+  justify-content: center;
+  justify-content: space-between;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+.navbar-right{
+  float: right;
+  justify-content: right;
+  display: flex;
+  margin-right: 10px;
+}
+
+.navbar-left p{
   font-family: 'Cookie', cursive;
+  font-size: 28px;
+  text-align: center;
+  padding-left: 8px;
+  border-left: 1px solid black;
+  justify-content: center
+  
+
+}
+.navbar-left img{
+  padding-right: 8px;
 }

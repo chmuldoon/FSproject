@@ -1,7 +1,9 @@
+
 .photoInIndex{
   width: 616px;
   max-height: 1064px;
-  border: 1px solid gray;
+  border: 1px solid #e6e6e6;
+  background-color: white;
   margin-top: 60px;
   border-radius: 2px;
   margin-left: 120px;
@@ -10,16 +12,56 @@
 .photoUpperIndexContent{
   width: 614px;
   height: 60px;
-  border-bottom: dotted 1px black;
+  display: flex;
+  
 }
 
 .ActualPhoto{
+  /* justify-content: center; */
+  align-content: center;
   width: 614px;
   min-height: 614px;
-  border-bottom: dotted 1px black;
-  background-color: black;
+  border-bottom: 1px solid #e6e6e6;
+  border: 1px solid #e6e6e6;;
+}
+.ActualPhoto img{
+  width: inherit;
+  min-height: inherit;
 }
 
 .photoLowerIndexContent{
   height: 234px;
+}
+
+.postName{
+
+  margin-left: 16px;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-weight: 600;
+  /* text-overflow: ellipsis; */
+  /* white-space: nowrap; */
+  padding-left: 5px;
+  margin-left: -5px;
+  color: #262626;
+  margin-left: 16px;
+  text-decoration: none;
+}
+.extraDetailName{
+  text-decoration: none;
+  color: #262626;
+
+}
+
+.pfp{
+  justify-content: center;
+}
+.pfp img{
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  margin-left: 10px;
+  margin-top: 14px;
+  margin-bottom: auto;
 }
