@@ -36,7 +36,7 @@ class SignupForm extends React.Component {
         <img className="iphone" src="https://instapx.herokuapp.com/assets/login-phone-4c424836446d37d6f7fe45f06e7e89e06011d00a257ed4673618f0d2bc7aade8.png"/>
         <div className="notiphone">
           <div className="sessionbox">
-            <h1 className="logo">Clonestagram</h1>
+            <h1 className="logo">Dronestagram</h1>
             <div className="signupbox">
               <h2 className="signup-message">Sign up to see photos and videos from your fellow clones.</h2>
                 <div className="demo-div">

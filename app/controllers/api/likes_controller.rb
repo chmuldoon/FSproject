@@ -7,9 +7,12 @@ class Api::LikesController < ApplicationController
     render :show
   end
 
+  
+
   def destroy
     @like = Post.find(params[:id])
     @like.destroy
+    render :show
   end
 
   private

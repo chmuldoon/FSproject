@@ -6,7 +6,6 @@ import posts from "./post_reducer";
 
 
 
-
 const rootReducer = combineReducers({
   entities,
   session,

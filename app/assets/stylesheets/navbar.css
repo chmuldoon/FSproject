@@ -26,13 +26,20 @@
   margin-right: auto;
 
 }
+
 .navbar-left{
+  display: block;
+  
   align-items: center;
   height: inherit;
   float: left;
   justify-content: left;
   display: flex;
   margin-left: 10px;
+}
+.daLink{
+  color: #262626;
+  text-decoration: none;
 }
 
 .nav-search{

@@ -11,11 +11,12 @@ const NavBar  = ({currentUser}) => {
       <nav className="navbar">
         <div className="navbar-util">
           <div className="navbar-left">
-            <Link to={`/`}>
+            <Link className="daLink" to={`/`}>
               <img className="Icon" src="https://images.vexels.com/media/users/3/141955/isolated/preview/d0f766bbe2603124417ed31d027b14c8-camera-icon-or-logo-by-vexels.png" alt=""/>
             </Link>
-            
-            <p>Dronestagram</p>
+            <Link className="daLink" to={`/`}>
+              <p>Dronestagram</p>
+            </Link>
           </div>
           {/* <div classname="nav-search">
             <input type="text" placeholder="search"/>

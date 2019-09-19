@@ -5,7 +5,7 @@ import {
 } from '../actions/post_actions';
 import merge from 'lodash/merge';
 
-const PostsReducer = (oldState = {}, action) => {
+const postsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_ALL_POSTS:
@@ -21,4 +21,4 @@ const PostsReducer = (oldState = {}, action) => {
   }
 };
 
-export default PostsReducer;
+export default postsReducer;

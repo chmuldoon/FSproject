@@ -5,6 +5,7 @@ class PostIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchPosts();
+    // this.props.fetchUsers();
   }
 
   render() {
@@ -19,10 +20,8 @@ class PostIndex extends React.Component {
     });
 
     return (
-      <div className="splashPosts">
-    
+      <div>
           {posts}
-      
       </div>
     );
   }
