@@ -24,14 +24,24 @@ frazetta = User.create({username: "ffrazetta", password: "password", email: "fra
 profile_pic2 = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/ob_3105fe_frank-frazetta-selfportraet.jpg")
 frazetta.profilepic.attach(io: profile_pic2, filename: 'ob_3105fe_frank-frazetta-selfportraet.jpg')
 
-post1 = Post.create({author_id: druillet.id, caption: 'DemoCaption'})
-post2 = Post.create({author_id: demo_user.id, caption: 'DemoCaption'})
-post3 = Post.create({author_id: druillet.id, caption: 'DemoCaption'})
-post4 = Post.create({author_id: frazetta.id, caption: 'DemoCaption'})
-post5 = Post.create({author_id: druillet.id, caption: 'DemoCaption'})
-post6 = Post.create({author_id: frazetta.id, caption: 'DemoCaption'})
-post7 = Post.create({author_id: druillet.id, caption: 'DemoCaption'})
-post8 = Post.create({author_id: frazetta.id, caption: 'DemoCaption'})
+jodorowsky = User.create({username: "aljodorowsky", password: "password", email: "al@jodorowsky.net", full_name: "Alejandro Jodorowsky"})
+profile_pic3 = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/jodorowsky/alnye.jpg")
+jodorowsky.profilepic.attach(io: profile_pic3, filename: 'alnye.jpg')
+
+
+post1 = Post.create({author_id: druillet.id, caption: 'cherry coloured funk'})
+post12 = Post.create({author_id: jodorowsky.id, caption: 'What could have been'})
+post2 = Post.create({author_id: demo_user.id, caption: 'Corpus Hypercubus by Dali'})
+post3 = Post.create({author_id: druillet.id, caption: 'Space Battles'})
+post9 = Post.create({author_id: jodorowsky.id, caption: 'the big guy and I'})
+post4 = Post.create({author_id: frazetta.id, caption: "Heroes don't get captured by goblins "})
+post11 = Post.create({author_id: jodorowsky.id, caption: 'this is a film!'})
+post5 = Post.create({author_id: druillet.id, caption: 'very warm'})
+post10 = Post.create({author_id: jodorowsky.id, caption: "it's a lizard with a hat"})
+post6 = Post.create({author_id: frazetta.id, caption: "Tarzan"})
+post7 = Post.create({author_id: druillet.id, caption: 'Space'})
+post8 = Post.create({author_id: frazetta.id, caption: 'Magic'})
+
 
 file1 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/druillet/1delirius.jpg')
 post1.photo.attach(io: file1, filename: '1delirius.jpg')
@@ -57,18 +67,29 @@ post7.photo.attach(io: file7, filename: '4large.jpg')
 file8 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/frazetta/sorceror-cover-art-for-eerie-2_u-l-f7obrf0.jpg')
 post8.photo.attach(io: file8, filename: 'sorceror-cover-art-for-eerie-2_u-l-f7obrf0.jpg')
 
+file9 = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/jodorowsky/alnye.jpg")
+post9.photo.attach(io: file9, filename: 'alnye.jpg')
 
-like1 = Like.create({post_id: post1.id, user_id: demo_user.id})
+file10 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/jodorowsky/lizardwithat.png')
+post10.photo.attach(io: file10, filename: 'lizardwithat.png')
+
+file11 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/jodorowsky/holymountain.jpg')
+post11.photo.attach(io: file11, filename: 'holymountain.jpg')
+
+file12 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/jodorowsky/dune2.jpg')
+post12.photo.attach(io: file12, filename: 'dune2.jpg')
+
+
 Like.create({post_id: post1.id, user_id: demo_user.id})
 Like.create({post_id: post2.id, user_id: demo_user.id})
 Like.create({post_id: post3.id, user_id: demo_user.id})
 Like.create({post_id: post4.id, user_id: druillet.id})
 Like.create({post_id: post5.id, user_id: druillet.id})
-Like.create({post_id: post1.id, user_id: ffrazetta.id})
+Like.create({post_id: post1.id, user_id: frazetta.id})
 Like.create({post_id: post8.id, user_id: demo_user.id})
-Like.create({post_id: post7.id, user_id: ffrazetta.id})
+Like.create({post_id: post7.id, user_id: frazetta.id})
 Like.create({post_id: post6.id, user_id: demo_user.id})
-Like.create({post_id: post5.id, user_id: ffrazetta.id})
+Like.create({post_id: post5.id, user_id: frazetta.id})
 
 
 
