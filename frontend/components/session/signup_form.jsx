@@ -52,16 +52,16 @@ class SignupForm extends React.Component {
                     {/* dummy inputs */}
                     <div className="session-inputs">
                       <input type="text"
-                        // no value or on change
-
+                        value={this.state.email}
+                        onChange={this.update('email')}
                         className="login-input"
-                        placeholder="Mobile Number or Email"
+                        placeholder="Email"
                       />
                     </div> 
                     <div className="session-inputs">
                       <input type="text"
-                        // no value or on change
-
+                        value={this.state.full_name}
+                        onChange={this.update('full_name')}
                         className="login-input"
                         placeholder="Full Name"
                       />

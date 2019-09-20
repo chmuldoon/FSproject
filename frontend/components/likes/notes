@@ -1,0 +1,19 @@
+  componentDidMount(){
+    this._isMounted = true;
+    this.props.fetchPost(this.props.post.id).then((post) => {
+      if (this._isMounted) {
+        this.setState({ post });
+      }
+    })
+
+  }
+
+  componentWillUnmount(){
+    this._isMounted = false;
+  }
+  createLike() {
+    this.props.createLike({post_id: this.props.post.id}).then(() => {
+      
+        
+      })  
+  }

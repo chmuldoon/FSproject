@@ -13,7 +13,7 @@ const likesReducer = (state = {}, action) => {
       return merge({}, state, { [action.like.id]: action.like });
     case REMOVE_LIKE:
       let newState = merge({}, state);
-      delete newState[action.likeId];
+      delete newState[action.like.id];
       return newState;
     default:
 

@@ -16,6 +16,7 @@ import SplashContainer from "./splash/splash_container";
 import UserShowContainer from "./profile/user_show_container";
 import PostIndexContainer from "./posts/post_index_container";
 import LikeShowContainer from "./likes/like_show_container";
+import PostShowContainer from "./posts/post_show_container";
 
 
 
@@ -26,7 +27,7 @@ const App = () => (
     </header>
     <Route exact path="/" component={SplashContainer}/>
 
-
+    <ProtectedRoute path="/posts/:postId" component={PostShowContainer} />
     <AuthRoute exact path="/login" component={LoginFormContainer} />
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
     <ProtectedRoute path="/users/:userId" component={UserShowContainer} />

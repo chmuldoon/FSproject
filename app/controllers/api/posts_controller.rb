@@ -17,7 +17,7 @@ class Api::PostsController < ApplicationController
   end
 
  def show
-    @post = Post.with_attached_photos.find(params[:id])
+    @post = Post.with_attached_photo.find(params[:id])
   end
 
   # def update

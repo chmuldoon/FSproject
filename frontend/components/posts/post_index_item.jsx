@@ -23,9 +23,9 @@ const PostIndexItem = ({ post, deletePost }) => {
         <img src={post.photoUrl} />
       </div>
       <div className="photoLowerIndexContent">
-        <div className="post-options">
-          <span><LikeShowContainer post={post} /><button>Comment</button></span>
-        </div>
+        
+          <LikeShowContainer post={post} />
+        
         <div className="commentSection">
           <div className="commentCaption">
             <Link className="extraDetailName" to={`/users/${post.author_id}`}>{post.author.username}</Link>

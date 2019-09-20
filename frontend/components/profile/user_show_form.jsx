@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom';
 
 
 class UserShowForm extends Component {
@@ -34,23 +34,24 @@ class UserShowForm extends Component {
  
     let display;
   
-    if (Object.keys(this.props.profile.posts).length){
-      display = (
-        this.props.profile.posts && Object.values(this.props.profile.posts).map(post => {
-          return (
-            <div key={post.id} className="post-preview" >
-          
-
-              <img width="275px" height="275px" src={post.photo} />
-            </div>
-          )
-        })
-      )
-    }else{
+    if (this.props.profile.posts === undefined){
       display = (
         <div>
           <p>no posts</p>
         </div>
+      )
+    }else{
+      
+      display = (
+        this.props.profile.posts && Object.values(this.props.profile.posts).map(post => {
+          return (
+            <div key={post.id} className="post-preview" >
+              <Link>
+                <img width="275px" height="275px" src={post.photo} />
+              </Link>
+            </div>
+          )
+        })
       )
     }
 
@@ -77,7 +78,12 @@ class UserShowForm extends Component {
           </div>
           
           <div className="profileStats">
-              <p> {Object.keys(this.props.profile.posts).length} posts </p>
+              {(this.props.profile.posts === undefined) ?
+              (
+                <p>0 posts</p>
+            ):(
+              <p> {Object.keys(this.props.profile.posts).length}posts</p> 
+            )}
             <p> 0 followers </p>
             <p> 0 following </p>
           </div>

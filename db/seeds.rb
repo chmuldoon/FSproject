@@ -10,7 +10,7 @@ require 'open-uri'
 User.destroy_all
 Post.destroy_all
 # Comment.destroy_all
-# Like.destroy_all
+Like.destroy_all
 # Follow.destroy_all
 demo_user = User.create({username: "DemoUser", password: "DemoUser", email: "DemoUser@gmail.com", full_name: "Demo User"})
 demo_profile_pic = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/icon.jpg")
@@ -59,4 +59,16 @@ post8.photo.attach(io: file8, filename: 'sorceror-cover-art-for-eerie-2_u-l-f7ob
 
 
 like1 = Like.create({post_id: post1.id, user_id: demo_user.id})
+Like.create({post_id: post1.id, user_id: demo_user.id})
+Like.create({post_id: post2.id, user_id: demo_user.id})
+Like.create({post_id: post3.id, user_id: demo_user.id})
+Like.create({post_id: post4.id, user_id: druillet.id})
+Like.create({post_id: post5.id, user_id: druillet.id})
+Like.create({post_id: post1.id, user_id: ffrazetta.id})
+Like.create({post_id: post8.id, user_id: demo_user.id})
+Like.create({post_id: post7.id, user_id: ffrazetta.id})
+Like.create({post_id: post6.id, user_id: demo_user.id})
+Like.create({post_id: post5.id, user_id: ffrazetta.id})
+
+
 

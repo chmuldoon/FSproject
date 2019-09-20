@@ -9,15 +9,20 @@ export const fetchLikes = () => dispatch => (
 );
 
 export const fetchLike = id => dispatch => (
-  likeApiUtil.fetchLike(id).then(like => dispatch(receiveLike(like)))
+  LikeApiUtil.fetchLike(id).then(like => dispatch(receiveLike(like)))
 );
 
-export const createLike = like => dispatch => (
-  likeApiUtil.createLike(like).then(like => dispatch(receiveLike(like)))
-);
+export const createLike = like => dispatch => {
 
-export const deleteLike = postId => dispatch => (
-  likeApiUtil.deleteLike(postId).then(like => dispatch(removeLike(like)))
+  return LikeApiUtil.createLike(like).then(like => {
+
+    dispatch(receiveLike(like));
+  })
+  // .then(like => dispatch(receiveLike(like)))
+};
+
+export const deleteLike = like => dispatch => (
+  LikeApiUtil.destroyLike(like).then(like => dispatch(removeLike(like)))
 );
 
 const receiveAllLikes = likes => ({
@@ -30,7 +35,7 @@ const receiveLike = like => ({
   like
 });
 
-const removeLike = likeId => ({
+const removeLike = like => ({
   type: REMOVE_LIKE,
-  likeId
+  like
 });

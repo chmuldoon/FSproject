@@ -12,7 +12,7 @@ class PostIndex extends React.Component {
     const posts = this.props.posts.map(post => {
       return (
         <PostIndexItem
-          key={post.id}
+          key={Math.random()}
           post={post}
           deletePost={this.props.deletePost} 
           />

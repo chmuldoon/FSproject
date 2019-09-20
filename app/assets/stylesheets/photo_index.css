@@ -4,7 +4,8 @@
   max-height: 1064px;
   border: 1px solid #e6e6e6;
   background-color: white;
-  margin-top: 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   border-radius: 2px;
   margin-left: auto;
   margin-right: auto;
@@ -75,7 +76,7 @@
   margin-bottom: auto;
 }
 .photoLowerIndexContent{
-  min-height: 234px;
+  min-height: 170px;
 }
 .post-options{
   width: 100%;
@@ -89,25 +90,45 @@
 
 .commentCaption{
   height: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 .commentCaption a{
-  margin-left: 16px;
+  
   width: 100%;
   margin-top: auto;
   margin-bottom: auto;
   font-weight: 600;
   /* text-overflow: ellipsis; */
   /* white-space: nowrap; */
-  padding-left: 5px;
-  margin-left: -5px;
+ 
   color: #262626;
-  margin-left: 16px;
   text-decoration: none;
   max-height: 20px;
 }
 .commentCaption p{
+  top-margin: 35px;
   display:inline-block;
   margin-left: 5px;
 }
 
+.post-show-like{
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+  
+}
+
+.likeZone{
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.likeCount{
+  width: 100%;
+  padding-left: 16px;
+}
+
+.likeCount p{
+  height: 20px;
+}
 
