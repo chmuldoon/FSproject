@@ -33,6 +33,8 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="everything">
+        {/* <div classname="extraWhite"></div> */}
+        <img className="iphoneAnimation" src="https://cdn.dribbble.com/users/664063/screenshots/2713719/new-instagram-logo-_dribbble_.gif"/>
         <img className="iphone" src="https://instapx.herokuapp.com/assets/login-phone-4c424836446d37d6f7fe45f06e7e89e06011d00a257ed4673618f0d2bc7aade8.png"/>
         <div className="notiphone">
           <div className="sessionbox">
