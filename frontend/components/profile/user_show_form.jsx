@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom';
 
 class UserShowForm extends Component {
   constructor(props){
+  
     super(props)
+    debugger
+    
   }
 
   componentDidMount() {
@@ -17,6 +20,9 @@ class UserShowForm extends Component {
     e.preventDefault();
     this.props.logout().then(() => this.props.history.push('/'));
   };
+  getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
   
   
   render() {
@@ -82,10 +88,10 @@ class UserShowForm extends Component {
               (
                 <p>0 posts</p>
             ):(
-              <p> {Object.keys(this.props.profile.posts).length}posts</p> 
+              <p> {Object.keys(this.props.profile.posts).length} posts</p> 
             )}
-            <p> 0 followers </p>
-            <p> 0 following </p>
+            <p> {`${this.getRandomInt(10)} followers`} </p>
+            <p> {`${this.getRandomInt(10)} following`} </p>
           </div>
 
           <div className="profileBio">

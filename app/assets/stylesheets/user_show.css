@@ -13,8 +13,7 @@
 .profilePic{
   height: 160px;
   width: 160px;
-  border-radius: 50%;
-  border: 2px solid darkgray;
+  margin: auto;
 }
 .profilePic img{
   border-radius: 50%;
@@ -25,6 +24,7 @@
  
  
 }
+
 
 
 .profilePicArea{
@@ -79,7 +79,7 @@
   
 }
 .profile-posts{
-  justify-content: center;
+  justify-content: left;
   display: flex;
   width: 935px;
   margin-left: auto;
@@ -90,6 +90,13 @@
 }
 .post-preview{
   width: 275px;
+  height: 275px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.post-preview a{
+  width: inherit;
   height: 275px;
   margin-left: 10px;
   margin-right: 10px;

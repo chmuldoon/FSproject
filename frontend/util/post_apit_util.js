@@ -1,9 +1,9 @@
-export const fetchPosts = () => (
-  $.ajax({
+export const fetchPosts = () => {
+  return $.ajax({
     method: 'GET',
     url: 'api/posts',
-  })
-);
+  });
+};
 
 export const fetchPost = id => (
   $.ajax({
@@ -11,14 +11,30 @@ export const fetchPost = id => (
     url: `api/posts/${id}`
   })
 );
-
-export const createPost = post => (
-  $.ajax({
-    url: 'api/posts',
+export const createLike = (post_id) => (
+   $.ajax({
     method: 'POST',
-    data: { post }
+    url: '/api/likes',
+    data: { like: { post_id, } }
+    //if fails try post_id: post_id
   })
 );
+
+export const deleteLike = (post_id) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/likes/${post_id}`
+  })
+);
+
+
+// export const createPost = post => (
+//   $.ajax({
+//     url: 'api/posts',
+//     method: 'POST',
+//     data: { post }
+//   })
+// );
 
 // export const updatePost = post => (
 //   $.ajax({
@@ -28,9 +44,11 @@ export const createPost = post => (
 //   })
 // );
 
-export const deletePost = id => (
-  $.ajax({
-    url: `api/posts/${id}`,
-    method: 'DELETE'
-  })
-);
+// export const deletePost = id => (
+//   $.ajax({
+//     url: `api/posts/${id}`,
+//     method: 'DELETE'
+//   })
+// );
+
+//

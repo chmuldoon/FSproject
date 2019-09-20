@@ -9,9 +9,9 @@ class Like < ApplicationRecord
     foreign_key: :post_id,
     class_name: :Post
 
-  has_one :receiver,
-    through: :post,
-    source: :author
+  # has_one :receiver,
+  #   through: :post,
+  #   source: :author
 
     
 

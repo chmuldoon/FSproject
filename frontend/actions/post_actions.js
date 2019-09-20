@@ -1,7 +1,4 @@
 import * as PostApiUtil from "../util/post_apit_util";
-
-
-
 export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
@@ -26,6 +23,16 @@ export const createPost = post => dispatch => (
 export const deletePost = postId => dispatch => (
   PostApiUtil.deletePost(postId).then(post => dispatch(removePost(postId)))
 );
+
+export const createLike = post_id => dispatch => (
+  PostApiUtil.createLike(post_id).then(post => dispatch(receivePost(post)))
+);
+
+
+export const deleteLike = (post_id) => (dispatch) => (
+  PostApiUtil.deleteLike(post_id).then(post => dispatch(receivePost(post)))
+);
+
 
 const receiveAllPosts = posts => ({
   type: RECEIVE_ALL_POSTS,

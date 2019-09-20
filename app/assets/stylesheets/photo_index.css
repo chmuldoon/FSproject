@@ -77,6 +77,8 @@
 }
 .photoLowerIndexContent{
   min-height: 170px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 .post-options{
   width: 100%;
@@ -90,8 +92,7 @@
 
 .commentCaption{
   height: 20px;
-  padding-left: 16px;
-  padding-right: 16px;
+
 }
 .commentCaption a{
   
@@ -132,3 +133,9 @@
   height: 20px;
 }
 
+.Like-Button svg{
+  height: 36px;
+}
+.heartDiv{
+  margin-top: 5px;
+}

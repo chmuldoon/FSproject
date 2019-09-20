@@ -3,7 +3,7 @@ import { fetchPost, deletePost, fetchPosts } from '../../actions/post_actions';
 import PostShow from './post_show';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
+  // debugger
   const post = state.entities.posts[ownProps.match.params.postId]
   return {
     post,
