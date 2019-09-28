@@ -20,6 +20,16 @@ const receiveUser = user => ({
   user
 });
 
+export const createFollow = (target_id) => dispatch => (
+  UserApiUtil.createFollow(target_id).then(user => dispatch(receiveUser(user)))
+);
+
+
+export const deleteFollow = (target_id) => (dispatch) => (
+  UserApiUtil.deleteFollow(target_id).then(user => dispatch(receiveUser(user)))
+);
+
+
 
 
 

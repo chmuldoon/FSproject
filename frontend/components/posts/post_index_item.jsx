@@ -15,7 +15,7 @@ export class PostIndexItem extends Component {
       this.props.createLike(this.props.post.id) 
     }
   }
-  
+
   render() {
   
     const {post} = this.props
@@ -60,7 +60,9 @@ export class PostIndexItem extends Component {
             </div>
           </div>
 
-          <div className="addComments"></div>
+          <div className="addComments">
+            <p>Add comment</p>
+          </div>
         </div>
       </div>
     )

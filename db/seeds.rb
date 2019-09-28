@@ -6,12 +6,11 @@ require 'open-uri'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 User.destroy_all
 Post.destroy_all
 # Comment.destroy_all
 Like.destroy_all
-# Follow.destroy_all
+Follow.destroy_all
 demo_user = User.create({username: "DemoUser", password: "DemoUser", email: "DemoUser@gmail.com", full_name: "Demo User"})
 demo_profile_pic = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/icon.jpg")
 demo_user.profilepic.attach(io: demo_profile_pic, filename: 'icon.jpg')
@@ -90,6 +89,18 @@ Like.create({post_id: post8.id, user_id: demo_user.id})
 Like.create({post_id: post7.id, user_id: frazetta.id})
 Like.create({post_id: post6.id, user_id: demo_user.id})
 Like.create({post_id: post5.id, user_id: frazetta.id})
+
+Follow.create({follower_id: demo_user.id, target_id: frazetta.id })
+Follow.create({follower_id: demo_user.id, target_id: druillet.id })
+Follow.create({follower_id: demo_user.id, target_id: jodorowsky.id })
+Follow.create({follower_id: druillet.id, target_id: frazetta.id })
+Follow.create({follower_id: druillet.id, target_id: jodorowsky.id })
+Follow.create({follower_id: jodorowsky.id, target_id: frazetta.id })
+
+
+
+
+
 
 
 

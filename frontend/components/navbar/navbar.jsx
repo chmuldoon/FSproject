@@ -22,7 +22,7 @@ const NavBar  = ({currentUser}) => {
             <input type="text" placeholder="search"/>
           </div> */}
           <div className="navbar-right">
-            <h2>{currentUser.username}</h2>
+            
             <Link to={`/users/${currentUser.id}`}>
               <img className="Icon" src="https://icon-library.net/images/person-icon-transparent-background/person-icon-transparent-background-28.jpg" alt="" />
             </Link>
