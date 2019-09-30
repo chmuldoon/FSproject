@@ -1,11 +1,29 @@
-# README
+# Dronestagram
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dronestagram is a web application base on the browser version of Instagram. The project features user authentication, posts and likes. Planned features also include user search comments and comment likes. 
 
-Things you may want to cover:
+![](https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/login.jpg)
 
-* Ruby version
+# Technologies
+* Ruby v-2.5.1
+* Rails v-5.2.3
+* React.js
+* Redux
+* AWS S3
+* PostGreSQL
+* Javascript ES6
+
+# Current Features
+* user auth
+* user CRUD
+* follows
+* posts
+* likes 
+
+# Planned Features
+* comments
+* user-search
+* hashtags
 
 * System dependencies
 
