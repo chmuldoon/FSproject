@@ -14,7 +14,7 @@ export const fetchPost = id => (
 export const createLike = (post_id) => (
    $.ajax({
     method: 'POST',
-    url: '/api/likes',
+    url: 'api/likes',
     data: { like: { post_id, } }
   })
 );
@@ -23,7 +23,7 @@ export const deleteLike = (post_id) => {
 
   return $.ajax({
     method: 'DELETE',
-    url: `/api/likes/${post_id}`
+    url: `api/likes/${post_id}`
   })
 };
 

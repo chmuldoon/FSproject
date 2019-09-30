@@ -3,7 +3,7 @@ class Api::FollowsController < ApplicationController
     @follow = Follow.new(follow_params)
     @follow.follower_id = current_user.id
     @follow.save
-  
+    @user = @follow.following
     render "api/users/show"
   end  
 
@@ -16,7 +16,7 @@ class Api::FollowsController < ApplicationController
   end
 
 
-  def Follow_params
+  def follow_params
     params.require(:follow).permit(:target_id, :follower_id)
   end
 end
