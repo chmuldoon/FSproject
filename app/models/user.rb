@@ -32,6 +32,11 @@ class User < ApplicationRecord
   has_many :followers, 
     through: :passive_follows, 
     source: :follower
+
+  has_many :comments,
+    foreign_key: :author_id,
+    class_name: :Comment
+
  
   
  

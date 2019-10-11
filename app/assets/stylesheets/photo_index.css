@@ -145,3 +145,7 @@
   height: 20px;
   bottom: 5px;
 }
+.addComment{
+  outline: none;
+  border: 0px;
+}

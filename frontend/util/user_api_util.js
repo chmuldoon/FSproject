@@ -17,13 +17,13 @@ export const createFollow = (target_id) => {
       method: "POST",
       url: '/api/follows/',
       data: { follow: { target_id, } }
-      //if fails try post_id: post_id
   })
 };
 
-export const deleteFollow = (target_id) => (
-  $.ajax({
+export const deleteFollow = (target_id) => {
+  debugger
+  return $.ajax({
     method: "DELETE",
-    url: `api/follows/${target_id}`
+    url: `/api/follows/${target_id}`
   })
-);
+};

@@ -12,7 +12,7 @@ class UserShowForm extends Component {
   }
   handleFollow(e) {
     // e.preventDefault();
-    debugger
+    // debugger
     if (this.props.profile.hasFollowed) {
       this.props.deleteFollow(this.props.profile.id)
     } else {

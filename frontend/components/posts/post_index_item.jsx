@@ -6,6 +6,7 @@ import React, { Component } from 'react'
 export class PostIndexItem extends Component {
   constructor(props){
     super(props)
+    this.nothing = 0;
   }
   handleLike(e){
     // e.preventDefault();
@@ -16,9 +17,37 @@ export class PostIndexItem extends Component {
     }
   }
 
+
   render() {
   
     const {post} = this.props
+    //placeholder
+    let comments = []
+    for (let i = 0; i < post.comments.length; i++) {
+      let comment = post.comments[i];
+      debugger
+      comments.push(`${comment.author_id} ${comment.body}`);
+    }
+    let commentSection = Object.values(comments).map(comment => {
+      let username;
+      for (let i = 0; i < post.commentors.length; i++) {
+        const commentor = post.commentors[i];
+        if(commentor.id == comment.author_id){
+          username = commentor.username
+        }
+      }
+      return (
+        <div>
+          <Link className="extraDetailName" to={`/users/${comment.author_id}`}>
+            {username}
+          </Link>
+          <p>{comment}</p>
+        </div>
+      );
+    });
+    
+    
+
     return (
       <div className="photoInIndex">
         <div className="photoUpperIndexContent">
@@ -59,9 +88,11 @@ export class PostIndexItem extends Component {
               <p>{post.caption}</p>
             </div>
           </div>
+          {/* WILL FIX */}
+          {commentSection}
 
           <div className="addComments">
-            <p>Add comment</p>
+
           </div>
         </div>
       </div>

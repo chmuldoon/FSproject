@@ -20,10 +20,25 @@ export const createLike = (post_id) => (
 );
 
 export const deleteLike = (post_id) => {
-
+  // debugger
   return $.ajax({
     method: 'DELETE',
     url: `api/likes/${post_id}`
+  })
+};
+export const createComment = (post_id) => (
+   $.ajax({
+    method: 'POST',
+    url: 'api/comments',
+    data: { comment: { post_id, } }
+  })
+);
+
+export const deleteComment = (post_id) => {
+  // debugger
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/comments/${post_id}`
   })
 };
 

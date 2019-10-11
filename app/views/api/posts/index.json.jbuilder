@@ -1,6 +1,6 @@
   @posts.includes(:author).each do |post|
     json.set! post.id do
-      json.extract! post, :id, :caption, :author, :likes, :likers
+      json.extract! post, :id, :caption, :author, :likes, :likers, :comments, :commentors
       json.extract! post.author, :username
       json.photoUrl url_for(post.photo)
       json.likeCount post.likes.count
