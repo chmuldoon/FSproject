@@ -34,6 +34,7 @@ export class PostIndexItem extends Component {
     commentSection = Object.values(commentSection).map(comment => {
       comment = comment.split(" ");
       // debugger
+      //debugger
        return (
         <div className="commentCaption">
           <Link className="extraDetailName" to={`/users/${comment[0]}`}>
