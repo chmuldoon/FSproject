@@ -21,30 +21,38 @@ export class PostIndexItem extends Component {
   render() {
   
     const {post} = this.props
-    //placeholder
-    let comments = []
+    let commentSection = []
     for (let i = 0; i < post.comments.length; i++) {
       let comment = post.comments[i];
-      debugger
-      comments.push(`${comment.author_id} ${comment.body}`);
-    }
-    let commentSection = Object.values(comments).map(comment => {
-      let username;
-      for (let i = 0; i < post.commentors.length; i++) {
-        const commentor = post.commentors[i];
+      for (let j = 0; j < post.commentors.length; j++) {
+        const commentor = post.commentors[j];
         if(commentor.id == comment.author_id){
-          username = commentor.username
+          commentSection.push(`${commentor.id} ${commentor.username} ${comment.body}`);
         }
       }
-      return (
-        <div>
-          <Link className="extraDetailName" to={`/users/${comment.author_id}`}>
-            {username}
+    }
+    commentSection = Object.values(commentSection).map(comment => {
+      comment = comment.split(" ");
+      // debugger
+       return (
+        <div className="commentCaption">
+          <Link className="extraDetailName" to={`/users/${comment[0]}`}>
+            {comment[1]}
           </Link>
-          <p>{comment}</p>
+          <p>{comment[2]}</p>
         </div>
       );
-    });
+    })
+
+   
+      // return (
+      //   <div>
+      //     <Link className="extraDetailName" to={`/users/${comment.author_id}`}>
+      //       {username}
+      //     </Link>
+      //     <p>{comment.body}</p>
+      //   </div>
+      // );
     
     
 

@@ -99,6 +99,8 @@ Follow.create({follower_id: jodorowsky.id, target_id: frazetta.id })
 
 Comment.create({post_id: post1.id, author_id: frazetta.id, body: "demoComment"})
 Comment.create({post_id: post1.id, author_id: druillet.id, body: "demoComment"})
+Comment.create({post_id: post1.id, author_id: druillet.id, body: "demoComment2"})
+
 
 Comment.create({post_id: post8.id, author_id: demo_user.id, body: "demoComment"})
 Comment.create({post_id: post7.id, author_id: frazetta.id, body: "demoComment"})
