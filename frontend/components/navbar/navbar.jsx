@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar  = ({currentUser}) => {
   let display;
-  console.log(currentUser)
+  // console.log(currentUser)
   if(currentUser) {
     display = (
     

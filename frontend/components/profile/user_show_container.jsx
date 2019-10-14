@@ -7,7 +7,7 @@ import { fetchPosts } from '../../actions/post_actions';
 
 
 const msp = (state, ownProps) => {
-  // debugger
+
   let currentUser = state.entities.users[state.session.id];
   
   let profile = state.entities.users[parseInt(ownProps.match.params.userId)];

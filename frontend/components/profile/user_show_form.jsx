@@ -6,13 +6,13 @@ class UserShowForm extends Component {
   constructor(props){
   
     super(props)
-    // debugger
+ 
     // this.props.profile.passive_follows.filter(follow => follow.follower_id === this.props.currentUser.id).id
     
   }
   handleFollow(e) {
     // e.preventDefault();
-    // debugger
+
     if (this.props.profile.hasFollowed) {
       this.props.deleteFollow(this.props.profile.id)
     } else {

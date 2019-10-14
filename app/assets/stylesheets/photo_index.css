@@ -22,13 +22,13 @@
   /* justify-content: center; */
   align-content: center;
   width: 614px;
-  min-height: 614px;
+  height: 614px;
   border-bottom: 1px solid #e6e6e6;
   border: 1px solid #e6e6e6;;
 }
 .ActualPhoto img{
-  width: inherit;
-  min-height: inherit;
+  width: 614px;
+  height: 614px;
 }
 
 
