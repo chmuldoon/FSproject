@@ -11,7 +11,7 @@
 //   createLike() {
 //     console.log("liked")
 //     console.log(this)
-//     debugger
+//   
 //     this.props.createLike({post_id: this.props.post.id, used_id: this.props.currentUserId})
 //     // .then(() => {
 //     //   this.props.fetchPost(this.props.post.id).then((action) =>{

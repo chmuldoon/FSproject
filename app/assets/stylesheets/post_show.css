@@ -1,0 +1,46 @@
+.postShowBackground {
+  display: flex; 
+  justify-content: center;
+}
+.postShowBox {
+  margin: auto;
+  display: flex;
+  margin-top: 150px;
+  width: 975px;
+  height: 600px;
+  background-color: white;
+  justify-content: center;
+}
+.postShowInfo {
+  width: 375px;
+  border: 1px solid #efefef;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  /* background-color: greenyellow; */
+}
+.postShowUser {
+  height: 72px;
+  border-bottom: 1px solid #efefef;
+}
+.postUsernames {
+  font-weight: 600;
+  color: #262626;
+  text-decoration: none;
+}
+.postShowcommentCaption {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.postShowComments {
+  height: 456px;
+}
+.userShowPfp {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+.postShowLowerSection{
+  border-top: 1px solid #efefef;
+  height: 71px;
+}

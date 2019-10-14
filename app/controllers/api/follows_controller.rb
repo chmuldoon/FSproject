@@ -8,7 +8,6 @@ class Api::FollowsController < ApplicationController
   end  
 
   def destroy
-    debugger
     @follow = Follow.find_by(follower_id: current_user.id, target_id: params[:id])
     @follow.destroy
     @user = @follow.following

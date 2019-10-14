@@ -4,7 +4,7 @@ json.extract! @user.active_follows
 json.extract! @user.passive_follows
 
 # json.followId @user.passive_follows.where
-# debugger
+
 json.hasFollowed @user.passive_follows.exists?(follower_id: current_user.id)
 
 
