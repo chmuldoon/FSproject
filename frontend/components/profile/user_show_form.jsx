@@ -6,13 +6,13 @@ class UserShowForm extends Component {
   constructor(props){
   
     super(props)
-    // debugger
+ 
     // this.props.profile.passive_follows.filter(follow => follow.follower_id === this.props.currentUser.id).id
     
   }
   handleFollow(e) {
     // e.preventDefault();
-    // debugger
+
     if (this.props.profile.hasFollowed) {
       this.props.deleteFollow(this.props.profile.id)
     } else {
@@ -71,14 +71,16 @@ class UserShowForm extends Component {
       display = (
         this.props.profile.posts && Object.values(this.props.profile.posts).map(post => {
           return (
-            <div key={post.id} className="post-preview" >
+            <div key={post.id} className="post-preview">
               {/* <Link> */}
               <div>
-                <img width="275px" height="275px" src={post.photo} />
+                <Link to={`/posts/${post.id}`}>
+                  <img width="275px" height="275px" src={post.photo} />
+                </Link>
               </div>
               {/* </Link> */}
             </div>
-          )
+          );
         })
       )
     }

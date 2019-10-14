@@ -12,7 +12,7 @@ export const fetchUsers = () => dispatch => (
 );
 
 const receiveAllUsers = users => ({
-  type: RECEIVE__ALL_USERS,
+  type: RECEIVE_ALL_USERS,
   users
 })
 const receiveUser = user => ({
