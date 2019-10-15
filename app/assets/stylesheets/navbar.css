@@ -58,11 +58,12 @@
   margin-right: 10px;
 }
 
+
 .navbar-left p{
   font-family: 'Cookie', cursive;
   font-size: 28px;
   text-align: center;
-  padding-left: 8px;
+  padding-left: 15px;
   border-left: 1px solid black;
   justify-content: center
   
@@ -70,4 +71,8 @@
 }
 .navbar-left img{
   padding-right: 8px;
+}
+.daLink i::before {
+  margin-right: 15px;
+  font-size: 30px;
 }

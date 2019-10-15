@@ -53,8 +53,11 @@ class PostShow extends React.Component {
                 {post.caption}
               </div>
               {post.comments.map(comment => {
-                let userPhoto = users.find(user => user.id == comment.author_id)
-                  .photoUrl;
+                let userPhotoUrl;
+                let user = users.find(user => user.id == comment.author_id);
+                if(user){
+                  userPhotoUrl = user.photoUrl;
+                }
 
                 let commentor = post.commentors.find(
                   obj => obj.id == comment.author_id
@@ -66,7 +69,7 @@ class PostShow extends React.Component {
                       className="extraDetailName"
                       to={`/users/${commentor.id}`}
                     >
-                      <img className="userShowPfp" src={userPhoto} />
+                      <img className="userShowPfp" src={userPhotoUrl} />
                       {commentor.username}
                     </Link>
                     <p>{comment.body}</p>
