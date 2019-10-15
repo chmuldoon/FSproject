@@ -1,4 +1,4 @@
-require 'bcrypt'
+# require 'bcrypt'
 class User < ApplicationRecord
   attr_reader :password
   validates :username, presence: true, uniqueness: true
