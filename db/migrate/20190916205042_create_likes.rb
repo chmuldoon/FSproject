@@ -8,6 +8,6 @@ class CreateLikes < ActiveRecord::Migration[5.2]
     end
     # add_index :likes, :post_id, unique: true
     # add_index :likes, :user_id, unique: true
-    remove_index :likes, column: :target_id, unique: true
+    
   end
 end
