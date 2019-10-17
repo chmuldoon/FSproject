@@ -52,6 +52,10 @@
   margin-right: auto;
 }
 .navbar-right{
+  display: block;
+  
+  align-items: center;
+  height: inherit;
   float: right;
   justify-content: right;
   display: flex;
@@ -75,4 +79,11 @@
 .daLink i::before {
   margin-right: 15px;
   font-size: 30px;
+}
+.navbar-right-link{
+  color: #262626;
+  text-decoration: none;
+}
+.navbar-right-link i {
+  font-size: 25px;
 }
