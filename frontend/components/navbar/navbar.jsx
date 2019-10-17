@@ -18,9 +18,9 @@ const NavBar  = ({currentUser}) => {
               <p>Dronestagram</p>
             </Link>
           </div>
-          {/* <div classname="nav-search">
+          <div classname="nav-search">
             <input type="text" placeholder="search"/>
-          </div> */}
+          </div>
           <div className="navbar-right">
             <Link className="navbar-right-link" to={`/users/${currentUser.id}`}>
               <i class="far fa-user"></i>

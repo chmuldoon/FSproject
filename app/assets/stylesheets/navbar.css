@@ -44,12 +44,21 @@
 }
 
 .nav-search{
-  float: center;
+  /* float: center;
   justify-content: center;
-  justify-content: space-between;
+  justify-content: space-between; */
   display: flex;
-  margin-left: auto;
+
+  display: block;
+  
+  align-items: center;
+  height: inherit;
+  float: none;
+  justify-content: center;
+  display: flex;
   margin-right: auto;
+  margin-left: auto;
+
 }
 .navbar-right{
   display: block;
