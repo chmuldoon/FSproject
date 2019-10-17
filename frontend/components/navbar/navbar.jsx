@@ -17,11 +17,18 @@ const NavBar  = ({currentUser}) => {
             <Link className="daLink" to={`/`}>
               <p>Dronestagram</p>
             </Link>
+            {/* <div className="nav-search">
+              <input type="text" placeholder="search" />
+            </div> */}
           </div>
-          <div classname="nav-search">
-            <input type="text" placeholder="search"/>
+          <div className="nav-search">
+            <input type="text" placeholder="search" />
           </div>
           <div className="navbar-right">
+            <Link className="navbar-right-link" to={`/`}>
+              <i class="far fa-compass"></i>
+            </Link>
+
             <Link className="navbar-right-link" to={`/users/${currentUser.id}`}>
               <i class="far fa-user"></i>
               {/* <img
