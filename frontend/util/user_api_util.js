@@ -15,8 +15,8 @@ export const fetchUser = (id) => {
 export const createFollow = (target_id) => {
     return $.ajax({
       method: "POST",
-      url: '/api/follows/',
-      data: { follow: { target_id, } }
+      url: '/api/follows',
+      data: { follow: { target_id: target_id, } }
   })
 };
 
