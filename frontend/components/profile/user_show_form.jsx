@@ -91,69 +91,73 @@ class UserShowForm extends Component {
 
     return (
       <div className="userShow">
-
+        {this.props.profile.full_name ? (
+          <title>
+            {this.props.profile.full_name}
+            {` (@${this.props.profile.username}) • Clonestagram Profile`}{" "}
+          </title>
+        ) : (
+          <title>
+            {`(@${this.props.profile.username}) • Clonestagram Profile`}{" "}
+          </title>
+        )}
         <header className="personal">
-        <div className="profilePicArea">
-        
+          <div className="profilePicArea">
             <div className="profilePic">
-              <img src={this.props.profile.photoUrl}/>
+              <img src={this.props.profile.photoUrl} />
             </div>
-        </div>
+          </div>
 
-        <div className="notPicture">
-          <div className="profileInfo">
-            <p className="name">{this.props.profile.username}</p>
+          <div className="notPicture">
+            <div className="profileInfo">
+              <p className="name">{this.props.profile.username}</p>
               <div className="follow-Button">
-
                 {this.props.profile.hasFollowed ? (
                   <div className="buttonUser">
-                    <button onClick={this.handleFollow.bind(this)} >Following</button>
+                    <button onClick={this.handleFollow.bind(this)}>
+                      Following
+                    </button>
                     {logStatus}
                     {/* <button onClick={this.handleLogout.bind(this)}>Log out</button> */}
                     {/* <svg className='profile-show-follow' onClick={this.handleFollow.bind(this)} className="heart-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="red" stroke="red" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-reactid="641"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> */}
                   </div>
                 ) : (
-                    <div className="buttonUser">
-                      <button onClick={this.handleFollow.bind(this)} >Follow</button>
-                      {logStatus}
-                      {/* <button onClick={this.handleLogout.bind(this)}>Log out</button> */}
-                      {/* <svg className='profile-show-follow' onClick={this.handleFollow.bind(this)} className="heart-empty" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-reactid="641"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> */}
-                    </div>
-                  )}
+                  <div className="buttonUser">
+                    <button onClick={this.handleFollow.bind(this)}>
+                      Follow
+                    </button>
+                    {logStatus}
+                    {/* <button onClick={this.handleLogout.bind(this)}>Log out</button> */}
+                    {/* <svg className='profile-show-follow' onClick={this.handleFollow.bind(this)} className="heart-empty" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-reactid="641"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> */}
+                  </div>
+                )}
               </div>
-              
-            
-    
-          </div>
-          
-          <div className="profileStats">
-              {(this.props.profile.posts === undefined) ?
-              (
+            </div>
+
+            <div className="profileStats">
+              {this.props.profile.posts === undefined ? (
                 <p>0 posts</p>
-            ):(
-              <p> {Object.keys(this.props.profile.posts).length} posts</p> 
-            )}
-            <p> {`${this.props.profile.followers.length} followers`} </p>
+              ) : (
+                <p> {Object.keys(this.props.profile.posts).length} posts</p>
+              )}
+              <p> {`${this.props.profile.followers.length} followers`} </p>
               <p> {`${this.props.profile.followings.length} following`} </p>
-          </div>
+            </div>
 
-          <div className="profileBio">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, ea doloremque accusantium maxime temporibus </p>
+            <div className="profileBio">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+                iure, ea doloremque accusantium maxime temporibus{" "}
+              </p>
+            </div>
           </div>
-
-        </div>
         </header>
 
         <div className="profile-posts-div">
-          <div className="profile-posts">
-            {display}
-          </div>
+          <div className="profile-posts">{display}</div>
         </div>
-
-
-        
       </div>
-    )
+    );
   }
 };
 

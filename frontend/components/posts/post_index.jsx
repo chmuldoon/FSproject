@@ -24,7 +24,8 @@ class PostIndex extends React.Component {
 
     return (
       <div>
-          {posts}
+        <title>Clonestagram</title>
+        {posts}
       </div>
     );
   }

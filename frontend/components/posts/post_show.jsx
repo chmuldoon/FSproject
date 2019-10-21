@@ -31,6 +31,16 @@ class PostShow extends React.Component {
     let post = this.props.post;
     return (
       <div className="PostShowBackground">
+        {post.author.full_name ? (
+          <title>
+            {post.author.full_name}
+            {` (@${post.author.username}) • Clonestagram Profile`}{" "}
+          </title>
+        ) : (
+          <title>
+            {`(@${post.author.username}) • Clonestagram Profile`}{" "}
+          </title>
+        )}
         <div className="postShowBox">
           <div>
             <img width="600px" height="600px" src={post.photoUrl} />
@@ -55,7 +65,7 @@ class PostShow extends React.Component {
               {post.comments.map(comment => {
                 let userPhotoUrl;
                 let user = users.find(user => user.id == comment.author_id);
-                if(user){
+                if (user) {
                   userPhotoUrl = user.photoUrl;
                 }
 
