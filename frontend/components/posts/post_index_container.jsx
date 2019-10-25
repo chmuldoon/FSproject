@@ -5,7 +5,10 @@ import { fetchUsers } from '../../actions/user_actions';
 
 const mapStateToProps = state => {
   return {
+    
     posts: Object.values(state.entities.posts)
+    //.filter() ONLY FOLLOWING LOGIC
+      // if Object.values(state.entities.users[0].following)post.author.id 
   };
 };
 

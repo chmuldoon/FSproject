@@ -17,21 +17,23 @@ import UserShowContainer from "./profile/user_show_container";
 import PostIndexContainer from "./posts/post_index_container";
 import LikeShowContainer from "./likes/like_show_container";
 import PostShowContainer from "./posts/post_show_container";
+import PostExploreContainer from "./posts/post_explore_container";
+
 
 
 
 const App = () => (
   <div>
     <header>
-      < NavBarContainer /> 
+      <NavBarContainer />
     </header>
-    <Route exact path="/" component={SplashContainer}/>
+    <Route exact path="/" component={SplashContainer} />
 
     <ProtectedRoute path="/posts/:postId" component={PostShowContainer} />
     <AuthRoute exact path="/login" component={LoginFormContainer} />
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
     <ProtectedRoute path="/users/:userId" component={UserShowContainer} />
-    
+    <ProtectedRoute path="/explore" component={PostExploreContainer} />
   </div>
 );
 
