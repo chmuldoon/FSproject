@@ -25,7 +25,7 @@ const NavBar  = ({currentUser}) => {
             <input type="text" placeholder="search" />
           </div>
           <div className="navbar-right">
-            <Link className="navbar-right-link" to={`/`}>
+            <Link className="navbar-right-link" to={`/explore`}>
               <i class="far fa-compass"></i>
             </Link>
 

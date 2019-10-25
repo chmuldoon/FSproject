@@ -111,6 +111,8 @@
   font-size: 40px;
   color: #262626;
   text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .navbar-right-link i {
   font-size: 25px;
