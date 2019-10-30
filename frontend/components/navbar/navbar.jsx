@@ -30,7 +30,7 @@ const NavBar  = ({currentUser}) => {
             </Link>
 
             <Link className="navbar-right-link" to={`/users/${currentUser.id}`}>
-              <i class="far fa-user"></i>
+              <i className="far fa-user"></i>
               {/* <img
                 className="Icon"
                 src="https://icon-library.net/images/person-icon-transparent-background/person-icon-transparent-background-28.jpg"
