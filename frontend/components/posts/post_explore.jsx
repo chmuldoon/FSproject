@@ -23,6 +23,8 @@ export class PostExplore extends Component {
       <div>
         <title>Explore!</title>
         <div className="Explore-Whole">
+          {/* <p>Explore</p> */}
+          
           {posts}
         </div>
       </div>
