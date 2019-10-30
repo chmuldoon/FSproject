@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 
 export class PostExplorePost extends Component {
   constructor(props){
@@ -8,8 +9,10 @@ export class PostExplorePost extends Component {
   render() {
     const { post } = this.props;
     return (
-      <div>
-        <img src={post.photoUrl} />
+      <div className="Explore-Post">
+        <Link className="Explore-Post-Link">
+          <img src={post.photoUrl} />
+        </Link>
       </div>
     );
   }
