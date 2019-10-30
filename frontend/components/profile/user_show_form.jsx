@@ -72,15 +72,11 @@ class UserShowForm extends Component {
       display = (
         this.props.profile.posts && Object.values(this.props.profile.posts).map(post => {
           return (
-            <div key={post.id} className="post-preview">
-              {/* <Link> */}
-              <div>
-                <Link to={`/posts/${post.id}`}>
+              // <div className="post-preview">
+                <Link className="profile-post-link" to={`/posts/${post.id}`}>
                   <img width="275px" height="275px" src={post.photo} />
                 </Link>
-              </div>
-              {/* </Link> */}
-            </div>
+              // </div>
           );
         })
       )
@@ -154,7 +150,9 @@ class UserShowForm extends Component {
         </header>
 
         <div className="profile-posts-div">
-          <div className="profile-posts">{display}</div>
+          <div className="profile-posts">
+            {display}
+          </div>
         </div>
       </div>
     );

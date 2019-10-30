@@ -78,28 +78,29 @@
   text-align: center;
   
 }
+.profile-posts-div {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .profile-posts{
-  justify-content: left;
   display: flex;
   width: 935px;
   margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 1000px;
+  min-height: 300px;
   flex-wrap: wrap;
 
 }
-.post-preview{
+.profile-post-link {
   width: 275px;
   height: 275px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
+  margin-left: 28px;
+  margin-bottom: 28px;
 }
-.post-preview a{
+/* .post-preview a{
   width: inherit;
   height: 275px;
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
-}
+} */
