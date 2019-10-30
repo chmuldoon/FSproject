@@ -8,7 +8,7 @@ export class PostExplore extends Component {
   render() {
     return (
       <div>
-        
+        <title>Explore!</title>
       </div>
     )
   }
