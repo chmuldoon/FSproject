@@ -2,6 +2,8 @@ import * as UserApiUtil from '../util/user_api_util'
 
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
 export const RECEIVE_USER = "RECEIVE_USER";
+export const RECEIVE_FOLLOWS = "RECEIVE_FOLLOWS";
+
 
 export const fetchUser = id => dispatch => (
   UserApiUtil.fetchUser(id).then(user => dispatch(receiveUser(user)))
@@ -10,6 +12,14 @@ export const fetchUser = id => dispatch => (
 export const fetchUsers = () => dispatch => (
   UserApiUtil.fetchUsers().then(users => dispatch(receiveAllUsers(users)))
 );
+export const fetchFollows = () => dispatch => (
+  UserApiUtil.fetchFollows().then(follows => dispatch(receiveFollows(follows)))
+)
+
+const receiveFollows = follows => ({
+  type: RECEIVE_FOLLOWS,
+  follows
+});
 
 const receiveAllUsers = users => ({
   type: RECEIVE_ALL_USERS,

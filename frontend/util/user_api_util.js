@@ -12,6 +12,12 @@ export const fetchUser = (id) => {
     
   });
 };
+export const fetchFollows = () => {
+  return $.ajax({
+    method: "GET",
+    url: "/api/follows/"
+  });
+};
 export const createFollow = (target_id) => {
   debugger
     return $.ajax({
