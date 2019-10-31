@@ -1,6 +1,10 @@
 import merge from 'lodash/merge';
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
-import { RECEIVE_USER, RECEIVE_ALL_USERS } from "../actions/user_actions";
+import {
+  RECEIVE_USER,
+  RECEIVE_ALL_USERS,
+  RECEIVE_FOLLOWS
+} from "../actions/user_actions";
 
 
 
@@ -14,6 +18,8 @@ const usersReducer = (state ={}, action) => {
       return merge({}, state, action.users);
     case RECEIVE_USER:
       return merge({}, state, {[action.user.id]: action.user});
+    case RECEIVE_FOLLOWS:
+      return merge({}, state, action.follows);      
     default:
 
       return state;

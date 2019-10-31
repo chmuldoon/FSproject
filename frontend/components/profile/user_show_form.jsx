@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 class UserShowForm extends Component {
   constructor(props){
-  
+    
     super(props)
- 
+    debugger
     // this.props.profile.passive_follows.filter(follow => follow.follower_id === this.props.currentUser.id).id
     
   }
@@ -24,6 +24,7 @@ class UserShowForm extends Component {
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchPosts();
+    this.props.fetchFollows();
   };
 
   handleLogout(e) {
@@ -107,52 +108,75 @@ class UserShowForm extends Component {
           <div className="notPicture">
             <div className="profileInfo">
               <p className="name">{this.props.profile.username}</p>
-              <div className="follow-Button">
-                {this.props.profile.hasFollowed ? (
-                  <div className="buttonUser">
-                    <button onClick={this.handleFollow.bind(this)}>
-                      Following
-                    </button>
-                    {logStatus}
-                    {/* <button onClick={this.handleLogout.bind(this)}>Log out</button> */}
-                    {/* <svg className='profile-show-follow' onClick={this.handleFollow.bind(this)} className="heart-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="red" stroke="red" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-reactid="641"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> */}
-                  </div>
-                ) : (
-                  <div className="buttonUser">
-                    <button onClick={this.handleFollow.bind(this)}>
-                      Follow
-                    </button>
-                    {logStatus}
-                    {/* <button onClick={this.handleLogout.bind(this)}>Log out</button> */}
-                    {/* <svg className='profile-show-follow' onClick={this.handleFollow.bind(this)} className="heart-empty" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-reactid="641"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> */}
-                  </div>
-                )}
-              </div>
+              {this.props.currentUser.id === this.props.profile.id ? (
+                <div>{logStatus}</div>
+              ) : (
+                <div className="follow-Button">
+                  {this.props.profile.hasFollowed ? (
+                    <div className="buttonUser">
+                      <button onClick={this.handleFollow.bind(this)}>
+                        Following
+                      </button>
+                      {logStatus}
+                      {/* <button onClick={this.handleLogout.bind(this)}>Log out</button> */}
+                      {/* <svg className='profile-show-follow' onClick={this.handleFollow.bind(this)} className="heart-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="red" stroke="red" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-reactid="641"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> */}
+                    </div>
+                  ) : (
+                    <div className="buttonUser">
+                      <button onClick={this.handleFollow.bind(this)}>
+                        Follow
+                      </button>
+                      {logStatus}
+                      {/* <button onClick={this.handleLogout.bind(this)}>Log out</button> */}
+                      {/* <svg className='profile-show-follow' onClick={this.handleFollow.bind(this)} className="heart-empty" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-reactid="641"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> */}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
             <div className="profileStats">
               {this.props.profile.posts === undefined ? (
-                <p>0 posts</p>
+                <div className="Stat">
+                  <p className="profileBioDetail">0 </p>
+                  <p>posts</p>
+                </div>
               ) : (
-                <p> {Object.keys(this.props.profile.posts).length} posts</p>
+                <div className="Stat">
+                  <p className="profileBioDetail">
+                    {Object.keys(this.props.profile.posts).length}{" "}
+                  </p>
+                  <p className="StatWord">posts</p>
+                </div>
               )}
-              <p> {`${this.props.profile.followers.length} followers`} </p>
-              <p> {`${this.props.profile.followings.length} following`} </p>
+              <div className="Stat">
+                <p className="profileBioDetail">
+                  {this.props.profile.followers.length}{" "}
+                </p>
+                <p className="StatWord"> followers</p>
+              </div>
+              <div className="Stat">
+                <p className="profileBioDetail">
+                  {this.props.profile.followings.length}{" "}
+                </p>
+                <p> following</p>
+              </div>
             </div>
 
             <div className="profileBio">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-                iure, ea doloremque accusantium maxime temporibus{" "}
-              </p>
+              <p className="profileBioDetail">{this.props.profile.full_name}</p>
+              <div className="profileBioCaption">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+                  iure, ea doloremque accusantium maxime temporibus{" "}
+                </p>
+              </div>
             </div>
           </div>
         </header>
 
         <div className="profile-posts-div">
-          <div className="profile-posts">
-            {display}
-          </div>
+          <div className="profile-posts">{display}</div>
         </div>
       </div>
     );
