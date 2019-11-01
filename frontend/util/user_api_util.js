@@ -19,7 +19,7 @@ export const fetchFollows = () => {
   });
 };
 export const createFollow = (target_id) => {
-  debugger
+  // debugger
     return $.ajax({
       method: "POST",
       url: '/api/follows',

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import CommentContainer from "../comments/comment_container";
+
 
 
 
@@ -37,9 +39,7 @@ class PostShow extends React.Component {
             {` (@${post.author.username}) • Clonestagram Profile`}{" "}
           </title>
         ) : (
-          <title>
-            {`(@${post.author.username}) • Clonestagram Profile`}{" "}
-          </title>
+          <title>{`(@${post.author.username}) • Clonestagram Profile`} </title>
         )}
         <div className="postShowBox">
           <div>
@@ -48,19 +48,26 @@ class PostShow extends React.Component {
           <div className="postShowInfo">
             <div className="postShowUser">
               <Link className="postUsernames" to={`/users/${post.author.id}`}>
-                <div className="pfp">
+                <div className="postShowPfpUsername">
                   <img src={post.pfp} />
+                  <p>{post.author.username}</p>
                 </div>
-                {post.author.username}
               </Link>
             </div>
             <div className="postShowComments">
-              <div>
+              <div className="postShowComment">
                 <Link to={`/users/${post.author.id}`}>
                   <img className="userShowPfp" src={post.pfp} />
-                  {post.author.username}
                 </Link>
-                {post.caption}
+                <div className="commentUsernameAndComment">
+                  <Link
+                    className="commentUsername"
+                    to={`/users/${post.author.id}`}
+                  >
+                    <p>{post.author.username}</p>
+                  </Link>
+                  <p>{post.caption}</p>
+                </div>
               </div>
               {post.comments.map(comment => {
                 let userPhotoUrl;
@@ -74,23 +81,27 @@ class PostShow extends React.Component {
                 );
 
                 return (
-                  <div className="postShowcommentCaption">
-                    <Link
-                      className="extraDetailName"
-                      to={`/users/${commentor.id}`}
-                    >
+                  <div className="postShowComment">
+                    <Link to={`/users/${commentor.id}`}>
                       <img className="userShowPfp" src={userPhotoUrl} />
-                      {commentor.username}
                     </Link>
-                    <p>{comment.body}</p>
+                    <div className="commentUsernameAndComment">
+                      <Link
+                        className="commentUsername"
+                        to={`/users/${commentor.id}`}
+                      >
+                        <p>{commentor.username}</p>
+                      </Link>
+                      <p>{comment.body}</p>
+                    </div>
                   </div>
                 );
               })}
             </div>
             <div className="postShowLowerSection">
-              <div className="Like-Button">
+              <div className="Post-Like-Button">
                 {post.hasLiked ? (
-                  <div className="heartDiv">
+                  <div className="PostHeartDiv">
                     <svg
                       className="post-show-like"
                       onClick={this.handleLike.bind(this)}
@@ -108,7 +119,7 @@ class PostShow extends React.Component {
                     </svg>
                   </div>
                 ) : (
-                  <div className="heartDiv">
+                  <div className="PostHeartDiv">
                     <svg
                       className="post-show-like"
                       onClick={this.handleLike.bind(this)}
@@ -134,6 +145,10 @@ class PostShow extends React.Component {
                   ? "1 person likes this"
                   : `${post.likeCount} people like this`}
               </p>
+              <p>date holder</p>
+              <div className="PostShowAddComment">
+                <CommentContainer postId={post.id} post={post} />
+              </div>
             </div>
           </div>
         </div>

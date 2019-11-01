@@ -23,24 +23,81 @@
   height: 72px;
   border-bottom: 1px solid #efefef;
 }
+.postShowPfpUsername {
+  display: flex;
+  flex-wrap: wrap;
+}
+.postShowPfpUsername img {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  margin-left: 10px;
+  margin-top: 14px;
+  margin-bottom: auto;
+}
+.postShowPfpUsername p {
+  margin-top: 25px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
 .postUsernames {
   font-weight: 600;
   color: #262626;
   text-decoration: none;
 }
+.commentUsernameAndComment {
+  display: flex;
+  flex-wrap: wrap; 
+  margin-top: 25px;
+  margin-left: 15px;
+  min-height: 15.6px;
+
+ 
+}
+.commentUsername {
+  font-weight: 600;
+  color: #262626;
+  text-decoration: none;
+}
+.commentUsername p {
+  margin-right: 5px;
+}
 .postShowcommentCaption {
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 .postShowComments {
-  height: 456px;
+  height: 377px;
+}
+.postShowComment {
+  display: flex;
+  flex-wrap: wrap; 
 }
 .userShowPfp {
   height: 32px;
   width: 32px;
   border-radius: 50%;
+  margin-top: 15px;
+  margin-left: 10px;
 }
 .postShowLowerSection{
   border-top: 1px solid #efefef;
-  height: 71px;
+  height: 150px;
+}
+.postShowLowerSection p {
+  margin-left: 15px;
+
+}
+.Post-Like-Button svg {
+  height: 36px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.PostHeartDiv {
+}
+.PostShowAddComment {
+  border-top: 1px solid #efefef;
+
+  height: 56px;
+  margin-top: 18px;
 }

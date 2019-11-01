@@ -12,9 +12,9 @@ Post.destroy_all
 Comment.destroy_all
 Like.destroy_all
 Follow.destroy_all
-demo_user = User.create({username: "DemoUser", password: "DemoUser", email: "DemoUser@gmail.com", full_name: "Demo User"})
-demo_profile_pic = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/icon.jpg")
-demo_user.profilepic.attach(io: demo_profile_pic, filename: 'icon.jpg')
+demo_user = User.create({username: "dali", password: "DemoUser", email: "DemoUser@gmail.com", full_name: "Salvador Dalí"})
+demo_profile_pic = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/dali/2462995_0.jpg")
+demo_user.profilepic.attach(io: demo_profile_pic, filename: '2462995_0.jpg')
 
 druillet = User.create({username: "druilletofficiel", password: "password", email: "druillet@druillet.com", full_name: "Philippe Druillet"})
 profile_pic1 = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/druilletpfp.jpg")
@@ -29,6 +29,19 @@ profile_pic3 = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/pi
 jodorowsky.profilepic.attach(io: profile_pic3, filename: 'alnye.jpg')
 
 
+# placeholder_pic = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/icon.jpg")
+
+# placeholder = User.create({username: "placeholder", password: "placeholder", email: "---", full_name: "placeholder"})
+# placeholder.profilepic.attach(io: placeholder_pic, filename: 'icon.jpg')
+# placeholder2 = User.create({username: "placeholder2", password: "placeholder2", email: "---", full_name: "placeholder2"})
+# placeholder2.profilepic.attach(io: placeholder_pic, filename: 'icon.jpg')
+# placeholder3 = User.create({username: "placeholder3", password: "placeholder3", email: "---", full_name: "placeholder3"})
+# placeholder3.profilepic.attach(io: placeholder_pic, filename: 'icon.jpg')
+
+
+
+
+
 post1 = Post.create({author_id: druillet.id, caption: 'cherry coloured funk'})
 post12 = Post.create({author_id: jodorowsky.id, caption: 'What could have been'})
 post2 = Post.create({author_id: demo_user.id, caption: 'Corpus Hypercubus by Dali'})
@@ -41,6 +54,17 @@ post10 = Post.create({author_id: jodorowsky.id, caption: "it's a lizard with a h
 post6 = Post.create({author_id: frazetta.id, caption: "Tarzan"})
 post7 = Post.create({author_id: druillet.id, caption: 'Space'})
 post8 = Post.create({author_id: frazetta.id, caption: 'Magic'})
+post13 = Post.create({author_id: demo_user.id, caption: 'democaption'})
+post14 = Post.create({author_id: demo_user.id, caption: 'democaption'})
+post15 = Post.create({author_id: demo_user.id, caption: 'democaption'})
+post16 = Post.create({author_id: demo_user.id, caption: 'democaption'})
+
+# post17 = Post.create({author_id: placeholder.id, caption: 'democaption'})
+
+# post18 = Post.create({author_id: placeholder2.id, caption: 'democaption'})
+
+# post19 = Post.create({author_id: placeholder3.id, caption: 'democaption'})
+
 
 
 file1 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/druillet/1delirius.jpg')
@@ -78,6 +102,27 @@ post11.photo.attach(io: file11, filename: 'holymountain.jpg')
 
 file12 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/jodorowsky/dune2.jpg')
 post12.photo.attach(io: file12, filename: 'dune2.jpg')
+
+file13 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/dali/Lobster_Telephone_Photo.jpg')
+post13.photo.attach(io: file13, filename: 'Lobster_Telephone_Photo.jpg')
+
+file14 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/dali/e5cfbce3d9ffbe3d9d8d268178a55664.jpg')
+post14.photo.attach(io: file14, filename: 'e5cfbce3d9ffbe3d9d8d268178a55664.jpg')
+
+file15 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/dali/soft-self-portrait-with-fried-bacon.jpg')
+post15.photo.attach(io: file15, filename: 'soft-self-portrait-with-fried-bacon.jpg')
+
+file16 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/dali/rsddh42aqhz11.webp')
+post16.photo.attach(io: file16, filename: 'rsddh42aqhz11.webp')
+
+# file17 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/space/Sirius-A-B-Hubble-Space-Telescope.jpg')
+# post17.photo.attach(io: file17, filename: 'Sirius-A-B-Hubble-Space-Telescope.jpg')
+
+# file18 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/space/Sirius-A-B-Hubble-Space-Telescope.jpg')
+# post18.photo.attach(io: file18, filename: 'Sirius-A-B-Hubble-Space-Telescope.jpg')
+
+# file19 = open('https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/space/Sirius-A-B-Hubble-Space-Telescope.jpg')
+# post19.photo.attach(io: file19, filename: 'Sirius-A-B-Hubble-Space-Telescope.jpg')
 
 
 Like.create({post_id: post1.id, user_id: demo_user.id})

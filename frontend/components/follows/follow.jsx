@@ -9,7 +9,7 @@ export class Follow extends Component {
   render() {
     return (
       <div>
-        <p>heyo</p>
+        {/* <p>heyo</p> */}
       </div>
     )
   }
