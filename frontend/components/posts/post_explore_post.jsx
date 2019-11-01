@@ -10,7 +10,7 @@ export class PostExplorePost extends Component {
     const { post } = this.props;
     return (
       <div className="Explore-Post">
-        <Link className="Explore-Post-Link">
+        <Link className="Explore-Post-Link" to={`/posts/${post.id}`}>
           <img src={post.photoUrl} />
         </Link>
       </div>
