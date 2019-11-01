@@ -27,8 +27,12 @@ export class PostIndexItem extends Component {
 
 
   render() {
-
+    // debugger
+    
     const {post} = this.props
+    if (post.comments.length > 2 ){
+      var shortenedComments = [ post.comments[0], post.comments[2]]
+    }
     let commentSection = []
     for (let i = 0; i < post.comments.length; i++) {
       let comment = post.comments[i];
@@ -132,22 +136,53 @@ export class PostIndexItem extends Component {
           </div>
           {/* WILL FIX */}
           {/* {commentSection} */}
-          {post.comments.map(comment => {
-            let commentor = post.commentors.find(
-              obj => obj.id == comment.author_id
-            );
-            return (
-              <div className="commentCaption">
-                <Link className="extraDetailName" to={`/users/${commentor.id}`}>
-                  {commentor.username}
-                </Link>
-                <p>{comment.body}</p>
-              </div>
-            );
-          })}
+          {post.comments.length > 2 ? (
+            <div>
+              <Link to={`/posts/${post.id}`}>
+                <p>{`view all ${post.comments.length} comments`}</p>
+              </Link>
+            </div>
+          ) : (
+            <div></div>
+          )}
+
+          {post.comments.length > 2
+            ? shortenedComments.map(comment => {
+            
+                let commentor = post.commentors.find(
+                  obj => obj.id == comment.author_id
+                );
+                return (
+                  <div className="commentCaption">
+                    <Link
+                      className="extraDetailName"
+                      to={`/users/${commentor.id}`}
+                    >
+                      {commentor.username}
+                    </Link>
+                    <p>{comment.body}</p>
+                  </div>
+                );
+              })
+            : post.comments.map(comment => {
+                let commentor = post.commentors.find(
+                  obj => obj.id == comment.author_id
+                );
+                return (
+                  <div className="commentCaption">
+                    <Link
+                      className="extraDetailName"
+                      to={`/users/${commentor.id}`}
+                    >
+                      {commentor.username}
+                    </Link>
+                    <p>{comment.body}</p>
+                  </div>
+                );
+              })}
 
           <div className="addComments">
-            <CommentContainer postId={post.id} post={post}/>
+            <CommentContainer postId={post.id} post={post} />
           </div>
         </div>
       </div>
