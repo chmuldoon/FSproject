@@ -2,10 +2,19 @@
 import { Link } from 'react-router-dom';
 // import LikeShowContainer from '../likes/like_show_container';
 import React, { Component } from 'react'
+import CommentContainer from '../comments/comment_container';
 
 export class PostIndexItem extends Component {
   constructor(props){
     super(props)
+    this.state = {
+      body: ''
+    }
+  }
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    }
   }
   handleLike(e){
     // e.preventDefault();
@@ -138,7 +147,7 @@ export class PostIndexItem extends Component {
           })}
 
           <div className="addComments">
-            <p>Add Comment</p>
+            <CommentContainer postId={post.id} post={post}/>
           </div>
         </div>
       </div>
@@ -155,7 +164,7 @@ export default PostIndexItem
 //     <div className="photoInIndex">
 //       <div className="photoUpperIndexContent">
 
-//         <div className="pfp">
+//         <div classNa.bme="pfp">
 
 //           <img src={post.pfp}/>
 //         </div>

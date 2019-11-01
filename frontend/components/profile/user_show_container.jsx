@@ -10,7 +10,7 @@ const msp = (state, ownProps) => {
   let currentUser = state.entities.users[state.session.id];
   
   let profile = state.entities.users[parseInt(ownProps.match.params.userId)];
-  debugger
+  // debugger
   return ({
     
     currentUser,
