@@ -11,9 +11,9 @@ const mapStateToProps = state => {
 
   return {
     currentUser,
-    posts: Object.values(state.entities.posts).filter(post =>
-      !followingIds.includes(post.author.id)
-    )
+    posts: Object.values(state.entities.posts)//.filter(post =>
+      //!followingIds.includes(post.author.id)
+    //)
     //.filter() ONLY FOLLOWING LOGIC
   };
 };
