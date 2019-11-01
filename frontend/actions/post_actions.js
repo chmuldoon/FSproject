@@ -33,14 +33,14 @@ export const deleteLike = (post_id) => (dispatch) => (
   PostApiUtil.deleteLike(post_id).then(post => dispatch(receivePost(post)))
 );
 
-export const createComment = post_id => dispatch => (
-  PostApiUtil.createComment(post_id).then(post => dispatch(receivePost(post)))
-);
+// export const createComment = post_id => dispatch => (
+//   PostApiUtil.createComment(post_id).then(post => dispatch(receivePost(post)))
+// );
 
 
-export const deleteComment = (post_id) => (dispatch) => (
-  PostApiUtil.deleteComment(post_id).then(post => dispatch(receivePost(post)))
-);
+// export const deleteComment = (post_id) => (dispatch) => (
+//   PostApiUtil.deleteComment(post_id).then(post => dispatch(receivePost(post)))
+// );
 
 
 const receiveAllPosts = posts => ({
