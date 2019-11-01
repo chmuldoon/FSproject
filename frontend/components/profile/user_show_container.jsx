@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import UserShowForm  from './user_show_form';
-import { fetchUser, fetchUsers, createFollow, deleteFollow, fetchFollows } from '../../actions/user_actions';
+import { fetchUser, fetchUsers } from '../../actions/user_actions';
+import { fetchFollows } from "../../actions/follow_actions";
+
 import { logout } from '../../actions/session_actions';
 import { fetchPosts } from '../../actions/post_actions';
 
@@ -24,6 +26,7 @@ const mdp = (dispatch, ownProps) =>({
     fetchPosts: () => dispatch(fetchPosts()),
     fetchUsers: () => dispatch(fetchUsers()),
     fetchFollows: () => dispatch(fetchFollows()),
+    
     createFollow: (target_id) => dispatch(createFollow(target_id)),
     deleteFollow: (target_id) => dispatch(deleteFollow(target_id))
 });
