@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import FollowContainer from '../follows/follow_container';
 
 class UserShowForm extends Component {
   constructor(props){
@@ -111,7 +112,10 @@ class UserShowForm extends Component {
               {this.props.currentUser.id === this.props.profile.id ? (
                 <div>{logStatus}</div>
               ) : (
+                
+                
                 <div className="follow-Button">
+                  <FollowContainer/>
                   {this.props.profile.hasFollowed ? (
                     <div className="buttonUser">
                       <button onClick={this.handleFollow.bind(this)}>
