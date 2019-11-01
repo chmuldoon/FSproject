@@ -4,11 +4,18 @@ import { fetchPosts, createLike, deleteLike, createComment, deleteComment  } fro
 import { fetchUsers } from '../../actions/user_actions';
 
 const mapStateToProps = state => {
+  let currentUser = state.entities.users[state.session.id];
+
+  let followingIds = currentUser.followings.map(
+    following => following.id
+  );
+  // debugger;
   return {
-    
-    posts: Object.values(state.entities.posts)
+    posts: Object.values(state.entities.posts).filter(post =>
+      followingIds.includes(post.author.id)
+    )
     //.filter() ONLY FOLLOWING LOGIC
-      // if Object.values(state.entities.users[0].following)post.author.id 
+    // if Object.values(state.entities.users[0].following)post.author.id
   };
 };
 

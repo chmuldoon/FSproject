@@ -5,9 +5,15 @@ import PostExplore from "./post_explore";
 
 const mapStateToProps = state => {
   let currentUser = state.entities.users[state.session.id];
+  let followingIds = currentUser.followings.map(
+    following => following.id
+  );
+
   return {
     currentUser,
-    posts: Object.values(state.entities.posts)
+    posts: Object.values(state.entities.posts).filter(post =>
+      !followingIds.includes(post.author.id)
+    )
     //.filter() ONLY FOLLOWING LOGIC
   };
 };
