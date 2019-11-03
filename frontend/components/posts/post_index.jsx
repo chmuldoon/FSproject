@@ -8,7 +8,7 @@ class PostIndex extends React.Component {
     // this.props.fetchUsers();
   }
   componentDidUpdate() {
-    this.props.fetchPosts();
+    // this.props.fetchPosts();
 
   }
 
@@ -20,6 +20,7 @@ class PostIndex extends React.Component {
           key={post.id}
           post={post}
           fetchPosts={this.props.fetchPosts}
+          fetchPost={this.props.fetchPost}
           createLike={this.props.createLike}
           deleteLike={this.props.deleteLike}
           createComment={this.props.createComment}

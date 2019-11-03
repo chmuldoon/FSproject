@@ -67,6 +67,7 @@
   margin-top: 5px;
 }
 .postShowComments {
+  overflow-y:auto;
   height: 377px;
 }
 .postShowComment {

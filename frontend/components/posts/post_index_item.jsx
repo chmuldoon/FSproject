@@ -7,7 +7,7 @@ import CommentContainer from '../comments/comment_container';
 export class PostIndexItem extends Component {
   constructor(props){
     super(props)
- 
+    // debugger
     this.state = {
       body: ''
     }
@@ -17,6 +17,7 @@ export class PostIndexItem extends Component {
   update(field) {
     return (e) => {
       this.setState({ [field]: e.target.value });
+      // this.fetchPost
     }
   }
   handleLike(e){
@@ -126,11 +127,11 @@ export class PostIndexItem extends Component {
                 </svg>
               </div>
             )}
-            <Link className="profile-post-link" to={`/posts/${post.id}`}>
+            <Link className="Comment-Button" to={`/posts/${post.id}`}>
               <i class="far fa-comment"></i>
             </Link>
-            <p>{post.likeCount === 1 ? "1 like" : `${post.likeCount} likes`}</p>
           </div>
+          <p>{post.likeCount === 1 ? "1 like" : `${post.likeCount} likes`}</p>
 
           <div className="commentSection">
             <div className="commentCaption">
