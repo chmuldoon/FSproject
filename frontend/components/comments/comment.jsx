@@ -23,7 +23,7 @@ export class Comment extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="commentAdd">
         <input
           placeholder="Add a comment"
           value={this.state.body}

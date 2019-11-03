@@ -141,14 +141,29 @@
 .likeCount p{
   height: 20px;
 }
+.Like-Button {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .Like-Button svg{
   height: 36px;
 }
+.Comment-Button {
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+  margin-top: 5px;
+  margin-left: 15px;
+}
 .heartDiv{
   margin-top: 5px;
 }
-
+.commentAdd {
+  margin-top: 20px;
+  height: 20px;
+  bottom: 5px;
+}
 .addComments{
   margin-top: 20px;
   height: 20px;
