@@ -112,6 +112,15 @@
   display:inline-block;
   margin-left: 5px;
 }
+.commentLink {
+  color: #999999
+
+}
+.commentLink p {
+  font-size: 14px;
+  font-weight: 600;
+
+}
 
 .post-show-like{
   height: 35px;

@@ -7,10 +7,13 @@ import CommentContainer from '../comments/comment_container';
 export class PostIndexItem extends Component {
   constructor(props){
     super(props)
+ 
     this.state = {
       body: ''
     }
+
   }
+
   update(field) {
     return (e) => {
       this.setState({ [field]: e.target.value });
@@ -123,6 +126,9 @@ export class PostIndexItem extends Component {
                 </svg>
               </div>
             )}
+            <Link className="profile-post-link" to={`/posts/${post.id}`}>
+              <i class="far fa-comment"></i>
+            </Link>
             <p>{post.likeCount === 1 ? "1 like" : `${post.likeCount} likes`}</p>
           </div>
 
@@ -137,18 +143,15 @@ export class PostIndexItem extends Component {
           {/* WILL FIX */}
           {/* {commentSection} */}
           {post.comments.length > 2 ? (
-            <div>
-              <Link to={`/posts/${post.id}`}>
-                <p>{`view all ${post.comments.length} comments`}</p>
-              </Link>
-            </div>
+            <Link className="commentLink" to={`/posts/${post.id}`}>
+              <p>{`view all ${post.comments.length} comments`}</p>
+            </Link>
           ) : (
             <div></div>
           )}
 
           {post.comments.length > 2
             ? shortenedComments.map(comment => {
-            
                 let commentor = post.commentors.find(
                   obj => obj.id == comment.author_id
                 );

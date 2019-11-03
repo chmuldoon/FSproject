@@ -11,9 +11,9 @@ const mapStateToProps = state => {
   );
   // debugger;
   return {
-    posts: Object.values(state.entities.posts)//.filter(post =>
-      //followingIds.includes(post.author.id)
-    //)
+    posts: Object.values(state.entities.posts).filter(post =>
+      followingIds.includes(post.author.id)
+    )
     //.filter() ONLY FOLLOWING LOGIC
     // if Object.values(state.entities.users[0].following)post.author.id
   };

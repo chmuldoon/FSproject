@@ -7,6 +7,10 @@ class PostIndex extends React.Component {
     this.props.fetchPosts();
     // this.props.fetchUsers();
   }
+  componentDidUpdate() {
+    this.props.fetchPosts();
+
+  }
 
   render() {
     // debugger
@@ -15,6 +19,7 @@ class PostIndex extends React.Component {
         <PostIndexItem
           key={post.id}
           post={post}
+          fetchPosts={this.props.fetchPosts}
           createLike={this.props.createLike}
           deleteLike={this.props.deleteLike}
           createComment={this.props.createComment}

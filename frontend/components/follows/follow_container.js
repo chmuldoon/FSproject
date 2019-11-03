@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 
 const mapStateToProps = (state, ownProps) => {
   let targetId = ownProps.targetId
-
+  
   let follow = {
     follower_id: state.session.id,
     target_id: targetId
@@ -19,6 +19,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   createFollow: follow => dispatch(createFollow(follow)),
+  deleteFollow: follow => dispatch(deleteFollow(follow)),
+
   fetchFollows: () => dispatch(fetchFollows())
 });
 

@@ -39,7 +39,7 @@ class UserShowForm extends Component {
   
   render() {
     if (!this.props.profile) {
-      return null;
+      return [];
     }
     //lets work on this
     let logStatus;
