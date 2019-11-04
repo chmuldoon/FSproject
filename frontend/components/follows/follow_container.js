@@ -5,15 +5,17 @@ import { deleteFollow, fetchFollows, createFollow } from "../../actions/follow_a
 import { withRouter } from "react-router-dom";
 
 const mapStateToProps = (state, ownProps) => {
-  let targetId = ownProps.targetId
-  
-  let follow = {
+  // debugger
+  let targetId = parseInt(ownProps.match.params.userId);
+  let target_follows =state.entities.users[targetId].passive_follows;
+  let follow_status = state.entities.users[targetId].hasFollowed;
+
+  return {
     follower_id: state.session.id,
-    target_id: targetId
+    target_id: targetId,
+    target_follows,
+    follow_status
   };
-  return ({
-    follow
-  })
   
 };
 

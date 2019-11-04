@@ -80,6 +80,17 @@
   padding-left: 16px;
   padding-right: 16px;
 }
+.likes-and-count {
+  width: 584px;
+  height: 67px;
+}
+.likes-and-count p{
+  margin-top: -10px;
+  z-index: 1px;
+}
+.GreaterCommentSection {
+  height: 82px;
+}
 .post-options{
   width: 100%;
   height: 40px;
@@ -108,7 +119,7 @@
   max-height: 20px;
 }
 .commentCaption p{
-  top-margin: 35px;
+
   display:inline-block;
   margin-left: 5px;
 }
@@ -153,19 +164,57 @@
   font-size: 30px;
   text-decoration: none;
   color: black;
-  margin-top: 5px;
-  margin-left: 15px;
+  margin-top: -3px;
+  
+}
+.Comment-Button img {
+  margin-top: 0px;
+  height: 50px;
 }
 .heartDiv{
   margin-top: 5px;
 }
 .commentAdd {
-  margin-top: 20px;
+  /* margin-top: 20px;
   height: 20px;
-  bottom: 5px;
+  bottom: 5px; */
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: 1px solid #efefef;
+    margin-top: 4px;
+    height: 18px;
+    font-size: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+.commentAdd input {
+
+    background: 0 0;
+    border: 0;
+    color: #262626;
+    font-size: inherit;
+    height: 18px;
+    max-height: 80px;
+    outline: 0;
+    padding: 0;
+    resize: none;
+    
+}
+.commentAdd button {
+  border: 0;
+  color: #3897f0;
+  display: inline; 
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
 .addComments{
-  margin-top: 20px;
   height: 20px;
   bottom: 5px;
 }

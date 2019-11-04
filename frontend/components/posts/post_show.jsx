@@ -8,12 +8,14 @@ import CommentContainer from "../comments/comment_container";
 class PostShow extends React.Component {
   constructor(props) {
     super(props);
+    this.currentUser = this.props.currentUser;
   }
   componentDidMount() {
     this.props.fetchPosts();
     this.props.fetchUsers();
     // this.props.fetchUsers();
   }
+  
   handleLike(e) {
     // e.preventDefault();
     if (this.props.post.hasLiked) {
@@ -29,8 +31,11 @@ class PostShow extends React.Component {
     }
 
     // let comments =
+    let currentUser = this.props.currentUser;
     let users = Object.values(this.props.users);
     let post = this.props.post;
+    const sessionId = currentUser.id
+
     return (
       <div className="PostShowBackground">
         {post.author.full_name ? (
@@ -75,11 +80,11 @@ class PostShow extends React.Component {
                 if (user) {
                   userPhotoUrl = user.photoUrl;
                 }
-
+                
                 let commentor = post.commentors.find(
                   obj => obj.id == comment.author_id
                 );
-
+              //  debugger
                 return (
                   <div className="postShowComment">
                     <Link to={`/users/${commentor.id}`}>
@@ -93,6 +98,13 @@ class PostShow extends React.Component {
                         <p>{commentor.username}</p>
                       </Link>
                       <p>{comment.body}</p>
+                      {commentor.id === sessionId || post.author.id === sessionId ? (
+                        <div>
+                          <button>delete</button>
+                        </div>
+                      ) : (
+                        <div></div>
+                      )}
                     </div>
                   </div>
                 );
