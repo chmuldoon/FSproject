@@ -33,7 +33,7 @@ export class Comment extends Component {
           onClick={this.handleSubmit.bind(this)}
           type="submit"
         >
-          post
+          Post
         </button>
       </div>
     );
