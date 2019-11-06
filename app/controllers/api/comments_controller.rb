@@ -42,6 +42,7 @@ class Api::CommentsController < ApplicationController
 
   
   def comment_params
+    # debugger
     params.require(:comment).permit(:post_id, :author_id, :body)
   end
 end

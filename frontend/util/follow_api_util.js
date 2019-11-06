@@ -1,4 +1,4 @@
-export const creatFollow = follow => (
+export const createFollow = follow => (
   $.ajax({
     method: "POST",
     url: `/api/follows`,
@@ -12,7 +12,7 @@ export const fetchFollows = () => (
     url: `/api/follows`
   })
 )
-export const deleteFollows = followId => {
+export const deleteFollow = followId => {
   $.ajax({
     method: "DELETE",
     url: `/api/follows/${followId}`

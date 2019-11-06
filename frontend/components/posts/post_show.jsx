@@ -16,14 +16,14 @@ class PostShow extends React.Component {
     // this.props.fetchUsers();
   }
   
-  handleLike(e) {
-    // e.preventDefault();
-    if (this.props.post.hasLiked) {
-      this.props.deleteLike(this.props.post.id);
-    } else {
-      this.props.createLike(this.props.post.id);
-    }
-  }
+  // handleLike(e) {
+  //   // e.preventDefault();
+  //   if (this.props.post.hasLiked) {
+  //     this.props.deleteLike(this.props.post.id);
+  //   } else {
+  //     this.props.createLike(this.props.post.id);
+  //   }
+  // }
 
   render() {
     if (!this.props.post) {
@@ -112,7 +112,7 @@ class PostShow extends React.Component {
             </div>
             <div className="postShowLowerSection">
               <div className="Post-Like-Button">
-                {post.hasLiked ? (
+                {/* {post.hasLiked ? (
                   <div className="PostHeartDiv">
                     <svg
                       className="post-show-like"
@@ -148,7 +148,7 @@ class PostShow extends React.Component {
                       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                     </svg>
                   </div>
-                )}
+                )} */}
               </div>
               <p>
                 {post.likeCount === 0

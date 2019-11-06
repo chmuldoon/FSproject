@@ -15,7 +15,6 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import SplashContainer from "./splash/splash_container";
 import UserShowContainer from "./profile/user_show_container";
 import PostIndexContainer from "./posts/post_index_container";
-import LikeShowContainer from "./likes/like_show_container";
 import PostShowContainer from "./posts/post_show_container";
 import PostExploreContainer from "./posts/post_explore_container";
 
