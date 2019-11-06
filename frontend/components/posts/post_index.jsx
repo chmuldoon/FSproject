@@ -5,7 +5,7 @@ import IndexItemContainer from './index_item_container';
 class PostIndex extends React.Component {
 
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchPosts()
     // this.props.fetchUsers();
   }
 
@@ -15,7 +15,7 @@ class PostIndex extends React.Component {
     const posts = this.props.posts.map(post => {
       // debugger
       return (
-        <PostIndexItem
+        <IndexItemContainer
           key={post.id}
           post={post}
           // fetchPosts={this.props.fetchPosts}
