@@ -13,28 +13,28 @@ export class PostIndexItem extends Component {
 
   }
   // componentDidMount() {
-  //   // debugger
-  //   this.props.fetchPost(this.props.post.id)
+    // debugger
+    // this.props.fetchPost(this.props.post.id)
   // }
   // componentDidUpdate() {
-  //   // this.props.fetchPost(this.props.post.id)
+  //   this.props.fetchPost(this.props.post.id)
 
   // }
 
   update(field) {
     return (e) => {
       this.setState({ [field]: e.target.value });
-      // this.fetchPost
+      // this.fetchPost(this.props.post.id)
     }
   }
-  handleLike(e){
-    // e.preventDefault();
-    if (this.props.post.hasLiked){
-      this.props.deleteLike(this.props.post.id)
-    }else{
-      this.props.createLike(this.props.post.id) 
-    }
-  }
+  // handleLike(e){
+  //   // e.preventDefault();
+  //   if (this.props.post.hasLiked){
+  //     this.props.deleteLike(this.props.post.id)
+  //   }else{
+  //     this.props.createLike(this.props.post.id) 
+  //   }
+  // }
 
 
   render() {
@@ -119,7 +119,7 @@ export class PostIndexItem extends Component {
 
           </div>
         
-          <CommentContainer postId={post.id} post={post} />
+          {/* <CommentContainer postId={post.id} post={post} /> */}
         
         </div>
       </div>
