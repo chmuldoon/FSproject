@@ -26,7 +26,7 @@ const NavBar  = ({currentUser}) => {
           </div>
           <div className="navbar-right">
             <Link className="navbar-right-link" to={`/explore`}>
-              <i class="far fa-compass"></i>
+              <i className="far fa-compass"></i>
             </Link>
 
             <Link className="navbar-right-link" to={`/users/${currentUser.id}`}>

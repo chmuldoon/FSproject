@@ -11,17 +11,19 @@ class PostIndex extends React.Component {
 
   render() {
     // debugger
+    
     const posts = this.props.posts.map(post => {
+      // debugger
       return (
-        <IndexItemContainer
+        <PostIndexItem
           key={post.id}
           post={post}
-          fetchPosts={this.props.fetchPosts}
-          fetchPost={this.props.fetchPost}
-          createLike={this.props.createLike}
-          deleteLike={this.props.deleteLike}
-          createComment={this.props.createComment}
-          deleteComment={this.props.deleteComment}
+          // fetchPosts={this.props.fetchPosts}
+          // fetchPost={this.props.fetchPost}
+          // createLike={this.props.createLike}
+          // deleteLike={this.props.deleteLike}
+          // createComment={this.props.createComment}
+          // deleteComment={this.props.deleteComment}
         />
       );
       });

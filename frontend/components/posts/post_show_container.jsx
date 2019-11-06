@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
-import { fetchPost, deletePost, fetchPosts, createLike, deleteLike } from '../../actions/post_actions';
+import { fetchPost, deletePost, fetchPosts} from '../../actions/post_actions';
 import PostShow from './post_show';
 import { fetchUsers } from '../../actions/user_actions';
 import { deleteComment } from '../../actions/comment_actions';
+import { createLike, deleteLike } from '../../actions/like_actions';
 
 const mapStateToProps = (state, ownProps) => {
     const post = state.entities.posts[ownProps.match.params.postId]

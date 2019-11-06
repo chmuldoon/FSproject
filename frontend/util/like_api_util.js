@@ -15,22 +15,20 @@
 //     })
 //   )
 // };
-// export const createLike = like => {
-
-//   return (
-//     $.ajax({
-//       url: 'api/likes',
-//       method: 'POST',
-//       data: { like }
-//     })
-//   );
+export const createLike = like => {
+  return (
+    $.ajax({
+      method: 'POST',
+      url: 'api/likes',
+      data: { like }
+    })
+  );
     
-// };
+};
 
-// export const destroyLike = like =>{
-//   return $.ajax({
-//     url: `api/likes/${like.id}`,
-//     method: 'DELETE',
-//     data: { like } 
-//   });
-// };
+export const deleteLike = id =>{
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/likes/${id}`,
+  });
+};

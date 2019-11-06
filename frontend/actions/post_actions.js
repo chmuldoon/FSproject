@@ -24,14 +24,14 @@ export const deletePost = postId => dispatch => (
   PostApiUtil.deletePost(postId).then(post => dispatch(removePost(postId)))
 );
 
-export const createLike = post_id => dispatch => (
-  PostApiUtil.createLike(post_id).then(post => dispatch(receivePost(post)))
-);
+// export const createLike = post_id => dispatch => (
+//   PostApiUtil.createLike(post_id).then(post => dispatch(receivePost(post)))
+// );
 
 
-export const deleteLike = (post_id) => (dispatch) => (
-  PostApiUtil.deleteLike(post_id).then(post => dispatch(receivePost(post)))
-);
+// export const deleteLike = (post_id) => (dispatch) => (
+//   PostApiUtil.deleteLike(post_id).then(post => dispatch(receivePost(post)))
+// );
 
 // export const createComment = post_id => dispatch => (
 //   PostApiUtil.createComment(post_id).then(post => dispatch(receivePost(post)))

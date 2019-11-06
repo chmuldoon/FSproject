@@ -11,21 +11,6 @@ export const fetchPost = id => (
     url: `api/posts/${id}`
   })
 );
-export const createLike = (post_id) => (
-   $.ajax({
-    method: 'POST',
-    url: 'api/likes',
-    data: { like: { post_id, } }
-  })
-);
-
-export const deleteLike = (post_id) => {
-
-  return $.ajax({
-    method: 'DELETE',
-    url: `api/likes/${post_id}`
-  })
-};
 // export const createComment = (post_id) => (
 //    $.ajax({
 //     method: 'POST',
@@ -43,13 +28,13 @@ export const deleteLike = (post_id) => {
 // };
 
 
-// export const createPost = post => (
-//   $.ajax({
-//     url: 'api/posts',
-//     method: 'POST',
-//     data: { post }
-//   })
-// );
+export const createPost = post => (
+  $.ajax({
+    url: 'api/posts',
+    method: 'POST',
+    data: { post }
+  })
+);
 
 // export const updatePost = post => (
 //   $.ajax({
@@ -59,11 +44,11 @@ export const deleteLike = (post_id) => {
 //   })
 // );
 
-// export const deletePost = id => (
-//   $.ajax({
-//     url: `api/posts/${id}`,
-//     method: 'DELETE'
-//   })
-// );
+export const deletePost = id => (
+  $.ajax({
+    url: `api/posts/${id}`,
+    method: 'DELETE'
+  })
+);
 
 //
