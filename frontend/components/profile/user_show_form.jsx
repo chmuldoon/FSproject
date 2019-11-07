@@ -106,9 +106,10 @@ class UserShowForm extends Component {
 
           <div className="notPicture">
             <div className="profileInfo">
-              <p className="name">{this.props.profile.username}</p>
+              {/* <p className="name">{this.props.profile.username}</p> THIS WILL BE PUT INTO FOLLOW*/}
               {this.props.currentUser.id === this.props.profile.id ? (
-                <div>{logStatus}</div>
+                <div></div>
+                // {logStatus} add this after follows are fixed
               ) : (
                 
                 
@@ -118,7 +119,7 @@ class UserShowForm extends Component {
               )}
             </div>
 
-            <div className="profileStats">
+            {/* <div className="profileStats">
               {this.props.profile.posts === undefined ? (
                 <div className="Stat">
                   <p className="profileBioDetail">0 </p>
@@ -144,7 +145,7 @@ class UserShowForm extends Component {
                 </p>
                 <p> following</p>
               </div>
-            </div>
+            </div> */}
 
             <div className="profileBio">
               <p className="profileBioDetail">{this.props.profile.full_name}</p>

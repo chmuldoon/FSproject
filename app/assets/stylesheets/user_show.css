@@ -82,6 +82,9 @@
 }
 
 .profileInfo {
+  height: 150px;
+  width: 400px;
+  background-color: green;
   display: flex;
   flex-wrap: wrap;
 }
