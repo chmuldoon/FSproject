@@ -7,9 +7,9 @@ import { createComment, deleteComment, fetchComments } from '../../actions/comme
 const mapStateToProps = state => {
   let currentUser = state.entities.users[state.session.id];
 
-  let followingIds = currentUser.followings.map(
-    following => following.id
-  );
+  // let followingIds = currentUser.followings.map(
+  //   following => following.id
+  // );
 
   return {
     posts: Object.values(state.entities.posts)

@@ -11,6 +11,12 @@ class UserShowForm extends Component {
     // this.props.profile.passive_follows.filter(follow => follow.follower_id === this.props.currentUser.id).id
     
   }
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+      // this.fetchPost(this.props.post.id)
+    }
+  }
 
 
   componentDidMount() {
@@ -18,6 +24,10 @@ class UserShowForm extends Component {
     this.props.fetchPosts();
     this.props.fetchFollows();
   };
+  componentDidUpdate() {
+    // this.props.fetchUser(this.props.match.params.userId);
+
+  }
 
   handleLogout(e) {
     e.preventDefault();
@@ -103,7 +113,7 @@ class UserShowForm extends Component {
                 
                 
                 <div className="follow-Button">
-                  <FollowContainer/>
+                  <FollowContainer user={this.props.profile} userId={this.props.profile.id}/>
                 </div>
               )}
             </div>
@@ -124,13 +134,13 @@ class UserShowForm extends Component {
               )}
               <div className="Stat">
                 <p className="profileBioDetail">
-                  {this.props.profile.followers.length}{" "}
+                  {this.props.profile.passive_follows.length}
                 </p>
                 <p className="StatWord"> followers</p>
               </div>
               <div className="Stat">
                 <p className="profileBioDetail">
-                  {this.props.profile.followings.length}{" "}
+                  {this.props.profile.active_follows.length}{" "}
                 </p>
                 <p> following</p>
               </div>

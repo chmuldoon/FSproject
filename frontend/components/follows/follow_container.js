@@ -9,12 +9,13 @@ const mapStateToProps = (state, ownProps) => {
   let targetId = parseInt(ownProps.match.params.userId);
   let target_follows =state.entities.users[targetId].passive_follows;
   let follow_status = state.entities.users[targetId].hasFollowed;
-
+  let currentUser = state.entities.users[state.session.id];
+  let userId = ownProps.userId
   return {
-    follower_id: state.session.id,
-    target_id: targetId,
-    target_follows,
-    follow_status
+    currentUser,
+    user: ownProps.user,
+    targetId,
+    userId
   };
   
 };

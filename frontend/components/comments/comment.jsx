@@ -7,10 +7,10 @@ export class Comment extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
   }
-  componentDidMount(){
-    this.props.fetchComments()
+  // componentDidMount(){
+  //   this.props.fetchComments()
 
-  }
+  // }
   update(field) {
     return e => this.setState({
       [field]: e.target.value

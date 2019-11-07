@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import CommentContainer from "../comments/comment_container";
+import LikeContainer from "../likes/like_container";
 
 
 
@@ -8,6 +9,9 @@ import CommentContainer from "../comments/comment_container";
 class PostShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      body: ""
+    };
     this.currentUser = this.props.currentUser;
   }
   componentDidMount() {
@@ -15,7 +19,7 @@ class PostShow extends React.Component {
     this.props.fetchUsers();
     // this.props.fetchUsers();
   }
-  
+
   // handleLike(e) {
   //   // e.preventDefault();
   //   if (this.props.post.hasLiked) {
@@ -24,6 +28,12 @@ class PostShow extends React.Component {
   //     this.props.createLike(this.props.post.id);
   //   }
   // }
+  update(field) {
+    return e => {
+      this.setState({ [field]: e.target.value });
+      // this.fetchPost(this.props.post.id)
+    };
+  }
 
   render() {
     if (!this.props.post) {
@@ -34,7 +44,7 @@ class PostShow extends React.Component {
     let currentUser = this.props.currentUser;
     let users = Object.values(this.props.users);
     let post = this.props.post;
-    const sessionId = currentUser.id
+    const sessionId = currentUser.id;
 
     return (
       <div className="PostShowBackground">
@@ -80,11 +90,11 @@ class PostShow extends React.Component {
                 if (user) {
                   userPhotoUrl = user.photoUrl;
                 }
-                
+
                 let commentor = post.commentors.find(
                   obj => obj.id == comment.author_id
                 );
-              //  debugger
+                //  debugger
                 return (
                   <div className="postShowComment">
                     <Link to={`/users/${commentor.id}`}>
@@ -98,7 +108,8 @@ class PostShow extends React.Component {
                         <p>{commentor.username}</p>
                       </Link>
                       <p>{comment.body}</p>
-                      {commentor.id === sessionId || post.author.id === sessionId ? (
+                      {commentor.id === sessionId ||
+                      post.author.id === sessionId ? (
                         <div>
                           <button>delete</button>
                         </div>
@@ -112,43 +123,7 @@ class PostShow extends React.Component {
             </div>
             <div className="postShowLowerSection">
               <div className="Post-Like-Button">
-                {/* {post.hasLiked ? (
-                  <div className="PostHeartDiv">
-                    <svg
-                      className="post-show-like"
-                      onClick={this.handleLike.bind(this)}
-                      className="heart-full"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 28 28"
-                      fill="red"
-                      stroke="red"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      data-reactid="641"
-                    >
-                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                    </svg>
-                  </div>
-                ) : (
-                  <div className="PostHeartDiv">
-                    <svg
-                      className="post-show-like"
-                      onClick={this.handleLike.bind(this)}
-                      className="heart-empty"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 28 28"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      data-reactid="641"
-                    >
-                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                    </svg>
-                  </div>
-                )} */}
+                <LikeContainer post={post} postId={post.id} />
               </div>
               <p>
                 {post.likeCount === 0

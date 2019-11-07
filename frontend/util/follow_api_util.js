@@ -12,9 +12,9 @@ export const fetchFollows = () => (
     url: `/api/follows`
   })
 )
-export const deleteFollow = followId => {
-  $.ajax({
+export const deleteFollow = id => {
+  return $.ajax({
     method: "DELETE",
-    url: `/api/follows/${followId}`
+    url: `api/follows/${id}`
   });
 };

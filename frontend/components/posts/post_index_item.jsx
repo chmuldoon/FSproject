@@ -38,10 +38,7 @@ export class PostIndexItem extends Component {
 
 
   render() {
-    // debugger
     const {post} = this.props
-    // debugger
-
     let comments;
     post.comments.length > 2 ? 
     comments = [ post.comments[0], post.comments[post.comments.length - 1]]
@@ -60,17 +57,6 @@ export class PostIndexItem extends Component {
         </div>
       );
     });
-      // return (
-      //   <div>
-      //     <Link className="extraDetailName" to={`/users/${comment.author_id}`}>
-      //       {username}
-      //     </Link>
-      //     <p>{comment.body}</p>
-      //   </div>
-      // );
-    
-    
-
     return (
       <div className="photoInIndex">
         <div className="photoUpperIndexContent">
@@ -96,7 +82,7 @@ export class PostIndexItem extends Component {
                 <img src="https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg"/>
               </Link>
             </div>
-            <p>{post.likeCount === 1 ? "1 like" : `${post.likeCount} likes`}</p>
+            <p>{post.likes.length === 1 ? "1 like" : `${post.likes.length} likes`}</p>
           </div>
           <div className="GreaterCommentSection">
           <div className="commentSection">
@@ -119,7 +105,7 @@ export class PostIndexItem extends Component {
 
           </div>
         
-          {/* <CommentContainer postId={post.id} post={post} /> */}
+          <CommentContainer postId={post.id} post={post} />
         
         </div>
       </div>
