@@ -5,9 +5,9 @@ import PostExplore from "./post_explore";
 
 const mapStateToProps = state => {
   let currentUser = state.entities.users[state.session.id];
-  let followingIds = currentUser.followings.map(
-    following => following.id
-  );
+  // let followingIds = currentUser.followings.map(
+  //   following => following.id
+  // );
 
   return {
     currentUser,

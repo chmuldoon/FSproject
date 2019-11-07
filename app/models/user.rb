@@ -25,14 +25,14 @@ class User < ApplicationRecord
     foreign_key: :target_id
  
 
-  has_many :followings, 
-    through: :active_follows,
-    source: :following
+  # has_many :followings, 
+  #   through: :active_follows,
+  #   source: :following
  
 
-  has_many :followers, 
-    through: :passive_follows, 
-    source: :follower
+  # has_many :followers, 
+  #   through: :passive_follows, 
+  #   source: :follower
 
   has_many :comments,
     foreign_key: :author_id,

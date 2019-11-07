@@ -24,13 +24,17 @@ class Api::FollowsController < ApplicationController
   end 
 
   def destroy
-    @follow = Follow.find_by(follower_id: current_user.id, target_id: params[:id])
-    @follow.destroy
-    @user = @follow.following
-    render :show
+
+    @follow = Follow.find(params[:id])
+    # debugger
+    if @follow.destroy
+      render :show
+    else
+      render :json, @follow.errors.full_messages, status: 422
+    end
   end
 
-
+  private
   def follow_params
     params.require(:follow).permit(:target_id, :follower_id)
   end

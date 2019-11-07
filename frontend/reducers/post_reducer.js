@@ -9,6 +9,7 @@ import {
   REMOVE_LIKE 
 } from "../actions/like_actions";
 
+import { RECEIVE_COMMENT } from '../actions/comment_actions';
 import merge from 'lodash/merge';
 
 const postsReducer = (oldState = {}, action) => {
@@ -33,7 +34,10 @@ const postsReducer = (oldState = {}, action) => {
     case REMOVE_POST:
       delete newState[action.postId]
       return newState
-    
+    case RECEIVE_COMMENT:
+      const post = Object.values(newState).filter(post => post.id === action.comment.post_id)[0];
+      post.comments.push(action.comment);
+      return newState
     default:
       return oldState;
   }

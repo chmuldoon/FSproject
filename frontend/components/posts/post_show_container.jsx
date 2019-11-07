@@ -6,8 +6,8 @@ import { deleteComment } from '../../actions/comment_actions';
 import { createLike, deleteLike } from '../../actions/like_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    const post = state.entities.posts[ownProps.match.params.postId]
-    const currentUser = state.entities.users[state.session.id];
+  const post = state.entities.posts[parseInt(ownProps.match.params.postId)]
+  const currentUser = state.entities.users[state.session.id];
   return {
     currentUser,
     post,

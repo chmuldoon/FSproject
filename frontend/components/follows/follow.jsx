@@ -3,37 +3,44 @@ import React, { Component } from 'react'
 export class Follow extends Component {
   constructor(props){
     super(props)
+    // debugger
     this.follow = this.follow.bind(this);
     this.unfollow = this.unfollow.bind(this);
 
 
   }
-  componentDidMount(){
-  
-    this.props.fetchFollows
-  }
 
   follow(e) {
-    this.props.createFollow({follower_id: this.props.follower_id, target_id: this.props.target_id})
+    e.preventDefault();
+    // debugger
+    this.props.createFollow({target_id: this.props.user.id})
   }
   unfollow(e) {
-    this.props.deleteFollow(Object.values(this.props.target_follows).filter(follow => follow.follower_id === this.props.currentUser.id && follow.target_id === this.props.targetId));
+    e.preventDefault();
+    debugger
+    this.props.deleteFollow(this.props.user.id)
   }
   render() {
-    if (this.props.follow_status) {
+    let {user} = this.props
+    let follow;
+
+    follow = 
+      this.props.user.passive_follows.filter(
+        follower => follower.follower_id === this.props.currentUser.id
+      ).length === 0 ? (
+        <div>
+          <button className="followButton" onClick={this.follow}>follow</button>
+        </div>
+      ) : (
+        <div>
+          <button className="followButton" onClick={this.unfollow}>unfollow</button>
+        </div>
+      );
       return (
         <div>
-          <button onClick={this.unfollow}>unfollow</button>
+          {follow}
         </div>
-      )
-    } else {
-      return (
-        <div>
-          <button onClick={this.follow}>follow</button>
-        </div>
-      )
-    }
-    
+      );
   }
 }
 

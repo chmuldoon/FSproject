@@ -1,4 +1,4 @@
-json.extract! user, :id, :username, :email, :full_name, :likes, :followings, :followers, :active_follows, :passive_follows
+json.extract! user, :id, :username, :email, :full_name, :likes, :active_follows, :passive_follows
 json.photoUrl url_for(user.profilepic)
 json.extract! user.active_follows
 json.extract! user.passive_follows
