@@ -22,9 +22,8 @@ export const createComment = comment => dispatch => (
   .then(comment => dispatch(receiveComment(comment)))
 );
 
-export const fetchComments = () => dispatch => (
-  CommentApiUtil.fetchComments()
-  .then(comments => dispatch(receiveAllComments(comments)))
+export const fetchAllComments = () => dispatch => (
+  CommentApiUtil.fetchAllComments().then(comments => dispatch(receiveAllComments(comments)))
 );
 
 export const deleteComment = commentId => dispatch => (

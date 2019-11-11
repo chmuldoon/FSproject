@@ -5,12 +5,7 @@ import {
   RECEIVE_ALL_USERS,
   RECEIVE_FOLLOWS
 } from "../actions/user_actions";
-
-import { 
-  REMOVE_FOLLOW, 
-  RECEIVE_FOLLOW 
-} from '../actions/follow_actions';
-
+import { RECEIVE_FOLLOW, REMOVE_FOLLOW } from '../actions/follow_actions';
 
 
 
@@ -25,19 +20,7 @@ const usersReducer = (state ={}, action) => {
       return merge({}, state, action.users);
     case RECEIVE_USER:
       return merge({}, state, {[action.user.id]: action.user});   
-    // case RECEIVE_FOLLOW:
-    //   Object.values(newState).forEach(user => { if (user.id === action.follow.target_id) { user.follows.push({ follower_id: action.follow.follower_id }) } })
-    //   return newState;
 
-    // case REMOVE_FOLLOW:
-    //   Object.values(newState).forEach(user => { 
-    //     debugger
-    //     if (user.id === action.follow.target_id) { 
-    //       user.follows.pop({ follower_id: action.follow.follower_id }) 
-    //     } 
-    //   })
-    //   return newState;
-  
     default:
 
       return state;

@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import PostIndex from './post_index';
 import { fetchPosts, createLike, deleteLike, fetchPost  } from '../../actions/post_actions';
 import { fetchUsers } from '../../actions/user_actions';
-import { createComment, deleteComment, fetchComments } from '../../actions/comment_actions';
+import { createComment, deleteComment, fetchAllComments } from '../../actions/comment_actions';
+import { fetchAllFollows } from '../../actions/follow_actions';
 
 const mapStateToProps = state => {
   let currentUser = state.entities.users[state.session.id];
@@ -12,7 +13,8 @@ const mapStateToProps = state => {
   // );
 
   return {
-    posts: Object.values(state.entities.posts)
+    posts: Object.values(state.entities.posts),
+    follows: Object.values(state.entities.follows)
     // .filter(post =>
     //   followingIds.includes(post.author.id)
     // )
@@ -23,8 +25,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(fetchPosts()),
+  fetchAllComments: () => dispatch(fetchAllComments()),
+
   // fetchPost: (id) => dispatch(fetchPost(id)),
-  // // fetchUsers: () => dispatch(fetchUsers())
+  fetchUsers: () => dispatch(fetchUsers()),
+  fetchAllFollows: () => dispatch(fetchAllFollows())
+
   // createLike: post_id => dispatch(createLike(post_id)),
   // deleteLike: post_id => dispatch(deleteLike(post_id)),
   // createComment: post_id => dispatch(createComment(post_id)),

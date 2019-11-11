@@ -2,33 +2,35 @@ import { connect } from 'react-redux';
 import React from 'react';
 import UserShowForm  from './user_show_form';
 import { fetchUser, fetchUsers } from '../../actions/user_actions';
-import { fetchFollows } from "../../actions/follow_actions";
+import { fetchAllFollows, createFollow, deleteFollow } from "../../actions/follow_actions";
 
 import { logout } from '../../actions/session_actions';
 import { fetchPosts } from '../../actions/post_actions';
-
 const msp = (state, ownProps) => {
 
   let currentUser = state.entities.users[state.session.id];
-  
+  // debugger
   let profile = state.entities.users[parseInt(ownProps.match.params.userId)];
   // debugger
   return ({
-    
+    users: Object.values(state.entities.users), 
+    follows: Object.values(state.entities.follows),
     currentUser,
     profile,
   })
  
 }
-const mdp = (dispatch, ownProps) =>({
+const mdp = dispatch => ({
     logout: () => dispatch(logout()),
     fetchUser: (id) => dispatch(fetchUser(id)),
+    fetchUsers: () => dispatch(fetchUsers()),
+
     fetchPosts: () => dispatch(fetchPosts()),
     fetchUsers: () => dispatch(fetchUsers()),
-    fetchFollows: () => dispatch(fetchFollows()),
+    fetchAllFollows: () => dispatch(fetchAllFollows()),
     
-    createFollow: (target_id) => dispatch(createFollow(target_id)),
-    deleteFollow: (target_id) => dispatch(deleteFollow(target_id))
+    // createFollow: (target_id) => dispatch(createFollow(target_id)),
+    // deleteFollow: (target_id) => dispatch(deleteFollow(target_id))
 });
 
 

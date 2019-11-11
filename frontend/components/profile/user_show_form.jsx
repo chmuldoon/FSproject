@@ -20,9 +20,11 @@ class UserShowForm extends Component {
 
 
   componentDidMount() {
+    this.props.fetchUsers();
     this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchAllFollows();
     this.props.fetchPosts();
-    this.props.fetchFollows();
+  
   };
   componentDidUpdate() {
     // this.props.fetchUser(this.props.match.params.userId);
@@ -40,6 +42,7 @@ class UserShowForm extends Component {
       return [];
     }
     //lets work on this
+    // debugger
     let logStatus;
     if (this.props.profile.id === this.props.currentUser.id) {
 
@@ -84,7 +87,7 @@ class UserShowForm extends Component {
 
       
     
-
+    // debugger
     return (
       <div className="userShow">
         {this.props.profile.full_name ? (
@@ -106,46 +109,12 @@ class UserShowForm extends Component {
 
           <div className="notPicture">
             <div className="profileInfo">
-              {/* <p className="name">{this.props.profile.username}</p> THIS WILL BE PUT INTO FOLLOW*/}
-              {this.props.currentUser.id === this.props.profile.id ? (
-                <div></div>
-                // {logStatus} add this after follows are fixed
-              ) : (
-                
-                
-                <div className="follow-Button">
-                  <FollowContainer user={this.props.profile} userId={this.props.profile.id}/>
-                </div>
-              )}
+              <p className="name">{this.props.profile.username}</p> 
+              
+              <FollowContainer users={this.props.users} user={this.props.profile} userId={this.props.profile.id} follows={this.props.follows}/>
+                  
             </div>
-
-            {/* <div className="profileStats">
-              {this.props.profile.posts === undefined ? (
-                <div className="Stat">
-                  <p className="profileBioDetail">0 </p>
-                  <p>posts</p>
-                </div>
-              ) : (
-                <div className="Stat">
-                  <p className="profileBioDetail">
-                    {Object.keys(this.props.profile.posts).length}{" "}
-                  </p>
-                  <p className="StatWord">posts</p>
-                </div>
-              )}
-              <div className="Stat">
-                <p className="profileBioDetail">
-                  {this.props.profile.passive_follows.length}
-                </p>
-                <p className="StatWord"> followers</p>
-              </div>
-              <div className="Stat">
-                <p className="profileBioDetail">
-                  {this.props.profile.active_follows.length}{" "}
-                </p>
-                <p> following</p>
-              </div>
-            </div> */}
+            
 
             <div className="profileBio">
               <p className="profileBioDetail">{this.props.profile.full_name}</p>
