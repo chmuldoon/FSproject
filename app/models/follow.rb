@@ -1,7 +1,7 @@
 class Follow < ApplicationRecord
   # validates :follower_id, :target_id, presence: true
   # validates :follower_id, uniqueness: { scope: :target_id}
-  belongs_to :following,
+  belongs_to :target,
     class_name: :User,
     foreign_key: :target_id
 

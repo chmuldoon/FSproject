@@ -1,9 +1,9 @@
-export const fetchAllFollows = () => (
-  $.ajax({
-    method: "POST",
+export const fetchAllFollows = () => {
+  return $.ajax({
+    method: "GET",
     url: `/api/follows`
-  })
-)
+  });
+};
 export const fetchFollow = (id) => {
   return (
     $.ajax({

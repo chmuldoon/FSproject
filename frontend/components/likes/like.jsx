@@ -19,7 +19,7 @@ export class Like extends Component {
   render() {
     let {post} = this.props
     let like;
-    debugger
+    // debugger
     
     like =
       this.props.post.likes.filter(

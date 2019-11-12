@@ -5,12 +5,20 @@ export const createComment = (comment) => (
     data: { comment }
   })
 )
-export const fetchComments = () => (
+export const fetchAllComments = () => (
   $.ajax({
-    method: "POST",
+    method: "GET",
     url: `/api/comments`
   })
 )
+export const fetchComment = (id) => {
+  return (
+    $.ajax({
+      url: `/api/comments/${id}`,
+      method: "GET"
+    })
+  );
+};
 export const deleteComment = (commentId) => {
   $.ajax({
     method: "DELETE",

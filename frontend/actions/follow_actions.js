@@ -18,14 +18,18 @@ const removeFollow = follow => ({
   followId: follow.id,
 });
 
-export const createFollow = follow => dispatch =>
-  FollowApiUtil.createFollow(follow).then(follow =>
-    dispatch(receiveFollow(follow))
-  );
+export const createFollow = follow => dispatch => (
+  FollowApiUtil.createFollow(follow)
+  .then(follow => dispatch(receiveFollow(follow)))
+);
 
-export const fetchAllFollows = () => dispatch =>
-  FollowApiUtil.fetchAllFollows().then(follows =>
-    dispatch(receiveAllFollows(follows))
+export const fetchAllFollows = () => dispatch => (
+  FollowApiUtil.fetchAllFollows()
+  .then(follows => dispatch(receiveAllFollows(follows)))
+);
+export const fetchFollow = (follow) => dispatch =>
+  FollowApiUtil.fetchFollow(follow).then(follow =>
+    dispatch(receiveFollow(follow))
   );
 
 export const deleteFollow = followId => dispatch => (

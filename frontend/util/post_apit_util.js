@@ -11,22 +11,6 @@ export const fetchPost = id => (
     url: `api/posts/${id}`
   })
 );
-// export const createComment = (post_id) => (
-//    $.ajax({
-//     method: 'POST',
-//     url: 'api/comments',
-//     data: { comment: { post_id, } }
-//   })
-// );
-
-// export const deleteComment = (post_id) => {
-
-//   return $.ajax({
-//     method: 'DELETE',
-//     url: `api/comments/${post_id}`
-//   })
-// };
-
 
 export const createPost = post => (
   $.ajax({
@@ -35,14 +19,6 @@ export const createPost = post => (
     data: { post }
   })
 );
-
-// export const updatePost = post => (
-//   $.ajax({
-//     url: `api/posts/${post.id}`,
-//     method: 'PATCH',
-//     data: { post }
-//   })
-// );
 
 export const deletePost = id => (
   $.ajax({

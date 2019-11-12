@@ -3,9 +3,19 @@ import PostIndexItem from './post_index_item';
 import IndexItemContainer from './index_item_container';
 
 class PostIndex extends React.Component {
-
+  constructor(props) {
+    super(props);
+   
+  }
   componentDidMount() {
     this.props.fetchPosts()
+    this.props.fetchUsers()
+    debugger
+    this.props.fetchAllFollows()
+    this.props.fetchAllComments()
+
+
+
     // this.props.fetchUsers();
   }
 

@@ -12,14 +12,6 @@ export const fetchUser = id => dispatch => (
 export const fetchUsers = () => dispatch => (
   UserApiUtil.fetchUsers().then(users => dispatch(receiveAllUsers(users)))
 );
-// export const fetchFollows = () => dispatch => (
-//   UserApiUtil.fetchFollows().then(follows => dispatch(receiveFollows(follows)))
-// )
-
-// const receiveFollows = follows => ({
-//   type: RECEIVE_FOLLOWS,
-//   follows
-// });
 
 const receiveAllUsers = users => ({
   type: RECEIVE_ALL_USERS,
@@ -30,14 +22,6 @@ const receiveUser = user => ({
   user
 });
 
-// export const createFollow = (target_id) => dispatch => (
-//   UserApiUtil.createFollow(target_id).then(user => dispatch(receiveUser(user)))
-// );
-
-
-// export const deleteFollow = (target_id) => (dispatch) => (
-//   UserApiUtil.deleteFollow(target_id).then(user => dispatch(receiveUser(user)))
-// );
 
 
 

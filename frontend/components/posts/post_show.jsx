@@ -14,6 +14,7 @@ class PostShow extends React.Component {
     };
     this.currentUser = this.props.currentUser;
   }
+  
   componentDidMount() {
     this.props.fetchPosts();
     this.props.fetchUsers();

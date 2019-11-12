@@ -10,7 +10,6 @@ const rootReducer = combineReducers({
   entities,
   session,
   errors,
-  posts,
 });
 
 export default rootReducer;
