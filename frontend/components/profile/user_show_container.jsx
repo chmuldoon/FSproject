@@ -23,7 +23,7 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => ({
     logout: () => dispatch(logout()),
     fetchUser: (id) => dispatch(fetchUser(id)),
-    fetchUsers: () => dispatch(fetchUsers()),
+    // fetchUsers: () => dispatch(fetchUsers()),
 
     fetchPosts: () => dispatch(fetchPosts()),
     fetchUsers: () => dispatch(fetchUsers()),
