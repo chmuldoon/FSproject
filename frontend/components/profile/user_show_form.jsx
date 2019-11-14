@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import FollowContainer from '../follows/follow_container';
+import PostShowContainer from '../posts/post_show_container';
 
 class UserShowForm extends Component {
   constructor(props){
@@ -9,7 +10,7 @@ class UserShowForm extends Component {
     super(props)
     // debugger
     // this.props.profile.passive_follows.filter(follow => follow.follower_id === this.props.currentUser.id).id
-    
+    // this.handlePostShow = this.handlePostShow.bind(this);
   }
   update(field) {
     return (e) => {
@@ -21,15 +22,27 @@ class UserShowForm extends Component {
 
   componentDidMount() {
     // this.props.fetchUsers();
+    this.props.fetchUsers();
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchAllFollows();
     this.props.fetchPosts();
+    this.props.fetchAllComments();
   
   };
-  componentDidUpdate() {
-    // this.props.fetchUser(this.props.match.params.userId);
+  // componentDidUpdate() {
+  //   // this.props.fetchUser(this.props.match.params.userId);
 
-  }
+  // }
+  // handlePostShow(post) {
+  //   // e.preventDefault();
+  //   let wow;
+  //   debugger
+  //   wow = post.id;
+  //   $(".semi-modal-test")
+  //     .addClass("modal-test")
+  //     .append(`<${PostShowContainer}>` + `currentUser={${this.props.currentUser}}` + `post={${post}}` + `users={${this.props.users}}` + `<${PostShowContainer}/>`);
+  //   // return true}
+  // }
 
   handleLogout(e) {
     e.preventDefault();
@@ -71,15 +84,27 @@ class UserShowForm extends Component {
         </div>
       )
     }else{
-      
+      debugger
       display = (
         this.props.profile.posts && Object.values(this.props.profile.posts).map(post => {
+          // debugger
+          // debugger
           return (
-              // <div className="post-preview">
-                <Link className="profile-post-link" to={`/posts/${post.id}`}>
-                  <img width="275px" height="275px" src={post.photo} />
-                </Link>
-              // </div>
+            <div className="post-preview">
+              {/* <Link className="profile-post-link" to={`/posts/${post.id}`}>
+            </Link> */}
+              <div
+                className="profile-post-link"
+                onClick={() => this.props.openShowModal('postShow', post)}
+              >
+                <img width="275px" height="275px" src={post.photo} />
+              </div>
+              {/* <div
+                className="profile-post-link"
+                onClick={this.handlePostShow(post.id)}
+              >
+              </div> */}
+            </div>
           );
         })
       )
@@ -109,12 +134,42 @@ class UserShowForm extends Component {
 
           <div className="notPicture">
             <div className="profileInfo">
-              <p className="name">{this.props.profile.username}</p> 
-              
-              <FollowContainer users={this.props.users} user={this.props.profile} userId={this.props.profile.id} follows={this.props.follows}/>
-                  
+              <p className="name">{this.props.profile.username}</p>
+
+              <FollowContainer
+                users={this.props.users}
+                user={this.props.profile}
+                userId={this.props.profile.id}
+                follows={this.props.follows}
+              />
+              <div className="profileStats">
+                {this.props.profile.posts === undefined ? (
+                  <div className="Stat">
+                    <p className="profileBioDetail">0 </p>
+                    <p>posts</p>
+                  </div>
+                ) : (
+                  <div className="Stat">
+                    <p className="profileBioDetail">
+                      {Object.keys(this.props.profile.posts).length}{" "}
+                    </p>
+                    <p className="StatWord">posts</p>
+                  </div>
+                )}
+                <div className="Stat">
+                  <p className="profileBioDetail">
+                    {this.props.profile.passive_follows.length}
+                  </p>
+                  <p className="StatWord"> followers</p>
+                </div>
+                <div className="Stat">
+                  <p className="profileBioDetail">
+                    {this.props.profile.active_follows.length}{" "}
+                  </p>
+                  <p> following</p>
+                </div>
+              </div>
             </div>
-            
 
             <div className="profileBio">
               <p className="profileBioDetail">{this.props.profile.full_name}</p>
@@ -131,6 +186,7 @@ class UserShowForm extends Component {
         <div className="profile-posts-div">
           <div className="profile-posts">{display}</div>
         </div>
+        <div className="semi-modal-test"></div>
       </div>
     );
   }
