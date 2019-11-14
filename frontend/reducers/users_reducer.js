@@ -15,14 +15,38 @@ const usersReducer = (state ={}, action) => {
 
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return Object.assign({}, state, {[action.currentUser.id]: action.currentUser});
+      return Object.assign({}, state, {
+        [action.currentUser.id]: action.currentUser
+      });
     case RECEIVE_ALL_USERS:
       return merge({}, state, action.users);
     case RECEIVE_USER:
-      return merge({}, state, {[action.user.id]: action.user});   
+      return merge({}, state, { [action.user.id]: action.user });
+    case RECEIVE_FOLLOW:
+      // debugger
+      Object.values(newState).forEach(user => {
+        if (user.id === action.follow.target_id) {
+          user.passive_follows.push(action.follow);
+        }
+      });
+      return newState;
+    case REMOVE_FOLLOW:
+      // debugger
+      Object.values(newState).forEach(user => {
+        // debugger
+        if (user.passive_follows.length > 0) {
+          let follow = user.passive_follows.filter(
+            follower => follower.id === action.followId
+          );
+          if (follow) {
+            user.passive_follows.pop(follow);
+          }
+        }
+      });
+      // debugger
+      return newState;
 
     default:
-
       return state;
   }
 };

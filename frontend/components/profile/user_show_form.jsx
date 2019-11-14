@@ -20,7 +20,7 @@ class UserShowForm extends Component {
 
 
   componentDidMount() {
-    this.props.fetchUsers();
+    // this.props.fetchUsers();
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchAllFollows();
     this.props.fetchPosts();

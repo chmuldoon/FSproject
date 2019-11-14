@@ -6,12 +6,22 @@ export class Follow extends Component {
     this.fetchFollow = this.fetchFollow.bind(this);
     this.following = this.following.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    // this.state = {
+    //   followed: null
+    // }
 
     // debugger
     // this.follow = this.follow.bind(this);
     // this.unfollow = this.unfollow.bind(this);
 
-
+  
+  }
+  componentDidUpdate(prevProps, nextProps){
+    // debugger
+    if(this.props.user.passive_follows !== prevProps.user.passive_follows){
+      // debugger
+      // this.props.fetchUser(this.props.userId)
+    }
   }
   // fetchFollow() {
   //   const followerId = this.props.currentUserId;
@@ -82,70 +92,103 @@ export class Follow extends Component {
     if (this.following(follow.target_id)) {
       const followId = this.fetchFollow(follow.target_id);
       this.props.deleteFollow(followId);
-      this.props.user.passive_follows
-      this.forceUpdate()
+      // this.props.user.passive_follows
+      // this.setState({followed: 0})
+      // this.forceUpdate()
     } else {
       this.props.createFollow(follow);
-      this.forceUpdate()
+      // this.setState({ followed: 1 })
+
+      // this.forceUpdate()
     }
-    debugger
-    this.forceUpdate()
+    
+    // this.forceUpdate()
   }
 
   render() {
-    debugger
-    let follow;
+    if(this.props.user === undefined){
+      return [];
+    }
+    // debugger
+    let followButton;
     let {user, userId, currentUserId} = this.props
-    let following = this.following(userId)
 
-    follow = 
-      following ? (
+
+    followButton =
+      this.props.user.passive_follows.filter(
+        follower => follower.follower_id === this.props.currentUserId
+      ).length === 0 ? (
         <div>
-          {/* <button>{this.props.follows.length}</button> */}
-        <button className="followButton" onClick={this.handleClick.bind(this)}>unfollow</button>
+          <button
+            className="followButton"
+            onClick={this.handleClick.bind(this)}
+          >
+            follow
+          </button>
+          {/* {profileStats} */}
         </div>
       ) : (
         <div>
-          <button className="followButton" onClick={this.handleClick.bind(this)}>follow</button>
+          {/* <button>{this.props.follows.length}</button> */}
+          <button
+            className="followButton"
+            onClick={this.handleClick.bind(this)}
+          >
+            unfollow
+          </button>
         </div>
       );
+
       if (userId === currentUserId) {
-        follow = (
+        currentUserOpt = (
           <button onClick={this.handleLogout.bind(this)}>Log out</button>
         );
       } 
-      return (
-        <div>
-          {follow}
-          <div className="profileStats">
-            {this.props.user.posts === undefined ? (
-              <div className="Stat">
-                <p className="profileBioDetail">0 </p>
-                <p>posts</p>
-              </div>
-            ) : (
-                <div className="Stat">
-                  <p className="profileBioDetail">
-                    {Object.keys(this.props.user.posts).length}{" "}
-                  </p>
-                  <p className="StatWord">posts</p>
-                </div>
-              )}
+      
+      let profileStats = (
+        <div className="profileStats">
+          {this.props.user.posts === undefined ? (
+            <div className="Stat">
+              <p className="profileBioDetail">0 </p>
+              <p>posts</p>
+            </div>
+          ) : (
             <div className="Stat">
               <p className="profileBioDetail">
-                {this.props.user.passive_follows.length}
+                {Object.keys(this.props.user.posts).length}{" "}
               </p>
-              <p className="StatWord"> followers</p>
+              <p className="StatWord">posts</p>
             </div>
-            <div className="Stat">
-              <p className="profileBioDetail">
-                {this.props.user.active_follows.length}{" "}
-              </p>
-              <p> following</p>
-            </div>
+          )}
+          <div className="Stat">
+            <p className="profileBioDetail">
+              {this.props.user.passive_follows.length}
+            </p>
+            <p className="StatWord"> followers</p>
+          </div>
+          <div className="Stat">
+            <p className="profileBioDetail">
+              {this.props.user.active_follows.length}{" "}
+            </p>
+            <p> following</p>
           </div>
         </div>
       );
+      if (userId !== currentUserId){
+        return (
+          <div>
+            {followButton}
+            {profileStats}
+          </div>
+        )
+      }else{
+        return (
+          <div>
+            {currentUserOpt}
+            {profileStats}
+          </div>
+        )
+      }
   }
 }
 
