@@ -18,6 +18,7 @@ class PostShow extends React.Component {
   componentDidMount() {
     this.props.fetchPosts();
     this.props.fetchUsers();
+    this.props.fetchAllComments();
     // this.props.fetchUsers();
   }
 
@@ -42,20 +43,19 @@ class PostShow extends React.Component {
     }
 
     // let comments =
-    let currentUser = this.props.currentUser;
-    let users = Object.values(this.props.users);
-    let post = this.props.post;
+    let {currentUser, users, post, author, comments} = this.props
+  
     const sessionId = currentUser.id;
-
+    debugger
     return (
       <div className="PostShowBackground">
-        {post.author.full_name ? (
+        {author.full_name ? (
           <title>
-            {post.author.full_name}
-            {` (@${post.author.username}) • Clonestagram Profile`}{" "}
+            {author.full_name}
+            {` (@${author.username}) • Clonestagram Profile`}{" "}
           </title>
         ) : (
-          <title>{`(@${post.author.username}) • Clonestagram Profile`} </title>
+          <title>{`(@${author.username}) • Clonestagram Profile`} </title>
         )}
         <div className="postShowBox">
           <div>
@@ -63,29 +63,29 @@ class PostShow extends React.Component {
           </div>
           <div className="postShowInfo">
             <div className="postShowUser">
-              <Link className="postUsernames" to={`/users/${post.author.id}`}>
+              <Link className="postUsernames" to={`/users/${author.id}`}>
                 <div className="postShowPfpUsername">
                   <img src={post.pfp} />
-                  <p>{post.author.username}</p>
+                  <p>{author.username}</p>
                 </div>
               </Link>
             </div>
             <div className="postShowComments">
               <div className="postShowComment">
-                <Link to={`/users/${post.author.id}`}>
+                <Link to={`/users/${author.id}`}>
                   <img className="userShowPfp" src={post.pfp} />
                 </Link>
                 <div className="commentUsernameAndComment">
                   <Link
                     className="commentUsername"
-                    to={`/users/${post.author.id}`}
+                    to={`/users/${author.id}`}
                   >
-                    <p>{post.author.username}</p>
+                    <p>{author.username}</p>
                   </Link>
                   <p>{post.caption}</p>
                 </div>
               </div>
-              {post.comments.map(comment => {
+              {comments.map(comment => {
                 let userPhotoUrl;
                 let user = users.find(user => user.id == comment.author_id);
                 if (user) {
@@ -110,7 +110,7 @@ class PostShow extends React.Component {
                       </Link>
                       <p>{comment.body}</p>
                       {commentor.id === sessionId ||
-                      post.author.id === sessionId ? (
+                      author.id === sessionId ? (
                         <div>
                           <button>delete</button>
                         </div>

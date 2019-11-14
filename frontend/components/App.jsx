@@ -15,20 +15,22 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import SplashContainer from "./splash/splash_container";
 import UserShowContainer from "./profile/user_show_container";
 import PostIndexContainer from "./posts/post_index_container";
-import PostShowContainer from "./posts/post_show_container";
+// import PostShowContainer from "./posts/post_show_container";
 import PostExploreContainer from "./posts/post_explore_container";
+import Modal from "./modal/modal";
 
 
 
 
 const App = () => (
   <div>
+    <Modal />
     <header>
       <NavBarContainer />
     </header>
     <Route exact path="/" component={SplashContainer} />
 
-    <ProtectedRoute path="/posts/:postId" component={PostShowContainer} />
+    {/* <ProtectedRoute path="/posts/:postId" component={PostShowContainer} /> */}
     <AuthRoute exact path="/login" component={LoginFormContainer} />
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
     <ProtectedRoute path="/users/:userId" component={UserShowContainer} />

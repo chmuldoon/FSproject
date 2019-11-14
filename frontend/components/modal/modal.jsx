@@ -1,16 +1,17 @@
 import React from "react";
 import { closeModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
-import PostShowContainer from "../post/post_show_container";
+// import PostShowContainer from "../post/post_show_container";
+import PostShowContainer from "../posts/post_show_container";
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
   let component;
-  switch (modal) {
+  switch (modal.modal) {
     case "postShow":
-      component = <PostShowContainer />;
+      component = <PostShowContainer post={modal.post} />;
       break;
     default:
       return null;
@@ -26,7 +27,8 @@ function Modal({ modal, closeModal }) {
 
 const mapStateToProps = state => {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    post: state.ui.post
   };
 };
 
