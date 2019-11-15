@@ -44,7 +44,7 @@ class PostShow extends React.Component {
 
     // let comments =
     let {currentUser, users, post, author, comments} = this.props
-  
+    debugger
     const sessionId = currentUser.id;
     // debugger
     return (

@@ -38,6 +38,7 @@ export class PostIndexItem extends Component {
 
 
   render() {
+    // debugger
     const {post} = this.props
     let comments;
     post.comments.length > 2 ? 
