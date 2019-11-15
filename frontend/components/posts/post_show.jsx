@@ -46,7 +46,7 @@ class PostShow extends React.Component {
     let {currentUser, users, post, author, comments} = this.props
   
     const sessionId = currentUser.id;
-    debugger
+    // debugger
     return (
       <div className="PostShowBackground">
         {author.full_name ? (
@@ -91,11 +91,9 @@ class PostShow extends React.Component {
                 if (user) {
                   userPhotoUrl = user.photoUrl;
                 }
-
-                let commentor = post.commentors.find(
-                  obj => obj.id == comment.author_id
-                );
-                //  debugger
+                let commentor = users.find(
+                  use => use.id === comment.author_id)
+                // debugger
                 return (
                   <div className="postShowComment">
                     <Link to={`/users/${commentor.id}`}>
@@ -124,7 +122,7 @@ class PostShow extends React.Component {
             </div>
             <div className="postShowLowerSection">
               <div className="Post-Like-Button">
-                <LikeContainer post={post} postId={post.id} />
+                <LikeContainer post={post} postId={post.id} postLikes={post.likes}/>
               </div>
               <p>
                 {post.likeCount === 0

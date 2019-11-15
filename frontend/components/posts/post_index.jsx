@@ -10,7 +10,7 @@ class PostIndex extends React.Component {
   componentDidMount() {
     this.props.fetchPosts()
     this.props.fetchUsers()
-    debugger
+    // debugger
     this.props.fetchAllFollows()
     this.props.fetchAllComments()
 

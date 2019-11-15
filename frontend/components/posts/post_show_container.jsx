@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import { fetchPost, deletePost, fetchPosts} from '../../actions/post_actions';
 import PostShow from './post_show';
 import { fetchUsers } from '../../actions/user_actions';
-import { deleteComment } from '../../actions/comment_actions';
+import { deleteComment, fetchAllComments } from '../../actions/comment_actions';
 import { createLike, deleteLike } from '../../actions/like_actions';
 
 const mapStateToProps = (state, ownProps) => {
   // const post = state.entities.posts[parseInt(ownProps.match.params.postId)]
-  const post = ownProps.post
+  const post = state.entities.posts[ownProps.post.id];
   const users = Object.values(state.entities.users);
   const author = state.entities.users[post.author_id];
   const comments = Object.values(state.entities.comments).filter(
@@ -17,16 +17,16 @@ const mapStateToProps = (state, ownProps) => {
   //// NEEDS TO FIX LOGIC FOR COMMENTORS, POSSIBLY A MORE SIMPLE 
   /////BACK END SOLUTION TO COMMENTS, similar to PFP for posts
   
-  debugger
+  // debugger
   // const commentors = Object.values(state.entities.users).filter(
   //   user => 
   // );
- debugger
+//  debugger
   const currentUser = state.entities.users[state.session.id];
   return {
     currentUser,
     comments,
-    commentors,
+    // commentors,
     post,
     author,
     users
