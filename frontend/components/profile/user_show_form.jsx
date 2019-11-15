@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import FollowContainer from '../follows/follow_container';
-import PostShowContainer from '../posts/post_show_container';
+// import PostShowContainer from '../posts/post_show_container';
 
 class UserShowForm extends Component {
   constructor(props){
@@ -29,20 +29,6 @@ class UserShowForm extends Component {
     this.props.fetchAllComments();
   
   };
-  // componentDidUpdate() {
-  //   // this.props.fetchUser(this.props.match.params.userId);
-
-  // }
-  // handlePostShow(post) {
-  //   // e.preventDefault();
-  //   let wow;
-  //   debugger
-  //   wow = post.id;
-  //   $(".semi-modal-test")
-  //     .addClass("modal-test")
-  //     .append(`<${PostShowContainer}>` + `currentUser={${this.props.currentUser}}` + `post={${post}}` + `users={${this.props.users}}` + `<${PostShowContainer}/>`);
-  //   // return true}
-  // }
 
   handleLogout(e) {
     e.preventDefault();
@@ -84,7 +70,7 @@ class UserShowForm extends Component {
         </div>
       )
     }else{
-      debugger
+      // debugger
       display = (
         this.props.profile.posts && Object.values(this.props.profile.posts).map(post => {
           // debugger

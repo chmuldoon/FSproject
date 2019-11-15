@@ -20,7 +20,7 @@ export class Like extends Component {
     let {post} = this.props
     let like;
     // debugger
-    
+    // debugger
     like =
       this.props.post.likes.filter(
         liker => liker.user_id === this.props.currentUser.id

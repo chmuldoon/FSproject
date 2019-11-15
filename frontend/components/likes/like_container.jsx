@@ -10,6 +10,7 @@ const msp = (state, ownProps) => {
   return ({
     currentUser: state.entities.users[state.session.id],
     post: ownProps.post,
+    postLike: ownProps.postLikes,
     postId
   })
 
