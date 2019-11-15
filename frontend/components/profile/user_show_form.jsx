@@ -70,11 +70,8 @@ class UserShowForm extends Component {
         </div>
       )
     }else{
-      // debugger
       display = (
-        this.props.profile.posts && Object.values(this.props.profile.posts).map(post => {
-          // debugger
-          // debugger
+        this.props.profilePosts.map(post => {
           return (
             <div className="post-preview">
               {/* <Link className="profile-post-link" to={`/posts/${post.id}`}>

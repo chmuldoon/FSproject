@@ -21,7 +21,7 @@ export default function modalReducer(state = [], action){
     case RECEIVE_LIKE:
       Object.values(newState).forEach(post => {
         if (post.id === action.like.post_id) {
-          debugger
+          // debugger
           post.likes.push({ user_id: action.like.user_id });
         }
       });
@@ -29,7 +29,7 @@ export default function modalReducer(state = [], action){
     case REMOVE_LIKE:
       Object.values(newState).forEach(post => {
         if (post.id === action.like.post_id) {
-          debugger
+          // debugger
           post.likes.pop({ user_id: action.like.user_id });
         }
       });
@@ -38,7 +38,7 @@ export default function modalReducer(state = [], action){
       // debugger
       // const post = Object.values(newState).filter(post => post.id === action.comment.post_id)[0];
       if (Object.values(newState).filter(post => post.id === action.comment.post_id)[0]) {
-                debugger
+                // debugger
                 const post = Object.values(newState).filter(post => post.id === action.comment.post_id)[0];
                 post.comments.push(action.comment);
                 return newState;
