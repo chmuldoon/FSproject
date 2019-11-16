@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
     post_id: postId,
     post: ownProps.post
   }
-  // debugger
+  // 
   return ({
     comment
   })

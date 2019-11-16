@@ -19,7 +19,7 @@ class PostShow extends React.Component {
     this.props.fetchPosts();
     this.props.fetchUsers();
     this.props.fetchAllComments();
-    // this.props.fetchUsers();
+    this.props.fetchUsers();
   }
 
   // handleLike(e) {
@@ -44,7 +44,7 @@ class PostShow extends React.Component {
 
     // let comments =
     let {currentUser, users, post, author, comments} = this.props
-    debugger
+    // debugger
     const sessionId = currentUser.id;
     // debugger
     return (
@@ -125,11 +125,11 @@ class PostShow extends React.Component {
                 <LikeContainer post={post} postId={post.id} postLikes={post.likes}/>
               </div>
               <p>
-                {post.likeCount === 0
+                {post.likes.length === 0
                   ? "No one likes this yet"
-                  : post.likeCount === 1
+                  : post.likes.length === 1
                   ? "1 person likes this"
-                  : `${post.likeCount} people like this`}
+                  : `${post.likes.length} people like this`}
               </p>
               <p>date holder</p>
               <div className="PostShowAddComment">

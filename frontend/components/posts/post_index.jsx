@@ -28,12 +28,12 @@ class PostIndex extends React.Component {
         <IndexItemContainer
           key={post.id}
           post={post}
-          // fetchPosts={this.props.fetchPosts}
-          // fetchPost={this.props.fetchPost}
-          // createLike={this.props.createLike}
-          // deleteLike={this.props.deleteLike}
-          // createComment={this.props.createComment}
-          // deleteComment={this.props.deleteComment}
+          fetchPosts={this.props.fetchPosts}
+          fetchPost={this.props.fetchPost}
+          createLike={this.props.createLike}
+          deleteLike={this.props.deleteLike}
+          createComment={this.props.createComment}
+          deleteComment={this.props.deleteComment}
         />
       );
       });

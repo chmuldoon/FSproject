@@ -12,10 +12,10 @@ export class PostIndexItem extends Component {
     }
 
   }
-  // componentDidMount() {
+  componentDidMount() {
     // debugger
-    // this.props.fetchPost(this.props.post.id)
-  // }
+    this.props.fetchPost(this.props.post.id)
+  }
   // componentDidUpdate() {
   //   this.props.fetchPost(this.props.post.id)
 
@@ -58,6 +58,7 @@ export class PostIndexItem extends Component {
         </div>
       );
     });
+    // debugger
     return (
       <div className="photoInIndex">
         <div className="photoUpperIndexContent">
@@ -78,7 +79,6 @@ export class PostIndexItem extends Component {
           <div className="likes-and-count">
             <div className="Like-Button">
               <LikeContainer post={post} postId={post.id}/>
-              
               <Link className="Comment-Button" to={`/posts/${post.id}`}>
                 <img src="https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg"/>
               </Link>

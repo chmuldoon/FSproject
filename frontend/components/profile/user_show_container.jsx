@@ -11,10 +11,12 @@ import { fetchAllComments } from '../../actions/comment_actions';
 const msp = (state, ownProps) => {
 
   let currentUser = state.entities.users[state.session.id];
-  // debugger
   let profile = state.entities.users[parseInt(ownProps.match.params.userId)];
-  // debugger
+  let profilePosts = Object.values(state.entities.posts).filter(
+    post => post.author_id === profile.id
+  );
   return ({
+    profilePosts,
     users: Object.values(state.entities.users), 
     follows: Object.values(state.entities.follows),
     currentUser,

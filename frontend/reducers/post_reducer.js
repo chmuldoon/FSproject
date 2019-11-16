@@ -35,7 +35,7 @@ const postsReducer = (oldState = {}, action) => {
       delete newState[action.postId]
       return newState
     case RECEIVE_COMMENT:
-      debugger
+      // debugger
       const post = Object.values(newState).filter(post => post.id === action.comment.post_id)[0];
       post.comments.push(action.comment);
       return newState
