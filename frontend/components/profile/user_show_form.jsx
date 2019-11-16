@@ -72,6 +72,7 @@ class UserShowForm extends Component {
     }else{
       display = (
         this.props.profilePosts.map(post => {
+          // debugger
           return (
             <div className="post-preview">
               {/* <Link className="profile-post-link" to={`/posts/${post.id}`}>
@@ -80,7 +81,7 @@ class UserShowForm extends Component {
                 className="profile-post-link"
                 onClick={() => this.props.openShowModal('postShow', post)}
               >
-                <img width="275px" height="275px" src={post.photo} />
+                <img width="275px" height="275px" src={post.photoUrl} />
               </div>
               {/* <div
                 className="profile-post-link"
@@ -134,7 +135,7 @@ class UserShowForm extends Component {
                 ) : (
                   <div className="Stat">
                     <p className="profileBioDetail">
-                      {Object.keys(this.props.profile.posts).length}{" "}
+                      {this.props.profilePosts.length}{" "}
                     </p>
                     <p className="StatWord">posts</p>
                   </div>

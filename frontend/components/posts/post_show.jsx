@@ -19,7 +19,7 @@ class PostShow extends React.Component {
     this.props.fetchPosts();
     this.props.fetchUsers();
     this.props.fetchAllComments();
-    // this.props.fetchUsers();
+    this.props.fetchUsers();
   }
 
   // handleLike(e) {

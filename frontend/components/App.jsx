@@ -30,7 +30,7 @@ const App = () => (
     </header>
     <Route exact path="/" component={SplashContainer} />
 
-    <ProtectedRoute path="/posts/:postId" component={PostShowContainer} />
+    <ProtectedRoute path="/posts/:postId" post=":postId" component={PostShowContainer} />
     <AuthRoute exact path="/login" component={LoginFormContainer} />
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
     <ProtectedRoute path="/users/:userId" component={UserShowContainer} />

@@ -7,9 +7,15 @@ import { createLike, deleteLike } from '../../actions/like_actions';
 
 const mapStateToProps = (state, ownProps) => {
   // const post = state.entities.posts[parseInt(ownProps.match.params.postId)]
-  const post = state.entities.posts[ownProps.post.id];
+  // debugger
+  // debugger
+  const post =
+    ownProps.post !== undefined
+      ? state.entities.posts[ownProps.post.id]
+      : state.entities.posts[parseInt(ownProps.match.params.postId)];
   const users = Object.values(state.entities.users);
   const author = state.entities.users[post.author_id];
+  // debugger
   const comments = Object.values(state.entities.comments).filter(
     comment => comment.post_id === post.id
   );
