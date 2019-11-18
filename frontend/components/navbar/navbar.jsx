@@ -31,12 +31,12 @@ export class NavBar extends Component {
               <input type="text" placeholder="search" />
             </div>
             <div className="navbar-right">
-              <div
+              {/* <div
                 className="daLink"
                 onClick={() => this.props.openModal("upload")}
               >
                 <i class="far fa-plus-square"></i>
-              </div>
+              </div> */}
               <Link className="navbar-right-link" to={`/explore`}>
                 <i className="far fa-compass"></i>
               </Link>

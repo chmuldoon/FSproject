@@ -4,13 +4,12 @@ export class NewPost extends Component {
   constructor(props){
     super(props)
   }
-
   render() {
     return (
       <div className="newPost">
-        
+
       </div>
-    )
+    );
   }
 }
 

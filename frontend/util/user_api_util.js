@@ -34,3 +34,12 @@ export const deleteFollow = (target_id) => {
     url: `/api/follows/${target_id}`
   })
 };
+export const updateUser = user => {
+  return $.ajax({
+    method: "PATCH",
+    url: `/api/users/${user.id}`,
+    contentType: false,
+    processData: false,
+    data: user
+  });
+};
