@@ -3,6 +3,9 @@ import { closeModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
 // import PostShowContainer from "../post/post_show_container";
 import PostShowContainer from "../posts/post_show_container";
+import NewPostContainer from "../posts/new_post_container";
+import UserPatchContainer from "../profile/user_patch_container";
+
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -12,6 +15,12 @@ function Modal({ modal, closeModal }) {
   switch (modal.modal) {
     case "postShow":
       component = <PostShowContainer post={modal.post} />;
+      break;
+    case "upload":
+      component = <NewPostContainer />;
+      break;
+    case "editProfile":
+      component = <UserPatchContainer />;
       break;
     default:
       return null;

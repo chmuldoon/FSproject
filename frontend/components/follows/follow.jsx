@@ -5,21 +5,21 @@ export class Follow extends Component {
     super(props)
     this.fetchFollow = this.fetchFollow.bind(this);
     this.following = this.following.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
+    this.handleFollow = this.handleFollow.bind(this);
+    this.handleUnfollow = this.handleUnfollow.bind(this);
     // this.state = {
     //   followed: null
     // }
 
-    // debugger
+    // 
     // this.follow = this.follow.bind(this);
     // this.unfollow = this.unfollow.bind(this);
 
   
   }
   componentDidUpdate(prevProps, nextProps){
-    // debugger
     if(this.props.user.passive_follows !== prevProps.user.passive_follows){
-      // debugger
       // this.props.fetchUser(this.props.userId)
     }
   }
@@ -83,26 +83,38 @@ export class Follow extends Component {
     return false;
   }
 
-  handleClick() {
+  // handleClick() {
+  //   const follow = {
+  //     follower_id: this.props.currentUserId,
+  //     target_id: this.props.userId,
+  //   };
+
+  //   if (this.following(follow.target_id)) {
+  //     const followId = this.fetchFollow(follow.target_id);
+  //     this.props.deleteFollow(followId);
+ 
+  //   } else {
+  //     this.props.createFollow(follow);
+  //   }
+    
+  // }
+
+  handleFollow(e){
+    e.preventDefault();
     const follow = {
       follower_id: this.props.currentUserId,
       target_id: this.props.userId,
     };
-
-    if (this.following(follow.target_id)) {
-      const followId = this.fetchFollow(follow.target_id);
-      this.props.deleteFollow(followId);
-      // this.props.user.passive_follows
-      // this.setState({followed: 0})
-      // this.forceUpdate()
-    } else {
-      this.props.createFollow(follow);
-      // this.setState({ followed: 1 })
-
-      // this.forceUpdate()
-    }
-    
-    // this.forceUpdate()
+    this.props.createFollow(follow);
+  }
+  handleUnfollow(e){
+    e.preventDefault();
+    const follow = {
+      follower_id: this.props.currentUserId,
+      target_id: this.props.userId,
+    };
+    const followId = this.fetchFollow(follow.target_id);
+    this.props.deleteFollow(followId);
   }
 
   render() {
@@ -112,16 +124,15 @@ export class Follow extends Component {
     // debugger
     let followButton;
     let {user, userId, currentUserId} = this.props
-
-
     followButton =
       this.props.user.passive_follows.filter(
         follower => follower.follower_id === this.props.currentUserId
-      ).length === 0 ? (
+      ).length === 0
+         ? (
         <div>
           <button
             className="followButton"
-            onClick={this.handleClick.bind(this)}
+            onClick={this.handleFollow}
           >
             follow
           </button>
@@ -132,19 +143,22 @@ export class Follow extends Component {
           {/* <button>{this.props.follows.length}</button> */}
           <button
             className="followButton"
-            onClick={this.handleClick.bind(this)}
+            onClick={this.handleUnfollow}
           >
             unfollow
           </button>
         </div>
       );
 
-      let currentUserOpt = (userId === currentUserId) ?
-      (
-        <button onClick={this.handleLogout.bind(this)}>Log out</button>
-      ):(
-        <div></div>
-      )
+      let currentUserOpt =
+        userId === currentUserId ? (
+          <div>
+            <button onClick={this.handleLogout.bind(this)}>Log out</button>
+            <button onClick={() => this.props.openModal("editProfile")}>Edit Profile</button>
+          </div>
+        ) : (
+          <div></div>
+        );
 
       if (userId !== currentUserId){
         return (
