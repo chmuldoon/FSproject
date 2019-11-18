@@ -43,23 +43,6 @@ class UserShowForm extends Component {
     //lets work on this
     // debugger
     let logStatus;
-    if (this.props.profile.id === this.props.currentUser.id) {
-
-      logStatus = (
-      <div>
-        <button className="profileEdit">Edit Profile</button>
-        <button onClick={this.handleLogout.bind(this)}>
-          Log out
-        </button>
-      </div>
-      )
-    } else {
-      logStatus = (
-        
-      <div>
-      </div>
-      )
-    }
  
     let display;
   
