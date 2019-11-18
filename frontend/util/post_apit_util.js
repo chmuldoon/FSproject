@@ -16,7 +16,9 @@ export const createPost = post => (
   $.ajax({
     url: 'api/posts',
     method: 'POST',
-    data: { post }
+    contentType: false,
+    processData: false,
+    data: post 
   })
 );
 
