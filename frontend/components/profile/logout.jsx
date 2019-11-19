@@ -7,6 +7,7 @@ export class Logout extends Component {
   }
   handleLogout(e) {
     e.preventDefault();
+    debugger
     this.props.logout()
       .then(() => this.props.closeModal())
       .then(() => this.props.history.push('/'));
