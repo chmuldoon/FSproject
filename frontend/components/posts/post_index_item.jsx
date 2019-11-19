@@ -38,6 +38,9 @@ export class PostIndexItem extends Component {
 
 
   render() {
+    if (!this.props.post) {
+      return [];
+    }
     // debugger
     const {post} = this.props
     let comments;
@@ -46,13 +49,10 @@ export class PostIndexItem extends Component {
      : comments = post.comments
 
     const commentSection = comments.map(comment => {
-      let commentor = post.commentors.find(
-        obj => obj.id == comment.author_id
-      );
         return (
           <div className="commentCaption">
-            <Link className="extraDetailName" to={`/users/${commentor.id}`}>
-              {commentor.username}
+            <Link className="extraDetailName" to={`/users/${comment.author_id}`}>
+              {comment.username}
             </Link>
            <p>{comment.body}</p>
         </div>
@@ -67,8 +67,8 @@ export class PostIndexItem extends Component {
           </div>
 
           <div className="postName">
-            <Link className="extraDetailName" to={`/users/${post.author.id}`}>
-              {this.props.post.author.username}
+            <Link className="extraDetailName" to={`/users/${post.author_id}`}>
+              {this.props.post.username}
             </Link>
           </div>
         </div>
@@ -78,36 +78,49 @@ export class PostIndexItem extends Component {
         <div className="photoLowerIndexContent">
           <div className="likes-and-count">
             <div className="Like-Button">
-              <LikeContainer post={post} postId={post.id}/>
-              <Link className="Comment-Button" to={`/posts/${post.id}`}>
-                <img src="https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg"/>
-              </Link>
+              <LikeContainer post={post} postId={post.id} />
+              <div
+                className="Comment-Button"
+                onClick={() => this.props.openShowModal("postShow", post)}
+              >
+                <img src="https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg" />
+              </div>
             </div>
-            <p>{post.likes.length === 1 ? "1 like" : `${post.likes.length} likes`}</p>
+            <p>
+              {post.likes.length === 1
+                ? "1 like"
+                : `${post.likes.length} likes`}
+            </p>
           </div>
           <div className="GreaterCommentSection">
-          <div className="commentSection">
-            <div className="commentCaption">
-              <Link className="extraDetailName" to={`/users/${post.author_id}`}>
-                {post.author.username}
-              </Link>
-              <p>{post.caption}</p>
+            <div className="commentSection">
+              <div className="commentCaption">
+                <Link
+                  className="extraDetailName"
+                  to={`/users/${post.author_id}`}
+                >
+                  {post.username}
+                </Link>
+                <p>{post.caption}</p>
+              </div>
             </div>
+            {/* WILL FIX */}
+            {post.comments.length > 2 ? (
+              <div
+                className="commentLink"
+                onClick={() => this.props.openShowModal("postShow", post)}
+              >
+              {/* <Link className="commentLink" to={`/posts/${post.id}`}> */}
+              {/* </Link> */}
+                <p>{`view all ${post.comments.length} comments`}</p>
+              </div>
+            ) : (
+              <div></div>
+            )}
+            {commentSection}
           </div>
-          {/* WILL FIX */}
-          {post.comments.length > 2 ? (
-            <Link className="commentLink" to={`/posts/${post.id}`}>
-              <p>{`view all ${post.comments.length} comments`}</p>
-            </Link>
-          ) : (
-            <div></div>
-          )}
-          {commentSection}
 
-          </div>
-        
           <CommentContainer postId={post.id} post={post} />
-        
         </div>
       </div>
     );

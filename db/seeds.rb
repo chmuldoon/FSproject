@@ -12,19 +12,23 @@ Post.destroy_all
 Comment.destroy_all
 Like.destroy_all
 Follow.destroy_all
-demo_user = User.create({username: "dali", password: "DemoUser", email: "DemoUser@gmail.com", full_name: "Salvador Dalí"})
+demo_user = User.create({username: "dali", password: "DemoUser", email: "DemoUser@gmail.com", full_name: "Salvador Dalí",
+  bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, ea doloremque accusantium maxime temporibus'})
 demo_profile_pic = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/dali/2462995_0.jpg")
 demo_user.profilepic.attach(io: demo_profile_pic, filename: '2462995_0.jpg')
 
-druillet = User.create({username: "druilletofficiel", password: "password", email: "druillet@druillet.com", full_name: "Philippe Druillet"})
+druillet = User.create({username: "druilletofficiel", password: "password", email: "druillet@druillet.com", full_name: "Philippe Druillet",
+  bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, ea doloremque accusantium maxime temporibus'})
 profile_pic1 = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/druilletpfp.jpg")
 druillet.profilepic.attach(io: profile_pic1, filename: 'druilletpfp.jpg')
 
-frazetta = User.create({username: "ffrazetta", password: "password", email: "frank@frazetta.com", full_name: "Frank Frazetta"})
+frazetta = User.create({username: "ffrazetta", password: "password", email: "frank@frazetta.com", full_name: "Frank Frazetta", 
+  bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, ea doloremque accusantium maxime temporibus'})
 profile_pic2 = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/ob_3105fe_frank-frazetta-selfportraet.jpg")
 frazetta.profilepic.attach(io: profile_pic2, filename: 'ob_3105fe_frank-frazetta-selfportraet.jpg')
 
-jodorowsky = User.create({username: "aljodorowsky", password: "password", email: "al@jodorowsky.net", full_name: "Alejandro Jodorowsky"})
+jodorowsky = User.create({username: "aljodorowsky", password: "password", email: "al@jodorowsky.net", full_name: "Alejandro Jodorowsky",
+  bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, ea doloremque accusantium maxime temporibus'})
 profile_pic3 = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/jodorowsky/alnye.jpg")
 jodorowsky.profilepic.attach(io: profile_pic3, filename: 'alnye.jpg')
 

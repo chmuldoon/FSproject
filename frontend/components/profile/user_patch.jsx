@@ -7,10 +7,16 @@ export class UserPatch extends Component {
       id: this.props.user.id,
       username: this.props.user.username,
       full_name: this.props.user.full_name,
-      email: this.props.user.email
+      email: this.props.user.email,
+      bio: this.props.user.bio
     };
+    for (let key in this.state) {
+      if (this.state.hasOwnProperty(key) && this.state[key] === null) {
+        this.state[key] = '';
+      };
+    }
+  
     this.handleSubmit = this.handleSubmit.bind(this);
-
     this.update = this.update.bind(this);
 
   }
@@ -21,17 +27,24 @@ export class UserPatch extends Component {
   }
   handleSubmit(e){
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("user[full_name]", this.state.full_name);
-    formData.append("user[username]", this.state.username);
-    formData.append("user[email]", this.state.email);
-
-    this.props.updateUser(formData)
-      .then(() => {
+    const profile = Object.assign({}, this.state);
+    this.props.updateUser(profile).then(() => {
         this.props.history.push(`/users/${this.props.user.id}`)
       }).then(() => {
         this.props.closeModal()
       });
+
+    // const formData = new FormData();
+    // formData.append("user[full_name]", this.state.full_name);
+    // formData.append("user[username]", this.state.username);
+    // formData.append("user[email]", this.state.email);
+
+    // this.props.updateUser(formData)
+    //   .then(() => {
+    //     this.props.history.push(`/users/${this.props.user.id}`)
+    //   }).then(() => {
+    //     this.props.closeModal()
+    //   });
 
   }
 
@@ -53,7 +66,8 @@ export class UserPatch extends Component {
               className="EditUserFormFormInput"
               type="text"
               onChange={this.update("username")}
-              placeholder={this.props.user.username}
+              value={this.state.username}
+              // placeholder={this.props.user.username}
             />
           </div>
           <div className="EditSection">
@@ -62,7 +76,8 @@ export class UserPatch extends Component {
               className="EditUserFormFormInput"
               type="text"
               onChange={this.update("full_name")}
-              placeholder={this.props.user.full_name}
+              value={this.state.full_name}
+              // placeholder={this.props.user.full_name}
             />
           </div>
           <div className="EditSection">
@@ -71,7 +86,16 @@ export class UserPatch extends Component {
               className="EditUserFormFormInput"
               type="text"
               onChange={this.update("email")}
-              placeholder={this.props.user.email}
+              value={this.state.email}
+              // placeholder={this.props.user.email}
+            />
+          </div>
+          <div className="BioSection">
+            <label className="EditUserFormLabel">bio</label>
+            <textarea
+              onChange={this.update("bio")}
+              value={this.state.bio}
+              // placeholder={this.props.user.bio}
             />
           </div>
           <div className="EditSubmit">

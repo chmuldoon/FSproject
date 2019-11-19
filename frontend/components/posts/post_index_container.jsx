@@ -4,6 +4,7 @@ import { fetchPosts, createLike, deleteLike, fetchPost  } from '../../actions/po
 import { fetchUsers } from '../../actions/user_actions';
 import { createComment, deleteComment, fetchAllComments } from '../../actions/comment_actions';
 import { fetchAllFollows } from '../../actions/follow_actions';
+import { openModal, openShowModal} from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
   let currentUser = state.entities.users[state.session.id];
@@ -29,7 +30,9 @@ const mapDispatchToProps = dispatch => ({
 
   // fetchPost: (id) => dispatch(fetchPost(id)),
   fetchUsers: () => dispatch(fetchUsers()),
-  fetchAllFollows: () => dispatch(fetchAllFollows())
+  fetchAllFollows: () => dispatch(fetchAllFollows()),
+  openModal: modal => dispatch(openModal(modal)),
+  openShowModal: (modal, post) => dispatch(openShowModal(modal, post)),
 
   // createLike: post_id => dispatch(createLike(post_id)),
   // deleteLike: post_id => dispatch(deleteLike(post_id)),

@@ -11,7 +11,24 @@ export class PostExplorePost extends Component {
     return (
       <div className="Explore-Post">
         <Link className="Explore-Post-Link" to={`/posts/${post.id}`}>
-          <img src={post.photoUrl} />
+          <div
+            className="Overlay"
+            id="profile"
+            onClick={() => this.props.openShowModal("postShow", post)}
+          >
+            <p style={{ zIndex: 8 }}>
+              {post.likeCount} <i className="fas fa-heart" />
+              {post.comments.length}
+              {"  "} <i className="fas fa-comment"></i>
+            </p>
+          </div>
+          <img
+            onClick={() => this.props.openShowModal("postShow", post)}
+            width="275px"
+            height="275px"
+            src={post.photoUrl}
+          />
+          {/* <img src={post.photoUrl} /> */}
         </Link>
       </div>
     );

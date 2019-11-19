@@ -35,12 +35,9 @@ export const deleteFollow = (target_id) => {
   })
 };
 export const updateUser = user => {
-  debugger
   return $.ajax({
     method: "PATCH",
     url: `/api/users/${user.id}`,
-    contentType: false,
-    processData: false,
-    data: user
+    data: { user }
   });
 };
