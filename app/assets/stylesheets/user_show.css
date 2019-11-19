@@ -115,11 +115,17 @@
   flex-wrap: wrap;
 
 }
+.post-preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
 .profile-post-link {
   width: 275px;
   height: 275px;
   margin-left: 28px;
   margin-bottom: 28px;
+  position: relative;
 }
 /* .post-preview a{
   width: inherit;
@@ -128,9 +134,43 @@
   margin-right: 10px;
   margin-top: 10px;
 } */
+.Overlay{
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  position: absolute;
+  display: flex;
+  justify-content: center;;
+}
+.Overlay > p {
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 45%;
+  opacity: 0;
+}
+.Overlay:hover{
+  background-color: black;
+  opacity: 0.5;
+}
+
+.Overlay:hover > p{
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color: white;
+  opacity: 1;
+}
+.logoutBox {
+  width: 300px;
+  height: 300px;
+  background: white;
+  border: 1px solid #fefefe;
+  border-radius: 5%;
+}
+.Overlay > p >i {
+  padding-right: 10px;
+}
 
 .modal-test {
-  z-index: 2;
+  z-index: 4;
   background-color: black;
   opacity: .5;
   height: 100%;

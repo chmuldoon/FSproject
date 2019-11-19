@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import PostShowContainer from "../posts/post_show_container";
 import NewPostContainer from "../posts/new_post_container";
 import UserPatchContainer from "../profile/user_patch_container";
+import LogoutContainer from "../profile/logout_container";
 
 
 function Modal({ modal, closeModal }) {
@@ -21,6 +22,9 @@ function Modal({ modal, closeModal }) {
       break;
     case "editProfile":
       component = <UserPatchContainer />;
+      break;
+    case "logout":
+      component = <LogoutContainer />;
       break;
     default:
       return null;

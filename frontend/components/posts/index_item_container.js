@@ -2,9 +2,17 @@ import { connect } from "react-redux";
 import PostIndexItem from "./post_index_item";
 import { fetchPost, fetchPosts } from "../../actions/post_actions";
 import { withRouter } from "react-router-dom";
+import { openShowModal } from "../../actions/modal_actions";
+import { openModal,  } from "../../actions/modal_actions";
+
 const mapStateToProps = (state, ownProps) => {
   let currentUser = state.entities.users[state.session.id];
   const post = state.entities.posts[ownProps.post.id];
+  post["comments"] = Object.values(state.entities.comments).filter(
+    comment => comment.post_id === post.id
+  );
+  // debugger
+
   const author = state.entities.users[post.author_id];
 
   // debugger
@@ -16,7 +24,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = dispatch => ({
   fetchUsers: () => dispatch(fetchUsers()),
-
+  openModal: modal => dispatch(openModal(modal)),
+  openShowModal: (modal, post) => dispatch(openShowModal(modal, post)),
   fetchPosts: () => dispatch(fetchPosts()),
   fetchPost: id => dispatch(fetchPost(id))
 });

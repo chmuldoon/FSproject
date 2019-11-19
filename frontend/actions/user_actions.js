@@ -13,6 +13,11 @@ export const fetchUsers = () => dispatch => (
   UserApiUtil.fetchUsers().then(users => dispatch(receiveAllUsers(users)))
 );
 
+export const updateUser = (user) => dispatch => {
+  return UserApiUtil.updateUser(user)
+    .then(user => dispatch(receiveUser(user)))
+};
+
 const receiveAllUsers = users => ({
   type: RECEIVE_ALL_USERS,
   users

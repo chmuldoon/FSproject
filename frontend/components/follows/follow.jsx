@@ -153,8 +153,17 @@ export class Follow extends Component {
       let currentUserOpt =
         userId === currentUserId ? (
           <div>
-            <button onClick={this.handleLogout.bind(this)}>Log out</button>
-            <button onClick={() => this.props.openModal("editProfile")}>Edit Profile</button>
+            {/* <button onClick={this.handleLogout.bind(this)}>Log out</button> */}
+            <button onClick={() => this.props.openModal("upload")}>
+              Upload
+            </button>
+            <button onClick={() => this.props.openModal("editProfile")}>
+              Edit Profile
+            </button>
+            <i style={{marginLeft: 15, fontSize: 28}}
+              onClick={() => this.props.openModal("logout")}
+              className="fas fa-cog">
+            </i>
           </div>
         ) : (
           <div></div>

@@ -10,7 +10,7 @@ class PostShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      body: ""
+      caption: this.props.post.caption
     };
     this.currentUser = this.props.currentUser;
   }

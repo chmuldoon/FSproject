@@ -53,28 +53,10 @@ export class NewPost extends Component {
     //   }
     // );
   }
-
   render() {
     return (
       <div className="newPost">
-        {/* <h1 className="upload-modal-heading">New Post</h1>
-        <form onSubmit={this.handleSubmit}>
-
-          <textarea
-            className="post-caption-div"
-            type="text"
-            placeholder="Write a caption..."
-            onChange={this.update("caption")}
-          />
-          
-          <div className="upload-btn-wrapper">
-            {/* <button className="modal-upload-btns">Upload Photo</button> */}
-             {/* <input type="file" className="upload-file-input" onChange={this.handleFile.bind(this)} />
-          </div>
-          <div>
-            <input type="submit" className="modal-upload-btns" value="Share" />
-          </div>
-        </form> */}
+        
       </div>
     );
   }
