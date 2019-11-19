@@ -22,9 +22,10 @@ export class UserPatch extends Component {
   handleSubmit(e){
     e.preventDefault();
     const formData = new FormData();
-    formData.append("user[username]", this.state.username);
     formData.append("user[full_name]", this.state.full_name);
+    formData.append("user[username]", this.state.username);
     formData.append("user[email]", this.state.email);
+
     this.props.updateUser(formData)
       .then(() => {
         this.props.history.push(`/users/${this.props.user.id}`)
@@ -36,28 +37,46 @@ export class UserPatch extends Component {
 
   render() {
     return (
-      <div className="newPost">
-        <h1>Edit Profile</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            onChange={this.update("username")}
-            placeholder={this.props.user.username}
-            // value={this.props.user.username}
-          />
-          <input
-            type="text"
-            onChange={this.update("full_name")}
-            placeholder={this.props.user.full_name}
-            // value={this.props.user.full_name}
-          />
-          <input
-            type="text"
-            onChange={this.update("email")}
-            placeholder={this.props.user.email}
-            // value={this.props.user.email}
-          />
-          <input type="submit" value="Submit" />
+      <div className="EditUserForm">
+        <div className="EditUserFormPhoto">
+          <img src={this.props.user.photoUrl} />
+        </div>
+
+        <div className="EditUserFormTitle">
+          <h1>Edit Profile</h1>
+        </div>
+
+        <form className="EditUserFormForm" onSubmit={this.handleSubmit}>
+          <div className="EditSection">
+            <label className="EditUserFormLabel">username</label>
+            <input
+              className="EditUserFormFormInput"
+              type="text"
+              onChange={this.update("username")}
+              placeholder={this.props.user.username}
+            />
+          </div>
+          <div className="EditSection">
+            <label className="EditUserFormLabel">full name</label>
+            <input
+              className="EditUserFormFormInput"
+              type="text"
+              onChange={this.update("full_name")}
+              placeholder={this.props.user.full_name}
+            />
+          </div>
+          <div className="EditSection">
+            <label className="EditUserFormLabel">email</label>
+            <input
+              className="EditUserFormFormInput"
+              type="text"
+              onChange={this.update("email")}
+              placeholder={this.props.user.email}
+            />
+          </div>
+          <div className="EditSubmit">
+            <input type="submit" value="Submit" />
+          </div>
         </form>
       </div>
     );

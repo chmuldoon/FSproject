@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import UserPatch from "./user_patch";
 import { closeModal } from "../../actions/modal_actions";
-import { updateUser } from "../../util/user_api_util";
+import { updateUser } from "../../actions/user_actions";
+
 
 
 const mapStateToProps = (state, ownProps) => {
