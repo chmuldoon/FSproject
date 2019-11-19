@@ -3,7 +3,12 @@ import React, { Component } from "react";
 export class UserPatch extends Component {
   constructor(props) {
     super(props);
-    this.state = Object.assign({}, this.props.user)
+    this.state = {
+      id: this.props.user.id,
+      username: this.props.user.username,
+      full_name: this.props.user.full_name,
+      email: this.props.user.email
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.update = this.update.bind(this);
