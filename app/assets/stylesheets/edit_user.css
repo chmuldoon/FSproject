@@ -1,0 +1,69 @@
+.EditUserForm {
+  width: 300px;
+  height: 450px;
+  background-color: white;
+  border: 1px solid #efefee;
+  border-radius: 5%;
+  justify-content: center;
+  /* display: flex; */
+
+}
+.EditUserFormPhoto {
+  /* width: 300px;
+  height: 100px; */
+  display: flex;
+  justify-content: center;
+}
+.EditUserFormTitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+.EditUserFormPhoto img {
+  margin-top: 20px;
+  height: 80px;
+  border-radius: 50%;
+}
+.EditUserForm h1 {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 30px;;
+}
+.EditUserFormForm {
+  display: inline;
+  justify-content: center;
+  flex-wrap: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+.EditSection {
+  width: 300px;
+  height: 30px;
+}
+.EditUserFormFormInput {
+  float: right;
+  margin-left: 30px;
+  margin-right: 20px;
+}
+.EditUserFormLabel  {
+  /* float: left; */
+
+  min-width: 89px;
+  font-size: 20px;
+  margin-left: 20px;
+}
+.EditSubmit {
+  justify-content: center;
+  margin-top: 20px;
+  height: 50;
+  width: 250px;
+
+}
+.EditSubmit input {
+  float: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50px;
+  /* margin-right: 50% */
+
+
+}
