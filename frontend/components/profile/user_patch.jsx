@@ -4,21 +4,36 @@ export class UserPatch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: this.props.user.id,
       username: this.props.user.username,
       full_name: this.props.user.full_name,
       email: this.props.user.email,
-      bio: this.props.user.bio
+      bio: this.props.user.bio,
+      photoFile: null,
+      photoUrl: this.props.user.photoUrl
     };
     for (let key in this.state) {
-      if (this.state.hasOwnProperty(key) && this.state[key] === null) {
+      if (this.state.hasOwnProperty(key) && this.state[key] === null && key === "photoFile") {
         this.state[key] = '';
       };
     }
   
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.handleFile = this.handleFile.bind(this);
 
+  }
+  handleFile(e) {
+    const file = e.target.files[0];
+    const fileReader = new FileReader();
+
+    fileReader.onloadend = () => {
+      this.setState({
+        photoFile: file,
+        photoUrl: fileReader.result
+      });
+    };
+
+    if (file) fileReader.readAsDataURL(file);
   }
   update(field) {
     return e => this.setState({
@@ -27,40 +42,43 @@ export class UserPatch extends Component {
   }
   handleSubmit(e){
     e.preventDefault();
-    const profile = Object.assign({}, this.state);
-    this.props.updateUser(profile).then(() => {
-        this.props.history.push(`/users/${this.props.user.id}`)
-      }).then(() => {
-        this.props.closeModal()
-      });
+    // const profile = Object.assign({}, this.state);
+    const formData = new FormData();
+    if(this.state.photoFile) {formData.append("user[profilepic]", this.state.photoFile)}
+    formData.append("user[full_name]", this.state.full_name)
+    formData.append("user[username]", this.state.username);
+    formData.append("user[email]", this.state.email); 
+    formData.append("user[bio]", this.state.bio); 
 
-    // const formData = new FormData();
-    // formData.append("user[full_name]", this.state.full_name);
-    // formData.append("user[username]", this.state.username);
-    // formData.append("user[email]", this.state.email);
-
-    // this.props.updateUser(formData)
-    //   .then(() => {
+    this.props.updateUser({formData, id: this.props.user.id})
+    
+    // .then(() => {
     //     this.props.history.push(`/users/${this.props.user.id}`)
     //   }).then(() => {
     //     this.props.closeModal()
     //   });
+
 
   }
 
   render() {
     return (
       <div className="EditUserForm">
-        <div className="EditUserFormPhoto">
-          <img src={this.props.user.photoUrl} />
-        </div>
-
-        <div className="EditUserFormTitle">
-          <h1>Edit Profile</h1>
-        </div>
-
         <form className="EditUserFormForm" onSubmit={this.handleSubmit}>
+          <div className="EditUserFormPhoto">
+            <div className="EditUserFormPhotoButton">
+              <img className="editPhotoPhoto" src={this.state.photoUrl} />
+              <div className="editPhotoPhotoOverlay">
+                <p>Change Picture</p>
+                <input type="file" onChange={this.handleFile} />
+              </div>
+            </div>
+          </div>
+          
           <div className="EditSection">
+            <div className="EditUserFormTitle">
+              <h1>Edit Profile</h1>
+            </div>
             <label className="EditUserFormLabel">username</label>
             <input
               className="EditUserFormFormInput"

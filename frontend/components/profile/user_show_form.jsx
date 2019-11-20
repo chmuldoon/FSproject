@@ -152,9 +152,7 @@ class UserShowForm extends Component {
             <div className="profileBio">
               <p className="profileBioDetail">{this.props.profile.full_name}</p>
               <div className="profileBioCaption">
-                <p>
-                  {this.props.profile.bio}
-                </p>
+                <p>{this.props.profile.bio}</p>
               </div>
             </div>
           </div>

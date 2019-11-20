@@ -6,64 +6,79 @@
   border-radius: 5%;
   justify-content: center;
   /* display: flex; */
-
-}
-.EditUserFormPhoto {
-  /* width: 300px;
-  height: 100px; */
-  display: flex;
-  justify-content: center;
-}
-.EditUserFormTitle {
-  margin-left: auto;
-  margin-right: auto;
-}
-.EditUserFormPhoto img {
-  margin-top: 20px;
-  height: 80px;
-  border-radius: 50%;
-}
-.EditUserForm h1 {
-  font-size: 30px;
-  text-align: center;
-  margin-bottom: 30px;;
 }
 .EditUserFormForm {
-  display: inline;
-  justify-content: center;
-  flex-wrap: flex;
+  /* background-color: greenyellow; */
+  width: 250px;
   margin-left: auto;
   margin-right: auto;
+}
+.EditUserFormPhotoButton {
+  /* background-color: red; */
+  width: 230px;
+  height: 110px;
+ 
+  position: relative;
+  justify-content: center;;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.editPhotoPhoto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; 
+  margin-top: 30px;
+  margin-left: 60px;
+  margin-right:auto;
+}
+.editPhotoPhotoOverlay {
+  background-color: black;
+  opacity: 0;
+  justify-content: center;
+
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;  
+  position: absolute;
+  display: flex;
+  margin-top: -102px;
+  margin-left: 60px;
+
+  margin-right:auto;
+  z-index: 4;
+}
+.editPhotoPhotoOverlay:hover {
+  opacity: .4;
+}
+.editPhotoPhotoOverlay input {
+  width: 100px;
+  height: 100px;
+  z-index: 6;
+
+  opacity: 0;
+  border-radius: 50%;  
+}
+.editPhotoPhotoOverlay p {
+  z-index: 5;
+  position: absolute;
+  top: 30px;
+  left:20px
+}
+.editPhotoPhotoOverlay:hover p {
+  color: white;
+  opacity: 1;
 }
 .EditSection {
-  width: 300px;
-  height: 30px;
+  margin-top: 30px
 }
-.EditUserFormFormInput {
-  float: right;
-  margin-left: 30px;
-  margin-right: 20px;
-}
-.EditUserFormLabel  {
-  /* float: left; */
-
-  min-width: 89px;
-  font-size: 20px;
-  margin-left: 20px;
-}
-.EditSubmit {
+.EditUserFormTitle {
+  display: flex;
   justify-content: center;
-  margin-top: 20px;
-  height: 50;
-  width: 250px;
 
 }
-.EditSubmit input {
-  float: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50px;
-  /* margin-right: 50% */
 
 
+.EditSubmit {
+  margin-top: 100px;
 }

@@ -54,7 +54,7 @@ class PostShow extends React.Component {
     if (!this.props.post) {
       return null;
     }
-
+    debugger
     // let comments =
     let {currentUser, users, post, author, comments} = this.props
     // debugger
@@ -82,7 +82,7 @@ class PostShow extends React.Component {
                   <p>{author.username}</p>
                 </div>
               </Link>
-              {currentUser.id === post.id ? 
+              {currentUser.id === post.author_id ? 
                 <button onClick={this.handleDelete}>delete >:(</button>
               :
                 <div></div>
