@@ -23,8 +23,8 @@ export class NewPost extends Component {
     formData.append("post[caption]", this.state.caption);
     formData.append("post[photo]", this.state.photoFile);
     this.props.createPost(formData)
+      .then(() => { this.props.closeModal() })      
       .then(() => { this.props.history.push("/") })
-      .then(() => { this.props.closeModal() });      
   }
 
 

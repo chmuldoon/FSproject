@@ -2,8 +2,7 @@ import NewPost from "./new_post";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { createPost } from "../../actions/post_actions";
-import { openModal } from "../../actions/modal_actions";
-
+import { openModal, closeModal } from "../../actions/modal_actions";
 const mapStateToProps = (state, ownProps) => {
   let post = {
     caption: '',
