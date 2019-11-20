@@ -6,6 +6,7 @@ export class NewPost extends Component {
     this.state = Object.assign({}, this.props.post, { photoFile: null});
     this.handleSubmit = this.handleSubmit.bind(this); 
   }
+  
 
   handleFile(e) {
     this.setState({ photoFile: e.currentTarget.files[0] });
