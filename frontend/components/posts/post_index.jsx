@@ -22,7 +22,7 @@ class PostIndex extends React.Component {
   render() {
     // debugger
     
-    const posts = this.props.posts.map(post => {
+    const posts = this.props.posts.reverse().map(post => {
       // debugger
       return (
         <IndexItemContainer

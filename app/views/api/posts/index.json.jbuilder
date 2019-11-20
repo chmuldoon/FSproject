@@ -1,5 +1,5 @@
 
-@posts.includes(:author).each do |post|
+@posts.each do |post|
     json.set! post.id do
       json.extract! post, :id, :author_id, :caption, :author, :likes, :likers, :comments, :commentors
       json.extract! post.author, :username

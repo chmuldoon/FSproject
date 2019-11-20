@@ -4,6 +4,7 @@ import PostShow from './post_show';
 import { fetchUsers } from '../../actions/user_actions';
 import { deleteComment, fetchAllComments } from '../../actions/comment_actions';
 import { createLike, deleteLike } from '../../actions/like_actions';
+import { closeModal } from "../../actions/modal_actions";
 
 const mapStateToProps = (state, ownProps) => {
   // const post = state.entities.posts[parseInt(ownProps.match.params.postId)]
@@ -39,9 +40,11 @@ const mapStateToProps = (state, ownProps) => {
   }
 };
 const mapDispatchToProps = dispatch => ({
+  closeModal: () => dispatch(closeModal()),
   fetchUsers: () => dispatch(fetchUsers()),
   fetchPosts: () => dispatch(fetchPosts()),
   fetchPost: id => dispatch(fetchPost(id)),
+  deletePost: postId => dispatch(deletePost(postId)),
   createLike: post_id => dispatch(createLike(post_id)),
   deleteComment: commentId => dispatch(deleteComment(commentId)),
   deleteLike: post_id => dispatch(deleteLike(post_id)),

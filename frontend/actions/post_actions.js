@@ -21,27 +21,8 @@ export const createPost = post => dispatch => (
 // );
 
 export const deletePost = postId => dispatch => (
-  PostApiUtil.deletePost(postId).then(post => dispatch(removePost(postId)))
+  PostApiUtil.deletePost(postId).then(post => dispatch(removePost(post)))
 );
-
-// export const createLike = post_id => dispatch => (
-//   PostApiUtil.createLike(post_id).then(post => dispatch(receivePost(post)))
-// );
-
-
-// export const deleteLike = (post_id) => (dispatch) => (
-//   PostApiUtil.deleteLike(post_id).then(post => dispatch(receivePost(post)))
-// );
-
-// export const createComment = post_id => dispatch => (
-//   PostApiUtil.createComment(post_id).then(post => dispatch(receivePost(post)))
-// );
-
-
-// export const deleteComment = (post_id) => (dispatch) => (
-//   PostApiUtil.deleteComment(post_id).then(post => dispatch(receivePost(post)))
-// );
-
 
 const receiveAllPosts = posts => ({
   type: RECEIVE_ALL_POSTS,

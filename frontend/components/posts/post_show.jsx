@@ -13,6 +13,7 @@ class PostShow extends React.Component {
       caption: this.props.post.caption
     };
     this.currentUser = this.props.currentUser;
+    this.handleDelete = this.handleDelete.bind(this);
   }
   
   componentDidMount() {
@@ -21,7 +22,19 @@ class PostShow extends React.Component {
     this.props.fetchAllComments();
     this.props.fetchUsers();
   }
-
+  handleDelete(e) {
+    // debugger
+    e.preventDefault();
+    this.props
+      .deletePost(this.props.post.id)
+      .then(() => {
+        // debugger
+        this.props.history.push(`/users/${this.props.currentUser.id}`);
+      })
+      .then(() => {
+        this.props.closeModal();
+      });  
+  }
   // handleLike(e) {
   //   // e.preventDefault();
   //   if (this.props.post.hasLiked) {
@@ -69,6 +82,11 @@ class PostShow extends React.Component {
                   <p>{author.username}</p>
                 </div>
               </Link>
+              {currentUser.id === post.id ? 
+                <button onClick={this.handleDelete}>delete >:(</button>
+              :
+                <div></div>
+              }
             </div>
             <div className="postShowComments">
               <div className="postShowComment">

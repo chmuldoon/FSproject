@@ -1,14 +1,14 @@
 class Api::PostsController < ApplicationController
-  # def create
-  #   @post = Post.new(post_params)
-  #   @post.author_id = current_user.id
-  #   if @post.save
-  #     redirect_to :index
-  #   else
-  #     render json: @post.errors.full_messages, status: 422
-  #   end\
+  def create
+    @post = Post.new(post_params)
+    @post.author_id = current_user.id
+    if @post.save
+      render :show
+    else
+      render json: @post.errors.full_messages, status: 422
+    end
     
-  # end
+  end
 
   def index
     #Later we can add following dependency here
@@ -27,7 +27,7 @@ class Api::PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    if post.destroy
+    if @post.destroy
       render :index
     else
       render json: @post.errors.full_messages, status: 422
@@ -37,6 +37,6 @@ class Api::PostsController < ApplicationController
  
 
   def post_params
-    params.require(:post).permit(:caption, photo: [])
+    params.require(:post).permit(:author_id, :caption, :photo)
   end
 end
