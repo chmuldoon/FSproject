@@ -52,11 +52,11 @@ export class UserPatch extends Component {
 
     this.props.updateUser({formData, id: this.props.user.id})
     
-    // .then(() => {
-    //     this.props.history.push(`/users/${this.props.user.id}`)
-    //   }).then(() => {
-    //     this.props.closeModal()
-    //   });
+    .then(() => {
+        this.props.history.push(`/users/${this.props.user.id}`)
+      }).then(() => {
+        this.props.closeModal()
+      });
 
 
   }
@@ -75,21 +75,11 @@ export class UserPatch extends Component {
             </div>
           </div>
           
-          <div className="EditSection">
-            <div className="EditUserFormTitle">
-              <h1>Edit Profile</h1>
-            </div>
-            <label className="EditUserFormLabel">username</label>
-            <input
-              className="EditUserFormFormInput"
-              type="text"
-              onChange={this.update("username")}
-              value={this.state.username}
-              // placeholder={this.props.user.username}
-            />
+          <div className="EditUserFormTitle">
+            <h1>Edit Profile</h1>
           </div>
           <div className="EditSection">
-            <label className="EditUserFormLabel">full name</label>
+            <label className="EditUserFormLabel">Name</label>
             <input
               className="EditUserFormFormInput"
               type="text"
@@ -99,21 +89,31 @@ export class UserPatch extends Component {
             />
           </div>
           <div className="EditSection">
-            <label className="EditUserFormLabel">email</label>
+            <label className="EditUserFormLabel">Username</label>
+            <input
+              className="EditUserFormFormInput"
+              type="text"
+              onChange={this.update("username")}
+              value={this.state.username}
+              // placeholder={this.props.user.username}
+            />
+          </div>
+          <div className="BioSection">
+            <label className="EditUserFormLabel">Bio</label>
+            <textarea
+              onChange={this.update("bio")}
+              value={this.state.bio}
+              // placeholder={this.props.user.bio}
+            />
+          </div>
+          <div className="EditSection">
+            <label className="EditUserFormLabel">Email</label>
             <input
               className="EditUserFormFormInput"
               type="text"
               onChange={this.update("email")}
               value={this.state.email}
               // placeholder={this.props.user.email}
-            />
-          </div>
-          <div className="BioSection">
-            <label className="EditUserFormLabel">bio</label>
-            <textarea
-              onChange={this.update("bio")}
-              value={this.state.bio}
-              // placeholder={this.props.user.bio}
             />
           </div>
           <div className="EditSubmit">

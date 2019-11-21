@@ -82,11 +82,11 @@ class PostShow extends React.Component {
                   <p>{author.username}</p>
                 </div>
               </Link>
-              {currentUser.id === post.author_id ? 
+              {currentUser.id === post.author_id ? (
                 <button onClick={this.handleDelete}>delete >:(</button>
-              :
+              ) : (
                 <div></div>
-              }
+              )}
             </div>
             <div className="postShowComments">
               <div className="postShowComment">
@@ -94,10 +94,7 @@ class PostShow extends React.Component {
                   <img className="userShowPfp" src={post.pfp} />
                 </Link>
                 <div className="commentUsernameAndComment">
-                  <Link
-                    className="commentUsername"
-                    to={`/users/${author.id}`}
-                  >
+                  <Link className="commentUsername" to={`/users/${author.id}`}>
                     <p>{author.username}</p>
                   </Link>
                   <p>{post.caption}</p>
@@ -109,8 +106,7 @@ class PostShow extends React.Component {
                 if (user) {
                   userPhotoUrl = user.photoUrl;
                 }
-                let commentor = users.find(
-                  use => use.id === comment.author_id)
+                let commentor = users.find(use => use.id === comment.author_id);
                 // debugger
                 return (
                   <div className="postShowComment">
@@ -125,8 +121,7 @@ class PostShow extends React.Component {
                         <p>{commentor.username}</p>
                       </Link>
                       <p>{comment.body}</p>
-                      {commentor.id === sessionId ||
-                      author.id === sessionId ? (
+                      {commentor.id === sessionId || author.id === sessionId ? (
                         <div>
                           <button>delete</button>
                         </div>
@@ -140,9 +135,17 @@ class PostShow extends React.Component {
             </div>
             <div className="postShowLowerSection">
               <div className="Post-Like-Button">
-                <LikeContainer post={post} postId={post.id} postLikes={post.likes}/>
+                <LikeContainer
+                  post={post}
+                  postId={post.id}
+                  postLikes={post.likes}
+                />
               </div>
-              <p>
+              <p
+                onClick={() =>
+                  this.props.openListModal("list", post.likers, "Likers")
+                }
+              >
                 {post.likes.length === 0
                   ? "No one likes this yet"
                   : post.likes.length === 1

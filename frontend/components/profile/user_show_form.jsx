@@ -134,14 +134,24 @@ class UserShowForm extends Component {
                     <p className="StatWord">posts</p>
                   </div>
                 )}
-                <div className="Stat">
+                <div className="Stat"
+                    onClick={() =>
+                    this.props.openListModal(
+                    "list",this.props.profile.followers, "Followers")}
+                  >
                   <p className="profileBioDetail">
                     {this.props.profile.passive_follows.length}
                   </p>
                   <p className="StatWord"> followers</p>
                 </div>
-                <div className="Stat">
-                  <p className="profileBioDetail">
+                <div className="Stat"
+                  onClick={() =>
+                  this.props.openListModal(
+                  "list", this.props.profile.followings, "Following")}
+                >
+                  <p
+                    className="profileBioDetail"
+                  >
                     {this.props.profile.active_follows.length}{" "}
                   </p>
                   <p> following</p>

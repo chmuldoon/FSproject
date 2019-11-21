@@ -6,7 +6,7 @@ import { fetchAllFollows, createFollow, deleteFollow } from "../../actions/follo
 import { logout } from '../../actions/session_actions';
 import { fetchPosts } from '../../actions/post_actions';
 
-import { openModal, openShowModal } from '../../actions/modal_actions';
+import { openModal, openShowModal, openListModal } from '../../actions/modal_actions';
 import { fetchAllComments } from '../../actions/comment_actions';
 const msp = (state, ownProps) => {
 
@@ -30,6 +30,9 @@ const mdp = dispatch => ({
   // fetchUsers: () => dispatch(fetchUsers()),
   openModal: modal => dispatch(openModal(modal)),
   openShowModal: (modal, post) => dispatch(openShowModal(modal, post)),
+  openListModal: (modal, list, kind) =>
+    dispatch(openListModal(modal, list, kind)),
+
   fetchPosts: () => dispatch(fetchPosts()),
   fetchUsers: () => dispatch(fetchUsers()),
   fetchAllFollows: () => dispatch(fetchAllFollows()),

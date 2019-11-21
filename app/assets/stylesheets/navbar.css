@@ -42,6 +42,7 @@
 }
 .daLink{
   color: #262626;
+  cursor: pointer;
   text-decoration: none;
 }
 
