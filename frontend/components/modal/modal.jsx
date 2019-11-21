@@ -6,8 +6,8 @@ import PostShowContainer from "../posts/post_show_container";
 import NewPostContainer from "../posts/new_post_container";
 import UserPatchContainer from "../profile/user_patch_container";
 import LogoutContainer from "../profile/logout_container";
+import UserList from "../profile/user_list";
 // import ProfilePicContainer from "../profile/profile_pic_container";
-
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -27,6 +27,9 @@ function Modal({ modal, closeModal }) {
     case "logout":
       component = <LogoutContainer />;
       break;
+    case "list":
+      component = <UserList list={modal.list} kind={modal.kind}/>;
+      break;
     default:
       return null;
   }
@@ -42,7 +45,9 @@ function Modal({ modal, closeModal }) {
 const mapStateToProps = state => {
   return {
     modal: state.ui.modal,
-    post: state.ui.post
+    post: state.ui.post,
+    list: state.ui.list,
+    king: state.ui.kind
   };
 };
 

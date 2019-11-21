@@ -86,7 +86,11 @@ export class PostIndexItem extends Component {
                 <img src="https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg" />
               </div>
             </div>
-            <p>
+            {/* possibly incorporate more edge cases */}
+            <p
+              className="PostLikeCount"
+              onClick={() => this.props.openListModal("list", post.likers, "Likers")}
+            >
               {post.likes.length === 1
                 ? "1 like"
                 : `${post.likes.length} likes`}
@@ -110,8 +114,8 @@ export class PostIndexItem extends Component {
                 className="commentLink"
                 onClick={() => this.props.openShowModal("postShow", post)}
               >
-              {/* <Link className="commentLink" to={`/posts/${post.id}`}> */}
-              {/* </Link> */}
+                {/* <Link className="commentLink" to={`/posts/${post.id}`}> */}
+                {/* </Link> */}
                 <p>{`view all ${post.comments.length} comments`}</p>
               </div>
             ) : (

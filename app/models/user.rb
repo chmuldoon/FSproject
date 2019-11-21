@@ -25,9 +25,9 @@ class User < ApplicationRecord
     foreign_key: :target_id
  
 
-  # has_many :followings, 
-  #   through: :active_follows,
-  #   source: :following
+  has_many :followings, 
+    through: :active_follows,
+    source: :target
  
 
   has_many :followers, 

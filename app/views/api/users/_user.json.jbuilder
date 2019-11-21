@@ -1,4 +1,4 @@
-json.extract! user, :id, :username, :email, :full_name, :likes, :active_follows, :passive_follows, :bio
+json.extract! user, :id, :username, :email, :full_name, :likes, :active_follows, :passive_follows, :bio, :followers, :followings
 json.photoUrl url_for(user.profilepic)
 json.extract! user.active_follows
 json.followerID user.followers.map { |follower| follower.id}

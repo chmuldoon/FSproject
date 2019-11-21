@@ -4,7 +4,7 @@ import PostShow from './post_show';
 import { fetchUsers } from '../../actions/user_actions';
 import { deleteComment, fetchAllComments } from '../../actions/comment_actions';
 import { createLike, deleteLike } from '../../actions/like_actions';
-import { closeModal } from "../../actions/modal_actions";
+import { closeModal, openListModal } from "../../actions/modal_actions";
 
 const mapStateToProps = (state, ownProps) => {
   // const post = state.entities.posts[parseInt(ownProps.match.params.postId)]
@@ -41,6 +41,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeModal()),
+  openListModal: (modal, list, kind) =>
+    dispatch(openListModal(modal, list, kind)),
   fetchUsers: () => dispatch(fetchUsers()),
   fetchPosts: () => dispatch(fetchPosts()),
   fetchPost: id => dispatch(fetchPost(id)),

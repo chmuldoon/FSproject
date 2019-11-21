@@ -1,7 +1,8 @@
 import {
   OPEN_MODAL,
   CLOSE_MODAL,
-  OPEN_SHOW_MODAL
+  OPEN_SHOW_MODAL,
+  OPEN_LIST_MODAL
 } from "../actions/modal_actions";
 import merge from "lodash/merge";
 import { RECEIVE_COMMENT } from "../actions/comment_actions";
@@ -18,6 +19,8 @@ export default function modalReducer(state = [], action){
       return null;
     case OPEN_SHOW_MODAL:
       return { modal: action.modal, post: action.post };
+    case OPEN_LIST_MODAL:
+      return { modal: action.modal, list: action.list, kind: action.kind };
     case RECEIVE_LIKE:
       Object.values(newState).forEach(post => {
         if (post.id === action.like.post_id) {
@@ -37,16 +40,22 @@ export default function modalReducer(state = [], action){
     case RECEIVE_COMMENT:
       // debugger
       // const post = Object.values(newState).filter(post => post.id === action.comment.post_id)[0];
-      if (Object.values(newState).filter(post => post.id === action.comment.post_id)[0]) {
-                // debugger
-                const post = Object.values(newState).filter(post => post.id === action.comment.post_id)[0];
-                post.comments.push(action.comment);
-                return newState;
-            }
-      // const post = Object.values(newState)[1];
-      // debugger
-      // post.comments.push(action.comment);
-      // return newState
+      if (
+        Object.values(newState).filter(
+          post => post.id === action.comment.post_id
+        )[0]
+      ) {
+        // debugger
+        const post = Object.values(newState).filter(
+          post => post.id === action.comment.post_id
+        )[0];
+        post.comments.push(action.comment);
+        return newState;
+      }
+    // const post = Object.values(newState)[1];
+    // debugger
+    // post.comments.push(action.comment);
+    // return newState
     default:
       return state;
   }
