@@ -10,10 +10,13 @@ import React, { Component } from 'react'
 export class UserList extends Component {
   constructor(props){
     super(props)
+    this.hasFollowed = this.hasFollowed.bind(this)
   }
   hasFollowed(user) {
     let activeFollowsIds = this.props.currentUser.active_follows
-      .map(userr => userr.id)
+      .map(userr => 
+        userr.id
+        )
     if (activeFollowsIds.includes(user)){
       return(
         <div>
@@ -23,8 +26,13 @@ export class UserList extends Component {
     }
   }
   render() {
-    debugger
+    // debugger
+    let activeFollowsIds = this.props.currentUser.followings.map(
+      userr => userr.id
+    );
+
     let users = this.props.list.map(user => {
+      debugger
       return (
         <div className="UserListItem">
           <Link className="ListLink" to={`/users/${user.id}`}>
@@ -35,7 +43,12 @@ export class UserList extends Component {
               <div className="UserListName">{user.full_name}</div>
             </div>
 
-            {this.hasFollowed(user)}
+            {activeFollowsIds.includes(user.id) ? 
+            (
+              <div>Followed</div>
+            ):(
+              <div></div>
+            )}
           </Link>
         </div>
       );
@@ -60,7 +73,7 @@ export class UserList extends Component {
 const mapStateToProps = (state, ownProps) => {
   const listIds = ownProps.list.map(user => user.id);
   const users = Object.values(state.entities.users)
-  debugger
+  // debugger
   return {
     currentUser: state.entities.users[state.session.id],
     list: users.filter(user => listIds.includes(user.id)),
