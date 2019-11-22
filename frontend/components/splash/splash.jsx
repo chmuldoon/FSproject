@@ -9,7 +9,7 @@ export const splash = ({currentUser}) => {
     return (
       <div className="splash-omni">
         <PostIndexContainer className="splashPosts"/>
-        <div className="createPost"></div>
+        
       </div>
     )
   }else{

@@ -3,24 +3,33 @@
   width: 400px;
   border-radius: 12px;
   background-color: white;
+  border: 1px solid #efefef;
+  position: relative;
 
 }
 .ListKind {
   height: 42px;
   display: flex;
   justify-content: center;
+  border-bottom: #efefef 2px solid;
+  font-weight: 600;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  line-height: 18px;
+  color: #262626;
 }
 .UserList h1 {
   margin-top: 10px;
 }
 .UserListItem {
   height:60px;
-  background-color: red;
+  /* background-color: red; */
   margin-bottom: 5px;
 }
 .ListLink {
   display: flex;
   flex-wrap: wrap;
+  max-width: 250px;
 }
 .UserListPhoto {
   margin-top: 5px;
@@ -28,4 +37,66 @@
   height: 50px;
   width: 50px;
   border-radius: 50%;
+}
+.UsernameAndName {
+  margin-left: 10px;
+  margin-top : 15px
+}
+.UserListUsername {
+  color: #262626;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.UserListName{
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #999;
+}
+.UserListFollowStatus {
+  position: absolute;
+  z-index: 6;
+  background-color: transparent;
+  border: 1px solid #dbdbdb;
+  border: 1px solid rgba(var(--d0b,219,219,219),1);
+  color: #262626;
+  border-radius: 4px;
+  color: #fff;
+  height: 30px;
+  width: 84px;
+  margin-left: 300px;
+  margin-top: -37px;
+  float: right;
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+}
+.UserListFollowStatus p {
+  margin-bottom: auto;
+  margin-top: auto;
+  font-weight: 600;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  color: #262626;
+}
+.ListSection {
+  overflow-y:auto;
+  height: 356px;
+}
+.button:focus { outline: none; }
+.buttonX {
+  margin-top: 10px;
+  margin-left: 180px;
+  position:absolute;
+  z-index: 9;
+  float: right;
+  padding: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
 }

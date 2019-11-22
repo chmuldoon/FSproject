@@ -32,10 +32,10 @@ export class NavBar extends Component {
             </div>
             <div className="navbar-right">
               <div
-                className="daLink"
+                className="daLink2"
                 onClick={() => this.props.openModal("upload")}
               >
-                <i class="far fa-plus-square"></i>
+                <i className="far fa-plus-square"></i>
               </div>
               <Link className="navbar-right-link" to={`/explore`}>
                 <i className="far fa-compass"></i>
