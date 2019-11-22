@@ -10,20 +10,6 @@ import React, { Component } from 'react'
 export class UserList extends Component {
   constructor(props){
     super(props)
-    this.hasFollowed = this.hasFollowed.bind(this)
-  }
-  hasFollowed(user) {
-    let activeFollowsIds = this.props.currentUser.active_follows
-      .map(userr => 
-        userr.id
-        )
-    if (activeFollowsIds.includes(user)){
-      return(
-        <div>
-          Followed
-        </div>
-      )
-    }
   }
   render() {
     // debugger
@@ -32,10 +18,10 @@ export class UserList extends Component {
     );
 
     let users = this.props.list.map(user => {
-      debugger
+      // debugger
       return (
         <div className="UserListItem">
-          <Link className="ListLink" to={`/users/${user.id}`}>
+          <Link onClick={() => this.props.closeModal()}className="ListLink" to={`/users/${user.id}`}>
             <img className="UserListPhoto" src={user.photoUrl} />
 
             <div className="UsernameAndName">
@@ -43,13 +29,15 @@ export class UserList extends Component {
               <div className="UserListName">{user.full_name}</div>
             </div>
 
+          </Link>
             {activeFollowsIds.includes(user.id) ? 
             (
-              <div>Followed</div>
+              <div className="UserListFollowStatus">
+                <p>Following</p>
+              </div>
             ):(
               <div></div>
             )}
-          </Link>
         </div>
       );
     });
@@ -57,6 +45,9 @@ export class UserList extends Component {
       <div className="UserList">
         <div className="ListKind">
           <h1>{this.props.listKind}</h1>
+          <button className="buttonX" onClick={() => this.props.closeModal()}>
+            <svg aria-label="Close" className="UserListX" fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M41.1 9.1l-15 15L41 39c.6.6.6 1.5 0 2.1s-1.5.6-2.1 0L24 26.1l-14.9 15c-.6.6-1.5.6-2.1 0-.6-.6-.6-1.5 0-2.1l14.9-15-15-15c-.6-.6-.6-1.5 0-2.1s1.5-.6 2.1 0l15 15 15-15c.6-.6 1.5-.6 2.1 0 .6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg>
+          </button>
         </div>
         
         <div className="ListSection">

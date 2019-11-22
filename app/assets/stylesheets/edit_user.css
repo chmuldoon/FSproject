@@ -80,11 +80,13 @@
 .EditSection {
   /* margin-top: 30px; */
   min-height: 32px;
-  margin-bottom:  5px;
+  margin-bottom:  15px;
 }
 .EditUserFormLabel{
   color: #262626;
-  font-size: 16px;
+  font-size: 20px;
+  margin-bottom: -10px;
+  margin-left: 5px;
   font-weight: 600;
   line-height: 18px;
   min-width: 79px;
@@ -96,9 +98,11 @@
   font-size: 25px;
   font-weight: 600;
   line-height: 18px;
+  margin-bottom: 20px;
 
 }
 .EditUserFormFormInput{
+
   cursor: text;
   margin: 0em;
   font: 400 11px system-ui;
@@ -121,9 +125,28 @@
     font-size: 16px;
     height: 32px;
     padding: 0 10px;
+    float:right;
 }
 
 
 .EditSubmit {
-  margin-top: 100px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.EditSubmit input {
+  width: 100px;
+  height: 30px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+background-color: #3897f0;
+  border-radius: 4px;
+  outline: none;
+  opacity: .4;
+  cursor: pointer;
+}
+.EditSubmit:hover input {
+  opacity: 1;
+
 }

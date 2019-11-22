@@ -74,7 +74,7 @@ export class UserPatch extends Component {
               </div>
             </div>
           </div>
-          
+
           <div className="EditUserFormTitle">
             <h1>Edit Profile</h1>
           </div>
@@ -98,9 +98,11 @@ export class UserPatch extends Component {
               // placeholder={this.props.user.username}
             />
           </div>
-          <div className="BioSection">
+          <div className="EditSection">
             <label className="EditUserFormLabel">Bio</label>
-            <textarea
+            <input
+              className="EditUserFormFormInput"
+              type="text"
               onChange={this.update("bio")}
               value={this.state.bio}
               // placeholder={this.props.user.bio}
