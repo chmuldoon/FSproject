@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 
 import React, { Component } from 'react'
+import SearchContainer from './search_container';
 
 export class NavBar extends Component {
   constructor(props){
@@ -27,9 +28,7 @@ export class NavBar extends Component {
               <input type="text" placeholder="search" />
             </div> */}
             </div>
-            <div className="nav-search">
-              <input type="text" placeholder="search" />
-            </div>
+            <SearchContainer/>
             <div className="navbar-right">
               <div
                 className="daLink2"
