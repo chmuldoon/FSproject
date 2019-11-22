@@ -94,6 +94,11 @@
   display: flex;
   flex-wrap: wrap;
 }
+.Stat2 {
+  display: flex;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
 .profileBioDetail {
   display: inline;
   font-weight: 600;

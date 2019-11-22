@@ -134,7 +134,7 @@ class UserShowForm extends Component {
                     <p className="StatWord">posts</p>
                   </div>
                 )}
-                <div className="Stat"
+                <div className="Stat2"
                     onClick={() =>
                     this.props.openListModal(
                     "list",this.props.profile.followers, "Followers")}
@@ -144,7 +144,7 @@ class UserShowForm extends Component {
                   </p>
                   <p className="StatWord"> followers</p>
                 </div>
-                <div className="Stat"
+                <div className="Stat2"
                   onClick={() =>
                   this.props.openListModal(
                   "list", this.props.profile.followings, "Following")}
