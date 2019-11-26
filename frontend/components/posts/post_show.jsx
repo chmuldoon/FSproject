@@ -54,7 +54,7 @@ class PostShow extends React.Component {
     if (!this.props.post) {
       return null;
     }
-    debugger
+    // debugger
     // let comments =
     let {currentUser, users, post, author, comments} = this.props
     // debugger
@@ -94,7 +94,7 @@ class PostShow extends React.Component {
                   <img className="userShowPfp" src={post.pfp} />
                 </Link>
                 <div className="commentUsernameAndComment">
-                  <Link className="commentUsername" to={`/users/${author.id}`}>
+                  <Link className="commentUsernameCap" to={`/users/${author.id}`}>
                     <p>{author.username}</p>
                   </Link>
                   <p>{post.caption}</p>
@@ -110,25 +110,28 @@ class PostShow extends React.Component {
                 // debugger
                 return (
                   <div className="postShowComment">
-                    <Link to={`/users/${commentor.id}`}>
-                      <img className="userShowPfp" src={userPhotoUrl} />
-                    </Link>
-                    <div className="commentUsernameAndComment">
+                    <div className="postShowPhotoName">
+                      <Link to={`/users/${commentor.id}`}>
+                        <img className="userShowPfp" src={userPhotoUrl} />
+                      </Link>
+                      <div className="NameandComment">
                       <Link
                         className="commentUsername"
                         to={`/users/${commentor.id}`}
                       >
                         <p>{commentor.username}</p>
                       </Link>
+                      <p className="commBod">{comment.body}</p>
+                      </div>
+                    </div>
+                    {/* <div className="commentUsernameAndComment">
                       <p>{comment.body}</p>
                       {commentor.id === sessionId || author.id === sessionId ? (
-                        <div>
-                          <button>delete</button>
-                        </div>
+                        <p>x</p>
                       ) : (
-                        <div></div>
+                        <p></p>
                       )}
-                    </div>
+                    </div> */}
                   </div>
                 );
               })}

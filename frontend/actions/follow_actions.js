@@ -23,10 +23,10 @@ export const createFollow = follow => dispatch => (
   .then(follow => dispatch(receiveFollow(follow)))
 );
 
-export const fetchAllFollows = () => dispatch => (
-  FollowApiUtil.fetchAllFollows()
+export const fetchAllFollows = () => dispatch => {
+  return FollowApiUtil.fetchAllFollows()
   .then(follows => dispatch(receiveAllFollows(follows)))
-);
+};
 export const fetchFollow = (follow) => dispatch =>
   FollowApiUtil.fetchFollow(follow).then(follow =>
     dispatch(receiveFollow(follow))

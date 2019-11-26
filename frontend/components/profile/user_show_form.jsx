@@ -24,7 +24,6 @@ class UserShowForm extends Component {
     // this.props.fetchUsers();
     this.props.fetchUsers();
     this.props.fetchUser(this.props.match.params.userId);
-    this.props.fetchAllFollows();
     this.props.fetchPosts();
     this.props.fetchAllComments();
   
@@ -112,14 +111,17 @@ class UserShowForm extends Component {
 
           <div className="notPicture">
             <div className="profileInfo">
-              <p className="name">{this.props.profile.username}</p>
+              <div className="profileNameandButtons">
+                <p className="name">{this.props.profile.username}</p>
 
-              <FollowContainer
-                users={this.props.users}
-                user={this.props.profile}
-                userId={this.props.profile.id}
-                follows={this.props.follows}
-              />
+                <FollowContainer
+                  users={this.props.users}
+                  user={this.props.profile}
+                  userId={this.props.profile.id}
+                  follows={this.props.follows}
+                />
+
+              </div>
               <div className="profileStats">
                 {this.props.profile.posts === undefined ? (
                   <div className="Stat">
@@ -140,7 +142,7 @@ class UserShowForm extends Component {
                     "list",this.props.profile.followers, "Followers")}
                   >
                   <p className="profileBioDetail">
-                    {this.props.profile.passive_follows.length}
+                    {this.props.follows.filter(follow => follow.target_id === this.props.profile.id).length}
                   </p>
                   <p className="StatWord"> followers</p>
                 </div>
@@ -152,7 +154,7 @@ class UserShowForm extends Component {
                   <p
                     className="profileBioDetail"
                   >
-                    {this.props.profile.active_follows.length}{" "}
+                    {this.props.follows.filter(follow => follow.follower_id === this.props.profile.id).length}{" "}
                   </p>
                   <p> following</p>
                 </div>

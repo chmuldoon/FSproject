@@ -15,6 +15,7 @@ const msp = (state, ownProps) => {
   let profilePosts = Object.values(state.entities.posts).filter(
     post => post.author_id === profile.id
   );
+  // debugger
   return ({
     profilePosts,
     users: Object.values(state.entities.users), 
