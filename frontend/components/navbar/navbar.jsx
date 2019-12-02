@@ -22,7 +22,7 @@ export class NavBar extends Component {
                 {/* <img className="Icon" src="https://images.vexels.com/media/users/3/141955/isolated/preview/d0f766bbe2603124417ed31d027b14c8-camera-icon-or-logo-by-vexels.png" alt=""/> */}
               </Link>
               <Link className="daLink" to={`/`}>
-                <p>Dronestagram</p>
+                <p>Clonestagram</p>
               </Link>
               {/* <div className="nav-search">
               <input type="text" placeholder="search" />

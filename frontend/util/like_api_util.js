@@ -7,6 +7,12 @@ export const createLike = like => (
   })  
 )
 
+export const fetchAllLikes = like =>
+  $.ajax({
+    method: "Get",
+    url: "api/likes",
+  });
+
 export const deleteLike = id => (
   $.ajax({
     method: 'DELETE',

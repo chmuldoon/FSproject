@@ -9,13 +9,16 @@ import { fetchPosts } from '../../actions/post_actions';
 import { openModal, openShowModal, openListModal } from '../../actions/modal_actions';
 import { fetchAllComments } from '../../actions/comment_actions';
 const msp = (state, ownProps) => {
-
+  // debugger
   let currentUser = state.entities.users[state.session.id];
   let profile = state.entities.users[parseInt(ownProps.match.params.userId)];
   let profilePosts = Object.values(state.entities.posts).filter(
     post => post.author_id === profile.id
   );
-  // debugger
+  let follows = Object.values(state.entities.follows).find(follow => follow.target_id === profile.id)
+  let followings = Object.values(state.entities.follows).find(follow => follow.follower_id === profile.id)
+  
+  debugger
   return ({
     profilePosts,
     users: Object.values(state.entities.users), 
