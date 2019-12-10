@@ -18,7 +18,7 @@ const msp = (state, ownProps) => {
   let follows = Object.values(state.entities.follows).find(follow => follow.target_id === profile.id)
   let followings = Object.values(state.entities.follows).find(follow => follow.follower_id === profile.id)
   
-  debugger
+  // debugger
   return ({
     profilePosts,
     users: Object.values(state.entities.users), 

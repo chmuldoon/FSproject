@@ -1,7 +1,28 @@
 .newPost {
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 250px;
   background-color: white;
   border: solid 1px #efefef;
   border-radius: 10%;
+}
+
+.newPost h1{
+  text-align: center;
+  font-weight: 600;
+  color: #262626;
+  font-size: 18px;
+  padding-top: 20px;
+  height: 40px;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.previewBox {
+  height: 100px;
+}
+.UploadButton {
+  /* z-index: 5; */
+  text-align: center;
+
+  height: 40px;
+  width: 100px;
+  background-color: dodgerblue;
 }

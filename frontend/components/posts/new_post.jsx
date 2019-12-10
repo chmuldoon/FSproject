@@ -33,12 +33,16 @@ export class NewPost extends Component {
       <div className="newPost">
         <h1>Create Post</h1>
         <form onSubmit={this.handleSubmit}>
+          <div className="previewBox">
+
+          </div>
+          <label className="UploadButton" htmlFor="img"> Upload </label>
+          <input type="file" id="img" onChange={this.handleFile.bind(this)} />
           <input
             type="text"
             placeholder="Write a caption..."
             onChange={this.update("caption")}
           />
-          <input type="file" onChange={this.handleFile.bind(this)} />
           <div>
             <input type="submit" value="Share" />
           </div>
