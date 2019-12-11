@@ -1,7 +1,66 @@
 .splash-omni{
-  margin-top: 100px
+  margin-top: 100px;
+  display: flex;
+  
+  justify-content: center;
+
+}
+.spaceHolderIndex{
+  width: 250px;
+  height: 250px;
 }
 .splashPosts{
   height: 100%;
   width: 620px;
+}
+
+.favBox{
+  width: 250px;
+  /* height: 150px; */
+  background-color: white;
+  border: solid 1.5px #efefef;
+  border-radius: 2%;
+
+}
+.favBoxTitle{
+  height: 19px;
+  margin-top: 12px;
+  padding-left: 16px;
+  padding-top: 12px;
+  font-size: 14px;
+  line-height: 18px;
+  margin: -3px 0 -4px;
+  color: #999999;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+}
+.favBoxTitle h1 {
+  text-align: left;
+  font-weight: 600;
+  /* color: #262626;
+  font-size: 18px; */
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.favList{
+  margin-top: 10px;
+  overflow-y:auto;
+  height: 120px;
+}
+.favList::-webkit-scrollbar {
+  display: none;
+}
+.favBoxLink{
+  /* position: relative; */
+  margin-top: 5px;
+  margin-left: 10px;
+  flex-wrap: wrap;
+  display: flex;
+  /* text-align: center;
+  height: 35px;
+  width: 250px; */
+}
+.favBoxLinkName {
+
+
 }

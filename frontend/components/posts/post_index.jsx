@@ -21,8 +21,14 @@ class PostIndex extends React.Component {
 
   render() {
     // debugger
-    
-    const posts = this.props.posts.reverse().map(post => {
+    let { currentUser } = this.props
+    let followingIds = currentUser.followings.map(
+      following => following.id);
+
+    let followedPosts = this.props.posts.filter(post =>
+      followingIds.includes(post.author.id)
+    );
+    const posts = followedPosts.reverse().map(post => {
       // debugger
       return (
         <IndexItemContainer
@@ -39,7 +45,7 @@ class PostIndex extends React.Component {
       });
 
     return (
-      <div>
+      <div className="index">
         <title>Clonestagram</title>
         {posts}
       </div>

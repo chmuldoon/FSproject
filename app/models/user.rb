@@ -18,7 +18,11 @@ class User < ApplicationRecord
   has_many :active_follows,  
     class_name: :Follow,
     foreign_key: :follower_id
- 
+
+  has_many :liked_posts,
+    through: :likes,
+    source: :post
+  
 
   has_many :passive_follows, 
     class_name: :Follow,

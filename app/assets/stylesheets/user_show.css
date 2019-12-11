@@ -197,6 +197,7 @@
   opacity: 1;
 }
 .logoutBox {
+  /* cursor: pointer; */
   width: 320px;
   height: 280px;
   background: white;
@@ -212,6 +213,18 @@
   color: #262626;
   font-size: 18px;
   font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.logoutBoxDiv > div {
+  cursor: pointer;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.logoutBoxDiv > a {
+  text-decoration: none;
+  color: #262626;
+
 }
 .cancel{
   border-bottom: none;

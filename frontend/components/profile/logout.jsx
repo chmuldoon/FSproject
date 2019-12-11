@@ -15,11 +15,11 @@ export class Logout extends Component {
   render() {
     return (
       <div className="logoutBox">
-        <div className="logoutBoxDiv" onClick={this.handleLogout}>Log Out</div>
+        <div className="logoutBoxDiv" onClick={this.handleLogout}><div>Log Out</div></div>
         <div className="logoutBoxDiv"> <a target="_blank" href="https://github.com/chmuldoon/FSproject">Github</a></div>
         <div className="logoutBoxDiv"><a target="_blank" href="https://www.linkedin.com/in/charlie-muldoon-573180192/"> LinkedIn</a></div>
         <div className="logoutBoxDiv">AngelList</div>
-        <div className="logoutBoxDiv cancel" onClick={this.props.closeModal}>Cancel</div>
+        <div className="logoutBoxDiv cancel" onClick={this.props.closeModal}><div>Cancel</div></div>
       </div>
     );
   }

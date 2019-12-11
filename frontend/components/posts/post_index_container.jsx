@@ -14,6 +14,7 @@ const mapStateToProps = state => {
   // );
 
   return {
+    currentUser,
     posts: Object.values(state.entities.posts),
     follows: Object.values(state.entities.follows)
     // .filter(post =>
