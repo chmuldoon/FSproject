@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 export class SideSplash extends Component {
   constructor(props){
     super(props)
+    this.active_follows = this.props.currentUser.active_follows.map(a => a.target_id)
+    this.favorites = this.props.currentUser.favorites.filter(a => this.active_follows.includes(a))
   }
   findSuggestions(){
     if (!this.props.users || Object.values(this.props.users).length < 2) {
@@ -13,14 +15,14 @@ export class SideSplash extends Component {
     let {users, currentUser} = this.props;
     let suggestions = []
     let count = {}
-    let active_follows = currentUser.active_follows.map(a => a.target_id)
+    // let active_follows = currentUser.active_follows.map(a => a.target_id)
     currentUser.active_follows.forEach(follow => {
       const sug = (users[follow.target_id].active_follows.map(a => a.target_id))
       suggestions = suggestions.concat(sug)
     })
 
     suggestions.forEach(sug =>{
-      if (sug !== currentUser.id && !active_follows.includes(sug)){
+      if (sug !== currentUser.id && !this.active_follows.includes(sug)){
         if (count[sug]) {
           count[sug] += 1;
         } else {
@@ -32,7 +34,11 @@ export class SideSplash extends Component {
       return count[a] - count[b];
     }).reverse().map(a => parseInt(a))
     // debugger
-    return sorted
+    if (sorted.length > 3){
+      return sorted.slice(0,4)
+    }else{
+      return sorted
+    }
 
   }
   renderBox(ids, title, bool){
@@ -96,8 +102,11 @@ export class SideSplash extends Component {
             }
           </div>
         </div>
-        {this.renderBox(currentUser.favorites, "Favorites", true)}
+        {this.renderBox(this.favorites, "Favorites", true)}
         {this.renderBox(this.findSuggestions(), "Suggestions For You", true)}
+        <div className="sideLinks">
+
+        </div>
       </div>
     )
   }
