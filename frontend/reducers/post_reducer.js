@@ -11,10 +11,13 @@ import {
 
 import { RECEIVE_COMMENT } from '../actions/comment_actions';
 import merge from 'lodash/merge';
-
-const postsReducer = (oldState = {}, action) => {
-  Object.freeze(oldState);
-  let newState = merge({}, oldState);
+const initialState = {
+  posts: [],
+  post: null,
+  loading: false
+}
+const postsReducer = (state = initialState, action) => {
+  
   switch (action.type) {
     case RECEIVE_LIKE:
 
@@ -26,10 +29,15 @@ const postsReducer = (oldState = {}, action) => {
       return newState;
 
     case RECEIVE_ALL_POSTS:
-      return merge({}, action.posts);
+      debugger
+      return {
+        ...state,
+        posts: Object.values(action.payload.posts),
+        loading: false
+      };
 
     case RECEIVE_POST:
-      return merge({}, oldState, { [action.post.id]: action.post });
+      return merge({}, state, { [action.post.id]: action.post });
 
     case REMOVE_POST:
       delete newState[action.postId]
@@ -40,7 +48,7 @@ const postsReducer = (oldState = {}, action) => {
       post.comments.push(action.comment);
       return newState
     default:
-      return oldState;
+      return state;
   }
 };
 

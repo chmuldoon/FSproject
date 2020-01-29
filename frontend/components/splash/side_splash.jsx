@@ -78,16 +78,6 @@ export class SideSplash extends Component {
       </div>
     );
   }
-  renderSuggestions(){
-    if (!this.props.users || Object.values(this.props.users).length < 2) {
-      return null;
-    }
-    let { users, currentUser } = this.props;
-    let suggestions = this.findSuggestions();
-
-
-  
-  }
   render() {
     const {currentUser} = this.props
     return (
@@ -104,9 +94,14 @@ export class SideSplash extends Component {
         </div>
         {this.renderBox(this.favorites, "Favorites", true)}
         {this.renderBox(this.findSuggestions(), "Suggestions For You", true)}
-        <div className="sideLinks">
+        <div className ="splasLinks">
+           <p className="splashInfo" >
+           <a target="_blank" href="https://github.com/chmuldoon/FSproject" > Github ·</a>
+           <a target="_blank" href="https://www.linkedin.com/in/charlie-muldoon-573180192/"> LinkedIn · </a>
+            <a target="_blank" href="https://www.instagram.com/"> Actual Instagram</a>
+          </p>
 
-        </div>
+         </div>
       </div>
     )
   }
