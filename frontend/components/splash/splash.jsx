@@ -14,7 +14,7 @@ export const splash = ({currentUser}) => {
       <div className="splash-omni">
         <PostIndexContainer className="splashPosts"/>
         <div className="spaceHolderIndex"></div>
-        <SideSplashContainer/>
+        {/* <SideSplashContainer/> */}
         
       </div>
     )
