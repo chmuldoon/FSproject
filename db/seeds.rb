@@ -12,10 +12,10 @@ Post.destroy_all
 Comment.destroy_all
 Like.destroy_all
 Follow.destroy_all
-# demo_user = User.create({username: "dali", password: "DemoUser", email: "DemoUser@gmail.com", full_name: "Salvador Dalí",
-#   bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, ea doloremque accusantium maxime temporibus'})
-# demo_profile_pic = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/dali/2462995_0.jpg")
-# demo_user.profilepic.attach(io: demo_profile_pic, filename: '2462995_0.jpg')
+# demo_user = User.create(username: "demo", password: "DemoUser", email: "DemoUser@gmail.com", full_name: "Salvador Dalí",
+#   bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, ea doloremque accusantium maxime temporibus')
+# demo_profile_pic = open("https://clonestagram-dev.s3-us-west-1.amazonaws.com/fdVfEaYjGUchQxtLCnm9jvoa")
+# demo_user.profilepic.attach(io: demo_profile_pic, filename: 'fdVfEaYjGUchQxtLCnm9jvoa')
 
 # druillet = User.create({username: "druilletofficiel", password: "password", email: "druillet@druillet.com", full_name: "Philippe Druillet",
 #   bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, ea doloremque accusantium maxime temporibus'})

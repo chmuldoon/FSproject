@@ -23,7 +23,10 @@ class SignupForm extends React.Component {
   }
   handleDemo(e){
     e.preventDefault();
-    const demoUser = Object.assign({}, {username: 'dali', password: 'DemoUser'})
+    const demoUser = Object.assign(
+      {},
+      { username: "demo", password: "DemoUser" }
+    );
     this.props.processDemo(demoUser)
     
 
