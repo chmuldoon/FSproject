@@ -16,7 +16,7 @@ class LoginForm extends React.Component {
   handleDemo(e) {
     e.preventDefault();
     // debugger
-    const demoUser = Object.assign({}, { username: 'demo', password: 'DemoUser' })
+    const demoUser = Object.assign({}, { username: 'dali', password: 'DemoUser' })
     this.props.processDemo(demoUser)
 
   }

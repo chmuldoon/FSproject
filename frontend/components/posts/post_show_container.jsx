@@ -42,7 +42,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeModal()),
   openListModal: (modal, list, kind) =>
-  dispatch(openListModal(modal, list, kind)),
+    dispatch(openListModal(modal, list, kind)),
   fetchUsers: () => dispatch(fetchUsers()),
   fetchPosts: () => dispatch(fetchPosts()),
   fetchPost: id => dispatch(fetchPost(id)),

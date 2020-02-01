@@ -1,32 +1,33 @@
-import React from "react";
-import PostIndexItem from "./post_index_item";
-import IndexItemContainer from "./index_item_container";
+import React from 'react';
+import PostIndexItem from './post_index_item';
+import IndexItemContainer from './index_item_container';
 
 class PostIndex extends React.Component {
   constructor(props) {
     super(props);
+   
   }
   componentDidMount() {
-    this.props.fetchPosts();
-    this.props.fetchUsers();
+    this.props.fetchPosts()
+    this.props.fetchUsers()
     // debugger
-    this.props.fetchAllFollows();
-    this.props.fetchAllComments();
+    this.props.fetchAllFollows()
+    this.props.fetchAllComments()
+
+
 
     // this.props.fetchUsers();
   }
 
   render() {
     // debugger
-    let { currentUser } = this.props;
-    let followingIds = currentUser.followings.map(following => following.id);
+    let { currentUser } = this.props
+    let followingIds = currentUser.followings.map(
+      following => following.id);
 
-    let followedPosts = this.props.posts
-    
-    // .filter(post =>
-    //   followingIds.includes(post.author.id)
-    // );
-
+    let followedPosts = this.props.posts.filter(post =>
+      followingIds.includes(post.author.id)
+    );
     const posts = followedPosts.reverse().map(post => {
       // debugger
       return (
@@ -41,7 +42,7 @@ class PostIndex extends React.Component {
           deleteComment={this.props.deleteComment}
         />
       );
-    });
+      });
 
     return (
       <div className="index">

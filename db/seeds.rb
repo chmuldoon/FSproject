@@ -12,10 +12,10 @@ Post.destroy_all
 Comment.destroy_all
 Like.destroy_all
 Follow.destroy_all
-# demo_user = User.create(username: "demo", password: "DemoUser", email: "DemoUser@gmail.com", full_name: "Salvador Dalí",
-#   bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, ea doloremque accusantium maxime temporibus')
-# demo_profile_pic = open("https://clonestagram-dev.s3-us-west-1.amazonaws.com/fdVfEaYjGUchQxtLCnm9jvoa")
-# demo_user.profilepic.attach(io: demo_profile_pic, filename: 'fdVfEaYjGUchQxtLCnm9jvoa')
+demo_user = User.create({username: "dali", password: "DemoUser", email: "DemoUser@gmail.com", full_name: "Salvador Dalí",
+  bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, ea doloremque accusantium maxime temporibus'})
+demo_profile_pic = open("https://clonestagram-dev.s3-us-west-1.amazonaws.com/clonestagramphotos/UNADJUSTEDRAW_thumb_132.jpg")
+demo_user.profilepic.attach(io: demo_profile_pic, filename: 'UNADJUSTEDRAW_thumb_132.jpg')
 
 # druillet = User.create({username: "druilletofficiel", password: "password", email: "druillet@druillet.com", full_name: "Philippe Druillet",
 #   bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, ea doloremque accusantium maxime temporibus'})
@@ -33,14 +33,14 @@ Follow.destroy_all
 # jodorowsky.profilepic.attach(io: profile_pic3, filename: 'alnye.jpg')
 
 
-# # placeholder_pic = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/icon.jpg")
+# placeholder_pic = open("https://active-storage-aa-fsp.s3-us-west-1.amazonaws.com/picsforfsp/icon.jpg")
 
-# # placeholder = User.create({username: "placeholder", password: "placeholder", email: "---", full_name: "placeholder"})
-# # placeholder.profilepic.attach(io: placeholder_pic, filename: 'icon.jpg')
-# # placeholder2 = User.create({username: "placeholder2", password: "placeholder2", email: "---", full_name: "placeholder2"})
-# # placeholder2.profilepic.attach(io: placeholder_pic, filename: 'icon.jpg')
-# # placeholder3 = User.create({username: "placeholder3", password: "placeholder3", email: "---", full_name: "placeholder3"})
-# # placeholder3.profilepic.attach(io: placeholder_pic, filename: 'icon.jpg')
+# placeholder = User.create({username: "placeholder", password: "placeholder", email: "---", full_name: "placeholder"})
+# placeholder.profilepic.attach(io: placeholder_pic, filename: 'icon.jpg')
+# placeholder2 = User.create({username: "placeholder2", password: "placeholder2", email: "---", full_name: "placeholder2"})
+# placeholder2.profilepic.attach(io: placeholder_pic, filename: 'icon.jpg')
+# placeholder3 = User.create({username: "placeholder3", password: "placeholder3", email: "---", full_name: "placeholder3"})
+# placeholder3.profilepic.attach(io: placeholder_pic, filename: 'icon.jpg')
 
 
 
