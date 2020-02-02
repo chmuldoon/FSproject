@@ -12,7 +12,7 @@ Post.destroy_all
 Comment.destroy_all
 Like.destroy_all
 Follow.destroy_all
-demo_user = User.create({username: "dali", password: "DemoUser", email: "DemoUser@gmail.com", full_name: "Salvador Dalí",
+demo_user = User.create({username: "demo", password: "DemoUser", email: "DemoUser@gmail.com", full_name: "Demo User",
   bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, ea doloremque accusantium maxime temporibus'})
 demo_profile_pic = open("https://clonestagram-dev.s3-us-west-1.amazonaws.com/clonestagramphotos/UNADJUSTEDRAW_thumb_132.jpg")
 demo_user.profilepic.attach(io: demo_profile_pic, filename: 'UNADJUSTEDRAW_thumb_132.jpg')

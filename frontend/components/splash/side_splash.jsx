@@ -102,7 +102,7 @@ export class SideSplash extends Component {
             }
           </div>
         </div>
-        {this.renderBox(this.favorites, "Favorites", true)}
+        {/* {this.renderBox(this.favorites, "Favorites", true)} */}
         {this.renderBox(this.findSuggestions(), "Suggestions For You", true)}
         <div className="sideLinks">
 
