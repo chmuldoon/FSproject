@@ -137,9 +137,15 @@
   
 }
 .profileButtonArea {
+
+
   min-width: 70px;
   display: inline-block
 }
+.profileButtonArea > button { 
+  padding-bottom: 5px;
+}
+
 .profile-posts-div {
   margin-right: auto;
   margin-left: auto;
@@ -177,6 +183,16 @@
   display: flex;
   justify-content: center;
   
+}
+.followButton {
+  margin-top: auto;
+  margin-bottom: auto;
+
+}
+.followButton p {
+  height: 30px;
+  margin-top: -6px;
+
 }
 .Overlay > p {
   font-size: 30px;

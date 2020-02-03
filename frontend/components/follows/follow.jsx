@@ -78,42 +78,37 @@ export class Follow extends Component {
     let followButton;
     let {user, userId, currentUserId} = this.props
     // debugger
-    followButton =
-      this.props.followss.find(follow => 
-        follow.follower_id === currentUserId &&
-        follow.target_id === userId)
-         ? (
-          <button
-            className="followButton"
-            onClick={this.handleUnfollow}
-          >
-            unfollow
-          </button>
- 
-      ) : (
-          <button
-            className="followButton"
-            onClick={this.handleFollow}
-          >
-            follow
-          </button>
-
-      );
+    followButton = this.props.followss.find(
+      follow =>
+        follow.follower_id === currentUserId && follow.target_id === userId
+    ) ? (
+      <button className="followButton" onClick={this.handleUnfollow}>
+        <p>Unfollow</p>
+      </button>
+    ) : (
+      <button className="followButton" onClick={this.handleFollow}>
+        <p>Follow</p>
+      </button>
+    );
 
       if (userId !== currentUserId){
         return <div className="profileButtonArea">{followButton}</div>;
       }else{
         return (
           <div className="profileButtonArea">
-            <button onClick={() => this.props.openModal("editProfile")}>
-              Edit Profile
+            <button
+              className="followButton"
+              onClick={() => this.props.openModal("editProfile")}
+            >
+              <p>Edit Profile</p>
             </button>
-            <i style={{marginLeft: 15, fontSize: 28}}
+            <i
+              style={{ marginLeft: 15, fontSize: 28 }}
               onClick={() => this.props.openModal("logout")}
-              className="fas fa-cog">
-            </i>
+              className="fas fa-cog"
+            ></i>
           </div>
-        )
+        );
       }
   }
 }

@@ -1,23 +1,12 @@
-.newPost {
-  height: 250px;
-  width: 250px;
-  background-color: white;
-  border: solid 1px #efefef;
-  border-radius: 2%;
-}
 
-.newPost h1{
-  text-align: center;
-  font-weight: 600;
-  color: #262626;
-  font-size: 18px;
-  padding-top: 20px;
-  height: 40px;
-  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
 .previewBox {
-  height: 100px;
+  max-height: 200px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
 }
+.previewBox > img{ min-height: 200px; width: 200px;}
+
 .UploadButton {
   /* z-index: 5; */
   text-align: center;

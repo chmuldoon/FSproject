@@ -26,7 +26,8 @@ class PostIndex extends React.Component {
       following => following.id);
 
     let followedPosts = this.props.posts.filter(post =>
-      followingIds.includes(post.author.id)
+      followingIds.includes(post.author.id) ||
+      post.author_id == currentUser.id
     );
     const posts = followedPosts.reverse().map(post => {
       // debugger
