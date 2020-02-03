@@ -82,11 +82,11 @@ class PostShow extends React.Component {
                   <p>{author.username}</p>
                 </div>
               </Link>
-              {/* {currentUser.id === post.author_id ? (
+              {currentUser.id === post.author_id ? (
                 <button onClick={this.handleDelete}>delete >:(</button>
               ) : (
                 <div></div>
-              )} */}
+              )}
             </div>
             <div className="postShowComments">
               <div className="postShowComment">
